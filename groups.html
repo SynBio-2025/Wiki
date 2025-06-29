@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Untergruppen</title>
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>tailwind.config = {theme: {extend: {colors: {primary: '#3b82f6', secondary: '#64748b'}, borderRadius: {'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px', 'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px'}}}}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+  <style>
+    :where([class^="ri-"])::before {
+      content: "\f3c2";
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+<script>
+tailwind.config = {
+darkMode: 'class',
+};
+</script>
+</head>
+
+<body class="bg-white min-h-screen">
+  <!-- Reiter -->
+  <header class="sticky top-0 z-50 bg-sky-100 dark:bg-black shadow-sm">
+  <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+  <a href="index.html" class="text-2xl font-['Pacifico'] text-primary">
+      <img src="images/logo_neu.png" alt="Home" class="h-16 w-auto">
+  </a>
+  <nav class="hidden md:flex items-center space-x-8">
+  <a href="index.html" class="text-sky-700 dark:text-sky-200 transition-colors">Home</a>
+  <div class="relative" id="projectDropdown">
+  <button class="text-gray-700 hover:text-sky-700 dark:text-sky-200 dark:hover:text-gray-700 transition-colors" id="projectButton">
+  Project
+  <i class="ri-arrow-down-s-line ml-1"></i>
+  </button>
+  <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 hidden" id="projectMenu">
+  <a href="project.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Project</a>
+  <a href="notebook.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Lab documentation</a>
+  <a href="contribution.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Contribution</a>
+  <a href="engineering.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Engineering success</a>
+  </div>
+  </div>
+  <div class="relative" id="engagementDropdown">
+<button class="text-gray-700 hover:text-sky-700 dark:text-sky-200 dark:hover:text-gray-700 transition-colors" id="engagementButton">
+Human Practices
+<i class="ri-arrow-down-s-line ml-1"></i>
+</button>
+<div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 hidden" id="engagementMenu">
+<a href="human-practices.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Human Practices</a>
+<a href="education.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Education</a>
+</div>
+</div>
+  <div class="relative" id="groupsDropdown">
+  <button class="text-gray-700 hover:text-sky-700 dark:text-sky-200 dark:hover:text-gray-700 transition-colors" id="groupsButton">
+  Team
+  <i class="ri-arrow-down-s-line ml-1"></i>
+  </button>
+  <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 hidden" id="groupsMenu">
+  <a href="students.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Members</a>
+  <a href="groups.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Subgroups</a>
+  <a href="attributions.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Attributions</a>
+  </div>
+  </div>
+  <a href="contact.html" class="text-gray-700 hover:text-sky-700 dark:text-sky-200 dark:hover:text-gray-700 transition-colors">Kontakt</a>
+  <button onclick="document.documentElement.classList.toggle('dark')" class="px-4 py-2 bg-sky-100 text-gray-700 hover:bg-gray-900 hover:text-sky-100 rounded">
+      Dark Mode
+  </button>
+  </nav>
+  <div class="md:hidden w-10 h-10 flex items-center justify-center">
+  <i class="ri-menu-line ri-lg"></i>
+  </div>
+  </div>
+  </header>
+  <!-- Überschrift -->
+  <section class="bg-sky-200 dark:bg-gray-900 py-12">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl font-bold text-gray-900 dark:text-sky-50 mb-4">Subgroups</h1>
+        <p class="text-lg text-gray-600 dark:text-sky-50">Find out about the subgroups that make up the project.</p>
+      </div>
+    </div>
+  </section>
+  <!-- Filter -->
+  <section class="py-8 bg-sky-200 dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="flex flex-col md:flex-row gap-4 items-center justify-center mb-8">
+          <div class="flex flex-wrap gap-2">
+            <a href="#biotech">
+              <button
+                class="px-4 py-2 rounded-full bg-white text-sky-600 text-sm font-medium hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-50 !rounded-button whitespace-nowrap">BioTech</button>
+            </a>
+            <a href="#chemie">
+              <button
+                class="px-4 py-2 rounded-full bg-white text-sky-600 text-sm font-medium hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-50 !rounded-button whitespace-nowrap">Chemistry</button>
+            </a>
+            <a href="#finanzen">
+              <button
+                class="px-4 py-2 rounded-full bg-white text-sky-600 text-sm font-medium hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-50 !rounded-button whitespace-nowrap">Finances</button>
+            </a>
+            <a href="#it">
+              <button
+                class="px-4 py-2 rounded-full bg-white text-sky-600 text-sm font-medium hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-50 !rounded-button whitespace-nowrap">IT</button>
+            </a>
+            <a href="#education">
+              <button
+                class="px-4 py-2 rounded-full bg-white text-sky-600 text-sm font-medium hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-50 !rounded-button whitespace-nowrap">Education</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Gruppen -->
+  <section class="py-12 bg-sky-200 dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+
+      <div class="text-center mb-12">
+        <h2 id="biotech" class="text-3xl font-bold text-gray-900 dark:text-sky-50 mb-3">Biotech</h2>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6">
+        <div
+          class="w-1/2 mx-auto bg-sky-50 dark:bg-black rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all group">
+          <div class="aspect-square relative overflow-hidden">
+            <img src="images/BioTechLogo.png" alt="BioTech"
+              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+            <div
+              class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="flex gap-2"></div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-sky-50 hover:text-sky-700 dark:hover:text-sky-200">Teamleader: <a href="students.html#noemireusing">Noemi
+                  Reusing </a>, <a href="students.html#yazanahmad">Yazan Ahmad</a></h3>
+              <span class="text-xs font-medium text-sky-50 bg-gray-900 hover:bg-sky-50 hover:text-gray-900 dark:text-black dark:bg-sky-50 dark:hover:bg-black dark:hover:text-sky-50 px-2 py-1 text-center rounded-full"><a
+                  href="https://www.ibvt.uni-stuttgart.de/de/">Institut für Bioverfahrenstechnik </a> </span>
+            </div>
+            <p class="text-gray-900 dark:text-sky-50 font-medium text-sm mb-2">Task: Genome integration of the ohaA-gene and optimization of the oxalate synthesis.</p>
+            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Beschreibung einfügen.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <section class="py-12 bg-sky-200 dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+
+      <div class="text-center mb-12">
+        <h2 id="chemie" class="text-3xl font-bold text-gray-900 dark:text-sky-50 mb-3">Chemie</h2>
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-sky-50 hover:text-sky-700 dark:hover:text-sky-200">Teamleader: <a href="students.html#nathanaelstrom">Nathanael
+            Strom</a></h3>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Chemistry is overall / in its basics a science of experimentation and its
+          proper refinement.
+          It bodes a striving for understanding the reactions taking place on every scale and reaches out for turning
+          the acquainted knowledge into practical use for developing new ideas which reshape our everyday life and
+          improve our status and possibilities of research.
+          Nothing else has been done by those of us who wanted to combine the disciplines of biotechnology and chemistry
+          for improving the current method of the recycling of critical (raw) metals.
+          We have directed our attention towards a very special of these metals, the so-called PGM’s.
+          PGM is an abbreviation for Platin Group Metals and refers to a group of metals being crucial to catalysts.
+          They are supposed to overall reduce dangerous emissions from vehicles.
+          The recycling of the PGM’s is, given taken place at all, very expensive and takes a lot of time, as a lot of
+          chemicals are involved.
+          This results in dumping a considerable high percentage of PGM’s together with the broken and old catalysts in
+          which they originally had been built.
+          As each new problem demands a new and inventive solution, we wanted to elaborate a new and better method for
+          recycling PGM’s.
+          Our method is working without the use of expensive chemicals or exquisite equipment.
+          Furthermore, it holds the potential to create a (continuous) working circle together with the realization of
+          our biotechnological projects being fed on by the addition of further remains of shredded catalysts.
+          In the following, we invite to learn more about our new method and its proper execution on this website!
+        </p>
+
+      </div>
+
+      <div class="grid grid-cols-2 gap-6">
+        <div
+          class="bg-sky-50 dark:bg-black rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all group">
+          <div class="aspect-square relative overflow-hidden">
+            <img src="images/LeachingLogo.png" alt="Chemie"
+              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+            <div
+              class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="flex gap-2"></div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-sky-50">Leaching process</h3>
+              <span class="text-xs font-medium text-sky-50 bg-gray-900 hover:bg-sky-50 hover:text-gray-900 dark:text-black dark:bg-sky-50 dark:hover:bg-black dark:hover:text-sky-50 px-2 py-1 rounded-full"><a
+                  href="https://www.ibvt.uni-stuttgart.de/de/">Work conducted at IBVT </a> </span>
+            </div>
+            <p class="text-gray-900 dark:text-sky-50 font-medium text-sm mb-2">Task: Analysis of the leaching process.
+            </p>
+            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Beschreibung einfügen.
+            </p>
+          </div>
+        </div>
+        <div
+          class="bg-sky-50 dark:bg-black rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all group">
+          <div class="aspect-square relative overflow-hidden">
+            <img src="images/KomplexTrennung.png" alt="Chemie"
+              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+            <div
+              class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="flex gap-2"></div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-sky-50">Komplex-Trennung</h3>
+              <span class="text-xs font-medium text-sky-50 bg-gray-900 hover:bg-sky-50 hover:text-gray-900 dark:text-black dark:bg-sky-50 dark:hover:bg-black dark:hover:text-sky-50 px-2 py-1 rounded-full"><a
+                  href="https://www.ipoc.uni-stuttgart.de/">Cooperation with IPOC </a> </span>
+            </div>
+            <p class="text-primary font-medium text-sm mb-2">Task: PGM recovery. </p>
+            <p class="text-gray-600 text-sm mb-4">Beschreibung einfügen.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+  <section class="py-12 bg-sky-200 dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+
+      <div class="text-center mb-12">
+        <h2 id="finanzen" class="text-3xl font-bold text-gray-900 dark:text-sky-50 mb-3">PR</h2>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6">
+        <div
+          class="w-1/2 mx-auto bg-sky-50 dark:bg-black rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all group">
+          <div class="aspect-square relative overflow-hidden">
+            <img src="images/imgmiss.jpeg" alt="Finanzen"
+              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+            <div
+              class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="flex gap-2"></div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-sky-50 hover:text-sky-700 dark:hover:text-sky-200">Teamleader: <a href="students.html#theresamaurer"> Theresa
+                  Maurer </a> </h3>
+              <span class="text-xs font-medium text-sky-50 bg-gray-900 hover:bg-sky-50 hover:text-gray-900 dark:text-black dark:bg-sky-50 dark:hover:bg-black dark:hover:text-sky-50 px-2 py-1 rounded-full">PR und Sponsoring</span>
+            </div>
+            <p class="text-gray-900 dark:text-sky-50 font-medium text-sm mb-2">Task: Sponsoring for iGem funding, PR work.</p>
+            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Beschreibung einfügen.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <section class="py-12 bg-sky-200 dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+
+      <div class="text-center mb-12">
+        <h2 id="it" class="text-3xl font-bold text-gray-900 dark:text-sky-50 mb-3">IT</h2>
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-sky-50 hover:text-sky-700 dark:hover:text-sky-200">Ansprechperson: <a href="students.html#danielringel"> Daniel
+            Ringel</a></h3>
+      </div>
+
+      <div class="grid grid-cols-2 gap-6">
+        <div
+          class="bg-sky-50 dark:bg-black rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all group">
+          <div class="aspect-square relative overflow-hidden">
+            <img src="images/imgmiss.jpeg" alt="IT"
+              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+            <div
+              class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="flex gap-2"></div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-sky-50"><a href="link"> Wiki </a> </h3>
+              <span class="text-xs font-medium text-sky-50 bg-gray-900 hover:bg-sky-50 hover:text-gray-900 dark:text-black dark:bg-sky-50 dark:hover:bg-black dark:hover:text-sky-50 px-2 py-1 rounded-full"><a
+                  href="project.html">Siehe Projekt</a></span>
+            </div>
+            <p class="text-gray-900 dark:text-sky-50 font-medium text-sm mb-2">Task: Creation of iGem Wiki.</p>
+            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Beschreibung einfügen.</p>
+          </div>
+        </div>
+        <div
+          class="bg-sky-50 dark:bg-black rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all group">
+          <div class="aspect-square relative overflow-hidden">
+            <img src="images/imgmiss.jpeg" alt="IT"
+              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+            <div
+              class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="flex gap-2"></div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-sky-50"><a href="#"> Website </a> </h3>
+              <span class="text-xs font-medium text-sky-50 bg-gray-900 hover:bg-sky-50 hover:text-gray-900 dark:text-black dark:bg-sky-50 dark:hover:bg-black dark:hover:text-sky-50 px-2 py-1 rounded-full"><a
+                  href="project.html">Siehe Projekt</a></span>
+            </div>
+            <p class="text-gray-900 dark:text-sky-50 font-medium text-sm mb-2">Task: Creation of website for self promotion.</p>
+            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Beschreibung einfügen.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+  <section class="py-12 bg-sky-200 dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+
+      <div class="text-center mb-12">
+        <h2 id="education" class="text-3xl font-bold text-gray-900 dark:text-sky-50 mb-3">Education</h2>
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-sky-50 hover:text-sky-700 dark:hover:text-sky-200">Hauptverantwortliche: <a
+            href="students.html#amasiaschneiderrocha">Amasia Schneider Rocha</a></h3>
+      </div>
+
+      <div class="grid grid-cols-2 gap-6">
+        <div
+          class="bg-sky-50 dark:bg-black rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all group">
+          <div class="aspect-square relative overflow-hidden">
+            <img src="images/imgmiss.jpeg" alt="Education"
+              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+            <div
+              class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="flex gap-2"></div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-sky-50">Schulbesuche</a> </h3>
+              <span class="text-xs font-medium text-sky-50 bg-gray-900 hover:bg-sky-50 hover:text-gray-900 dark:text-black dark:bg-sky-50 dark:hover:bg-black dark:hover:text-sky-50 px-2 py-1 rounded-full">iGem Education</span>
+            </div>
+            <p class="text-gray-900 dark:text-sky-50 font-medium text-sm mb-2">Task: Educate youth on synthetic biology, iGem, and the workflow of a project from brainstorming to lab work.</p>
+            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Besucht wurden die <a
+                href="https://www.lss-rt.de/">Laura-Schradin-Schule Reutlingen</a> und <a
+                href="https://www.thg-es.de/">Theodor-Heuss-Gymnasium Esslingen</a> (Calw Schule einfügen).
+            </p>
+          </div>
+        </div>
+        <div
+          class="bg-sky-50 dark:bg-black rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all group">
+          <div class="aspect-square relative overflow-hidden">
+            <img src="images/imgmiss.jpeg" alt="Education"
+              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+            <div
+              class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="flex gap-2"></div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-sky-50">Tag der Wissenschaft</a> </h3>
+              <span class="text-xs font-medium text-sky-50 bg-gray-900 hover:bg-sky-50 hover:text-gray-900 dark:text-black dark:bg-sky-50 dark:hover:bg-black dark:hover:text-sky-50 px-2 py-1 rounded-full">iGem Education</span>
+            </div>
+            <p class="text-gray-900 dark:text-sky-50 font-medium text-sm mb-2">Task: Introduce synthetic biology and our project to families and science enthusiasts at our university's Day of Science.</p>
+            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+              Auch am <a
+                href="https://www.uni-stuttgart.de/universitaet/fueralle/uniundschule/tag-der-wissenschaft/">Tag der
+                Wissenschaft</a> wurde das Projekt fachfremden nähergebracht. </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white pt-16 pb-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <!-- Links -->
+        <div>
+          <a href="#" class="text-2xl font-['Pacifico'] text-primary">
+            <img src="images/logo_neu.png" alt="Home" class="h-12 w-auto">
+          </a>
+          <p class="text-violet-50 font-semibold mb-6">Finde uns hier:</p>
+          <div class="flex space-x-4">
+            <a href="https://teams.igem.org/5829"
+              class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+              <img src="images/igem_logo.png" alt="Logo" class="w-6 h-6" />
+            </a>
+            <a href="https://www.instagram.com/synbioteam/"
+              class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+              <img src="images/Instagram_logo_2016.svg.png" alt="Logo" class="w-6 h-6" />
+            </a>
+          </div>
+        </div>
+        <!-- Quick links -->
+        <div>
+        <h3 class="text-violet-50 font-semibold mb-6">Quick Links</h3>
+        <ul class="space-y-3">
+        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+        <li><a href="project.html" class="text-gray-400 hover:text-violet-50 transition-colors">Projekt</a></li>
+        <li><a href="notebook.html" class="text-gray-400 hover:text-violet-50 transition-colors">Labordokumentation</a></li>
+        <li><a href="groups.html" class="text-gray-400 hover:text-violet-50 transition-colors">Gruppen</a></li>
+        <li><a href="students.html" class="text-gray-400 hover:text-violet-50 transition-colors">Mitglieder</a></li>
+        <li><a href="contact.html" class="text-gray-400 hover:text-violet-50 transition-colors">Kontakt</a></li>
+        </ul>
+        </div>
+        <!-- Kontakt -->
+        <div>
+          <h3 class="text-violet-50 font-semibold mb-6">Direkter Kontakt</h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="mailto:synbioteam@ibmg.uni-stuttgart.de"
+                class="text-gray-400 hover:text-violet-50 transition-colors flex items-start">
+                <i class="ri-mail-line mr-3 mt-1"></i>
+                <span>synbioteam@ibmg.uni-stuttgart.de</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:collaboration@studentshowcase.edu"
+                class="text-gray-400 hover:text-violet-50 transition-colors flex items-start">
+                <i class="ri-mail-line mr-3 mt-1"></i>
+                <span>Finanzen Mail einfügen</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:info@studentshowcase.edu"
+                class="text-gray-400 hover:text-violet-50 transition-colors flex items-start">
+                <i class="ri-mail-line mr-3 mt-1"></i>
+                <span>IT Mail einfügen</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:info@studentshowcase.edu"
+                class="text-gray-400 hover:text-violet-50 transition-colors flex items-start">
+                <i class="ri-mail-line mr-3 mt-1"></i>
+                <span>Bio Mail einfügen</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:info@studentshowcase.edu"
+                class="text-gray-400 hover:text-violet-50 transition-colors flex items-start">
+                <i class="ri-mail-line mr-3 mt-1"></i>
+                <span>Chemie Mail einfügen</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- Datenschutz -->
+        <div class="pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
+          <p>&copy; 2025 SynBio Team. All rights reserved.</p>
+          <div class="flex justify-center space-x-4 mt-4">
+            <a href="#" class="hover:text-violet-50 transition-colors">Privacy Policy</a>
+            <a href="#" class="hover:text-violet-50 transition-colors">Terms of Service</a>
+            <a href="#" class="hover:text-violet-50 transition-colors">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+  </footer>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // ===== DESKTOP DROPDOWNS =====
+      const projectButton = document.getElementById('projectButton');
+      const projectMenu = document.getElementById('projectMenu');
+      const groupsButton = document.getElementById('groupsButton');
+      const groupsMenu = document.getElementById('groupsMenu');
+      const engagementButton = document.getElementById('engagementButton');
+      const engagementMenu = document.getElementById('engagementMenu');
+
+      projectButton.addEventListener('click', function (e) {
+        e.stopPropagation();
+        projectMenu.classList.toggle('hidden');
+        groupsMenu.classList.add('hidden');
+        engagementMenu.classList.add('hidden');
+      });
+
+      groupsButton.addEventListener('click', function (e) {
+        e.stopPropagation();
+        groupsMenu.classList.toggle('hidden');
+        projectMenu.classList.add('hidden');
+        engagementMenu.classList.add('hidden');
+      });
+
+      engagementButton.addEventListener('click', function (e) {
+        e.stopPropagation();
+        engagementMenu.classList.toggle('hidden');
+        groupsMenu.classList.add('hidden');
+        projectMenu.classList.add('hidden');
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!projectButton.contains(e.target) && !projectMenu.contains(e.target)) {
+          projectMenu.classList.add('hidden');
+        }
+        if (!groupsButton.contains(e.target) && !groupsMenu.contains(e.target)) {
+          groupsMenu.classList.add('hidden');
+        }
+        if (!engagementButton.contains(e.target) && !engagementMenu.contains(e.target)) {
+          engagementMenu.classList.add('hidden');
+        }
+      });
+
+      // ===== MOBILE MENU TOGGLE =====
+      const mobileMenuButton = document.querySelector('.md\\:hidden');
+      const mobileMenu = document.createElement('div');
+      mobileMenu.className = 'fixed inset-0 bg-white z-50 transform translate-x-full transition-transform duration-300 ease-in-out';
+
+      // Define submenu toggle BEFORE use
+      window.toggleMobileSubmenu = function (button) {
+        const submenu = button.nextElementSibling;
+        const icon = button.querySelector('i');
+        submenu.classList.toggle('hidden');
+        icon.style.transform = submenu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+      };
+
+      mobileMenu.innerHTML = `
+        <div class="flex justify-between items-center p-4 border-b">
+          <a href="#" class="text-2xl font-['Pacifico'] text-primary">logo</a>
+          <button class="close-menu w-10 h-10 flex items-center justify-center">
+            <i class="ri-close-line ri-lg"></i>
+          </button>
+        </div>
+        <nav class="p-4">
+          <ul class="space-y-4">
+            <li><a href="#" class="block py-2 text-gray-900 font-medium">Home</a></li>
+            <li><a href="#" class="block py-2 text-gray-500">Projects</a></li>
+            <li class="relative">
+              <button class="flex items-center justify-between w-full py-2 text-gray-500" onclick="toggleMobileSubmenu(this)">
+                <span>Groups</span>
+                <i class="ri-arrow-down-s-line transition-transform duration-200"></i>
+              </button>
+              <ul class="hidden pl-4 space-y-2 mt-2">
+                <li><a href="#" class="block py-2 text-gray-500 hover:text-primary">View Groups</a></li>
+                <li><a href="#" class="block py-2 text-gray-500 hover:text-primary">Students</a></li>
+              </ul>
+            </li>
+            <li><a href="#" class="block py-2 text-gray-500">Contact</a></li>
+          </ul>
+        </nav>
+      `;
+
+      document.body.appendChild(mobileMenu);
+
+      mobileMenuButton.addEventListener('click', function () {
+        mobileMenu.classList.remove('translate-x-full');
+      });
+
+      mobileMenu.querySelector('.close-menu').addEventListener('click', function () {
+        mobileMenu.classList.add('translate-x-full');
+      });
+    });
+    </script>
+</body>
+
+</html>
