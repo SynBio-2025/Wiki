@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Platten Test</title>
+  <link rel="stylesheet" href="styleplate.css">
+</head>
+<body>
+  <div class="plate-container">
+    <div class="plate">
+      <div class="colony" data-name="Name" data-info="Inhalt." style="top: 30%; left: 40%; background-color: #000000;"></div>
+      <div class="colony" data-name="Name" data-info="Inhalt." style="top: 60%; left: 55%; background-color: #000000;"></div>
+      <div class="colony" data-name="Name" data-info="Inhalt." style="top: 45%; left: 70%; background-color: #000000;"></div>
+      <div class="colony" data-name="Name" data-info="Inhalt." style="top: 75%; left: 30%; background-color: #000000;"></div>
+      <div class="colony" data-name="Name" data-info="Inhalt." style="top: 50%; left: 20%; background-color: #000000;"></div>
+    </div>
+    <div id="info-box" class="hidden">
+      <h3 id="colony-name"></h3>
+      <p id="colony-info"></p>
+      <button onclick="closeInfo()" class="new-button">Close</button>
+    </div>
+  </div>
+
+  <script src="scriptplate.js"></script>
+</body>
+</html>
