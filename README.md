@@ -31,4 +31,6 @@ In the following we list improvements we are aware of, but is yet to be done.
 * The displayed video on the main page has no control elements and is muted by default (else it doesn't start automatically).
 * The images with the Logo are placeholders, hence the size is not adjusted or another image can be included.
 * The animations under Team > Members and Contact are quite slow.
+
 * The plate.html works as own .html, but not yet in the project.html as there should be a clash with the JavaScript
+* Similarily, the lab notebook animation doesn't work on the website and the current code is faulty, but a functioning version exists (to run it, React extensions are necessary)
