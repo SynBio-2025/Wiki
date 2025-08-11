@@ -42,3 +42,6 @@ In the following we list improvements we are aware of, but is yet to be done.
 * The images with the Logo are placeholders, hence the size is not adjusted or another image can be included.
 * The animations under Team > Members and Contact are quite slow.
 * The plate.html works as own .html, but not yet in the project.html as there should be a clash with the JavaScript
+* The attributions site is done over the iGem website, a file is already in progress
+* A Human Practices file is also in progress
+
