@@ -16,6 +16,105 @@
 body {
 font-family: 'Inter', sans-serif;
 }
+#source8 {
+  white-space: normal;
+  text-align: left;
+}
+.platesection {
+    background-color: #BAE6FD;
+    color: white;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.plate-container {
+    position: relative;
+}
+.plate {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #f5f5dc 0%, #ffd145 100%);
+  position: relative;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+.colony {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  cursor: pointer;
+  border: 1px solid #fff;
+  transition: transform 0.2s ease;
+}
+.colony:hover {
+  transform: scale(1.2);
+}
+#info-box {
+    position: absolute;
+    top: 10px;
+    left: 420px;
+    width: 200px;
+    background-color: #222;
+    border: 1px solid #555;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #000;
+}
+.hidden {
+    display: none;
+}
+.new-button{
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 7px 14px;
+    background: linear-gradient(145deg, #0f0f0f, #1c1c1c);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 100px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    z-index: 1;
+    width: 100px;
+}
+.new-button::before{
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, #7c3aed, #7c3aed, #7c3aed);
+    animation: rotate 4s linear infinite;
+    z-index: -2;
+}
+.new-button::after{
+    content: "";
+    position: absolute;
+    inset: 2px;
+    background: #0a0a0a;
+    border-radius: inherit;
+    z-index: -1;
+}
+.new-button:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+}
+.new-button:hover .arrow{
+    transform: translateX(6px);
+}
 </style>
 <script>
 tailwind.config = {
@@ -33,12 +132,12 @@ darkMode: 'class',
   <nav class="hidden md:flex items-center space-x-8">
   <a href="index.html" class="text-gray-700 hover:text-sky-700 dark:text-sky-200 dark:hover:text-gray-700 transition-colors">Home</a>
   <div class="relative" id="projectDropdown">
-  <button class="text-gray-700 hover:text-sky-700 dark:text-sky-200 dark:hover:text-gray-700 transition-colors" id="projectButton">
+  <button class="text-sky-700 hover:text-sky-700 dark:text-sky-200 dark:hover:text-gray-700 transition-colors" id="projectButton">
   Project
   <i class="ri-arrow-down-s-line ml-1"></i>
   </button>
   <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 hidden" id="projectMenu">
-  <a href="project.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Project</a>
+  <a href="project.html" class="block px-4 py-2 text-sky-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Project</a>
   <a href="notebook.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Lab documentation</a>
   <a href="contribution.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Contribution</a>
   <a href="engineering.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Engineering success</a>
@@ -79,43 +178,58 @@ Human Practices
 <section class="bg-sky-200 dark:bg-gray-900 py-12">
 <div class="container mx-auto px-4">
 <div class="max-w-3xl mx-auto text-center">
-<h1 class="text-4xl font-bold text-gray-900 dark:text-sky-50 mb-4">insert Name unseres Projekts</h1>
+<h1 class="text-4xl font-bold text-gray-900 dark:text-sky-50 mb-4">Insert Name of Project</h1>
 <p class="text-lg text-gray-600 dark:text-gray-400">Our project, from start to finish.</p>
 </div>
 </div>
+<section class="platesection">
+  <div class="plate-container">
+    <div class="plate">
+      <div class="colony" data-name="Beschreibung 1" data-info="Irgendein Inhalt 1" style="top:15%; left: 35%; background-color: #000000;"></div>
+      <div class="colony" data-name="Beschreibung 2" data-info="Irgendein Inhalt 2." style="top: 75%; left: 60%; background-color: #000000;"></div>
+      <div class="colony" data-name="Beschreibung 3" data-info="Irgendein Inhalt 3." style="top: 40%; left: 75%; background-color: #000000;"></div>
+      <div class="colony" data-name="Beschreibung 4" data-info="Irgendein Inhalt 4." style="top: 75%; left: 30%; background-color: #000000;"></div>
+      <div class="colony" data-name="Beschreibung 5" data-info="Irgendein Inhalt 5." style="top: 40%; left: 15%; background-color: #000000;"></div>
+      <div class="colony" data-name="Beschreibung 6" data-info="Irgendein Inhalt 6." style="top: 50%; left: 35%; background-color: #000000;"></div>
+  </div>
+  <div id="info-box" class="hidden">
+    <h3 id="colony-name"></h3>
+    <p id="colony-info"></p>
+    <button onclick="closeInfo()" class="new-button">Close</button>
+  </div>
 </section>
+</section>
+<p class="text-lg text-gray-600 dark:text-gray-400">The cell (ellipsoid) consumes glucose (yellow circle). By fueling glycolysis, pyruvate is synthesized, which goes into TCA. When oxaloacetate is synthesized, Oxaloacetathydrolase (red dot) is expressed from the inserted gene (blue line). Oxaloacetatehydrolase catalyzes the reaction from oxaloacetate to oxalate (green dots). The oxalate ions are transported out of the cell and can form chemical complexes with positive charged PGMs (blue dot)</p>
 <body>
-<!-- Problem Darstellung -->
+  <!-- Problem Darstellung -->
 <section class="bg-sky-200 dark:bg-gray-900 py-12">
   <div class="container mx-auto">
     <div class="flex justify-center relative">
-      <div id="problemdarstellung" class="w-2/3 bg-white dark:bg-black shadow-lg rounded-lg p-6 flex items-center gap-6 outline outline-4 outline-blue-900 dark:outline-blue-500">
-        <div class="absolute left-[175px] -top-[25px]">
+      <div id="problemdarstellung" class="w-2/3 bg-white dark:bg-black shadow-lg rounded-lg p-6 flex items-start gap-6 outline outline-4 outline-blue-900 dark:outline-blue-500">
+        <div class="preview cursor-pointer flex-shrink-0">
           <svg xmlns="http://www.w3.org/2000/svg" fill="#3B82F6" width="100px" height="100px" viewBox="0 0 24 24" stroke="#1E3A8A" transform="rotate(180)">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"</path>
           </svg>
         </div>
-        <div>
+        <div class="content hidden bg-sky-50 border-2 border-blue-500 rounded-lg p-4">
         <h2 class="text-4xl font-bold text-center text-gray-900 dark:text-sky-200 mb-4">
         Too important to Waste
         </h2>
           <p class="text-justify text-gray-900 dark:text-sky-200 my-2">
-Platinum Group Metals also known as PGMs are rare and valuable elements found in countless of our everyday technologies, from automobile catalytic converters to all kind of electronics they are essential in everyday life. They also play a critical role in our path to a green and circular economy composing main elements in fuel cells, hydrogen electrolysis and sustainable chemistry.
-Yet every year, about 10 billion dollars’ worth of PGMS are discarded worldwide, with less than 25% ever being recovered [<a href="#source1" class="hover:underline">1</a>, <a href="#source2" class="hover:underline">2</a>]. </p>
-<p class="text-justify text-gray-900 dark:text-sky-200 my-2">
-The scarcity of these metals is striking, Platinum occurs at only 0,005ppm in the Earth´s crust (5 parts per billion), that is equal to an amount of 5 nanograms per gram of earth’s crust [<a href="#source3" class="hover:underline">3</a>].
-To extract only 31 grams of Platinum, up to 500 tons of rock are needed to be mined and processed. This comes at a staggering cost of 26 to 39€ per Gram in South African mines [<a href="#source4" class="hover:underline">4</a>].
-PGM mining also leaves an enormous ecological footprint, the production of only 1kg of Platinum emits around 30.000 kg of CO2 together with a variety of heavy metals and toxic waste [<a href="#source5" class="hover:underline">5</a>]. </p>
-<p class="text-justify text-gray-900 dark:text-sky-200 my-2">
-The fragility of PGM supply chains is also a known problem. More than 80% of our global PGM reserves are located in South Africa, making the market highly vulnerable to any kind of strikes, floods or political instabilities [<a href="#source6" class="hover:underline">6</a>].
-This fragility drives extreme price volatility, Rhodium being a perfect example, reaching a price of over 450€ per gram in the year 2021, that is estimated to be more than 15 times the price of gold [<a href="#source7" class="hover:underline">7</a>]. </p>
-<p class="text-justify text-gray-900 dark:text-sky-200 my-2">
-We burn money daily in our cars’ exhaust pipes. A single automobile catalytic converter contains between 1-3g of Platinum, 2-7g of palladium and about 0,2-0,5g of Rhodium, which all together are valued at 300-1000€ per car [<a href="#source8" class="hover:underline">8</a>, <a href="#source9" class="hover:underline">9</a>].
-Without an effective recycling system most of these metals are simply lost and respectively discarded. </p>
-<p class="text-justify text-gray-900 dark:text-sky-200 my-2">
-If humanity wants a sustainable future on this planet, the choice is clear, recycling our PGMs is not just an economic necessity, but an imperative for our planet’s environment an PGM reserves [<a href="#source1" class="hover:underline">1</a>, <a href="#source5" class="hover:underline">5</a>, <a href="#source10" class="hover:underline">10</a>].
-
-          </p>
+          Platinum Group Metals also known as PGMs are rare and valuable elements found in countless of our everyday technologies, from automobile catalytic converters to all kind of electronics they are essential in everyday life. They also play a critical role in our path to a green and circular economy composing main elements in fuel cells, hydrogen electrolysis and sustainable chemistry.
+          Yet every year, about 10 billion dollars’ worth of PGMS are discarded worldwide, with less than 25% ever being recovered [<a href="#source1" class="hover:underline">1</a>, <a href="#source2" class="hover:underline">2</a>]. </p>
+          <p class="text-justify text-gray-900 dark:text-sky-200 my-2">
+          The scarcity of these metals is striking, Platinum occurs at only 0,005ppm in the Earth´s crust (5 parts per billion), that is equal to an amount of 5 nanograms per gram of earth’s crust [<a href="#source3" class="hover:underline">3</a>].
+          To extract only 31 grams of Platinum, up to 500 tons of rock are needed to be mined and processed. This comes at a staggering cost of 26 to 39€ per Gram in South African mines [<a href="#source4" class="hover:underline">4</a>].
+          PGM mining also leaves an enormous ecological footprint, the production of only 1kg of Platinum emits around 30.000 kg of CO2 together with a variety of heavy metals and toxic waste [<a href="#source5" class="hover:underline">5</a>]. </p>
+          <p class="text-justify text-gray-900 dark:text-sky-200 my-2">
+          The fragility of PGM supply chains is also a known problem. More than 80% of our global PGM reserves are located in South Africa, making the market highly vulnerable to any kind of strikes, floods or political instabilities [<a href="#source6" class="hover:underline">6</a>].
+          This fragility drives extreme price volatility, Rhodium being a perfect example, reaching a price of over 450€ per gram in the year 2021, that is estimated to be more than 15 times the price of gold [<a href="#source7" class="hover:underline">7</a>]. </p>
+          <p class="text-justify text-gray-900 dark:text-sky-200 my-2">
+          We burn money daily in our cars’ exhaust pipes. A single automobile catalytic converter contains between 1-3g of Platinum, 2-7g of palladium and about 0,2-0,5g of Rhodium, which all together are valued at 300-1000€ per car [<a href="#source8" class="hover:underline">8</a>, <a href="#source9" class="hover:underline">9</a>].
+          Without an effective recycling system most of these metals are simply lost and respectively discarded. </p>
+          <p class="text-justify text-gray-900 dark:text-sky-200 my-2">
+          If humanity wants a sustainable future on this planet, the choice is clear, recycling our PGMs is not just an economic necessity, but an imperative for our planet’s environment an PGM reserves [<a href="#source1" class="hover:underline">1</a>, <a href="#source5" class="hover:underline">5</a>, <a href="#source10" class="hover:underline">10</a>].</p>
         </div>
       </div>
     </div>
@@ -188,38 +302,314 @@ If humanity wants a sustainable future on this planet, the choice is clear, recy
   </circle>
 </svg>
 <!-- ''' -->
-
-<!-- display(SVG(svg_code)) -->
 <!-- Referenzen-->
 <section class="bg-sky-200 dark:bg-gray-900 py-12">
   <div class="container mx-auto">
     <div class="flex justify-center relative">
-      <div class="w-[80%] bg-white dark:bg-black shadow-lg p-6 flex items-center gap-6">
+      <div class="w-[80%] bg-white dark:bg-black shadow-lg p-6 flex items-center gap-6 rounded-lg">
         <div>
         <h2 class="text-4xl font-bold text-center text-gray-900 dark:text-sky-200 mb-4">
         References
         </h2>
           <p id="source1" class="text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
-          1. CME Group. Platinum recycling and the circular economy [Internet]. 2023 [cited: 19. Aug. 2025]. URL: https://www.cmegroup.com/articles/2023/platinum-recycling-and-the-circular-economy.html </p><p id="source2" class="text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
-          2. Thermo Fisher Scientific. Platinum group metal recovery from spent catalytic converters using XRF [Internet]. 2020 [cited: 19. Aug. 2025]. URL: https://www.thermofisher.com/blog/metals/platinum-group-metal-recovery-from-spent-catalytic-converters-using-xrf/ </p><p id="source3" class="text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
-          3. Wikipedia. Platinum [Internet]. 2025 [cited: 19. Aug. 2025]. URL: https://en.wikipedia.org/wiki/Platinum </p><p id="source4" class="text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
-          4. Mining Weekly. PGM recycling and low-grade resources offer opportunities in low price environment [Internet]. 2024 Apr 15 [cited: 19. Aug. 2025]. URL: https://www.miningweekly.com/article/pgm-recycling-lower-grade-resources-offer-opportunities-in-low-price-environment-2024-04-15 </p><p id="source5" class="text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
-          5. The Chemical Engineer. Worth its weight: Recycling platinum group metals [Internet]. 2020 [cited: 19. Aug. 2025]. URL: https://www.thechemicalengineer.com/features/worth-its-weight/ </p><p id="source6" class="text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
-          6. MDPI Crystals. PGM resources and recycling potentials. Crystals [Internet]. 2023;13(4):550 [cited: 19. Aug. 2025]. URL: https://www.mdpi.com/2073-4352/13/4/550 </p><p id="source7" class="text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
-          7. Wikipedia. 2000s commodities boom – Rhodium [Internet]. 2025 [cited: 19. Aug. 2025]. URL: https://en.wikipedia.org/wiki/2000s_commodities_boom </p><p id="source8" class="text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
-          8. ResearchGate. Removal of platinum group metals from the used auto catalytic converter [Internet]. 2008 [cited: 19. Aug. 2025]. URL: https://www.researchgate.net/publication/26583964_Removal_of_platinum_group_metals_from_the_used_auto_
-          catalytic_converter </p><p id="source9" class="text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
-          9. RoadSumo. How much platinum, rhodium and palladium is in a catalytic converter? [Internet]. 2024 [cited: 19. Aug. 2025]. URL: https://roadsumo.com/how-much-platinum-rhodium-and-palladium-is-in-a-catalytic-converter/ </p><p id="source10" class="text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
-          10. MDPI Minerals. Recycling rates of PGMs in industry vs. electronics. Minerals [Internet]. 2021;11(7):673 [cited: 19. Aug. 2025]. URL: https://www.mdpi.com/2075-163X/11/7/673
-
-
+          1. CME Group. Platinum recycling and the circular economy [Internet]. 2023 [cited: 19. Aug. 2025]. URL: <a href="https://www.cmegroup.com/articles/2023/platinum-recycling-and-the-circular-economy.html"> https://www.cmegroup.com/articles/2023/platinum-recycling-and-the-circular-economy.html</a> 
+          </p>
+          <p id="source2" class="text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
+          2. Thermo Fisher Scientific. Platinum group metal recovery from spent catalytic converters using XRF [Internet]. 2020 [cited: 19. Aug. 2025]. URL: <a href="https://www.thermofisher.com/blog/metals/platinum-group-metal-recovery-from-spent-catalytic-converters-using-xrf/">https://www.thermofisher.com/blog/metals/platinum-group-metal-recovery-from-spent-catalytic-converters-using-xrf/</a>  
+          </p>
+          <p id="source3" class="text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
+          3. Wikipedia. Platinum [Internet]. 2025 [cited: 19. Aug. 2025]. URL: <a href="https://en.wikipedia.org/wiki/Platinum">https://en.wikipedia.org/wiki/Platinum</a> 
+          </p>
+          <p id="source4" class="text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
+          4. Mining Weekly. PGM recycling and low-grade resources offer opportunities in low price environment [Internet]. 2024 Apr 15 [cited: 19. Aug. 2025]. URL: <a href="https://www.miningweekly.com/article/pgm-recycling-lower-grade-resources-offer-opportunities-in-low-price-environment-2024-04-15">https://www.miningweekly.com/article/pgm-recycling-lower-grade-resources-offer-opportunities-in-low-price-environment-2024-04-15</a> 
+          </p>
+          <p id="source5" class="text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
+          5. The Chemical Engineer. Worth its weight: Recycling platinum group metals [Internet]. 2020 [cited: 19. Aug. 2025]. URL: <a href="https://www.thechemicalengineer.com/features/worth-its-weight/">https://www.thechemicalengineer.com/features/worth-its-weight/</a> 
+          </p>
+          <p id="source6" class="text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
+          6. MDPI Crystals. PGM resources and recycling potentials. Crystals [Internet]. 2023;13(4):550 [cited: 19. Aug. 2025]. URL: <a href="https://www.mdpi.com/2073-4352/13/4/550">https://www.mdpi.com/2073-4352/13/4/550</a> 
+          </p>
+          <p id="source7" class="text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
+          7. Wikipedia. 2000s commodities boom – Rhodium [Internet]. 2025 [cited: 19. Aug. 2025]. URL: <a href="https://en.wikipedia.org/wiki/2000s_commodities_boom">https://en.wikipedia.org/wiki/2000s_commodities_boom</a> 
+          </p>
+          <p id="source8" class="text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
+          8. ResearchGate. Removal of platinum group metals from the used auto catalytic converter [Internet]. 2008 [cited: 19. Aug. 2025]. URL: <a href="https://www.researchgate.net/publication/26583964_Removal_of_platinum_group_metals_from_the_used_auto_catalytic_converter">https://www.researchgate.net/publication/26583964_Removal_of_platinum_group_metals_from_the_used_auto_catalytic_converter</a> 
+          </p>
+          <p id="source9" class="text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
+          9. RoadSumo. How much platinum, rhodium and palladium is in a catalytic converter? [Internet]. 2024 [cited: 19. Aug. 2025]. URL: <a href="https://roadsumo.com/how-much-platinum-rhodium-and-palladium-is-in-a-catalytic-converter/">https://roadsumo.com/how-much-platinum-rhodium-and-palladium-is-in-a-catalytic-converter/</a> 
+          </p>
+          <p id="source10" class="text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
+          10. MDPI Minerals. Recycling rates of PGMs in industry vs. electronics. Minerals [Internet]. 2021;11(7):673 [cited: 19. Aug. 2025]. URL: <a href="https://www.mdpi.com/2075-163X/11/7/673">https://www.mdpi.com/2075-163X/11/7/673</a>
           </p>
         </div>
       </div>
     </div>
   </div>
-</section>
-</body>
+</section></body>
+
+<section class="py-12 bg-sky-200 dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+
+      <div class="text-center mb-12">
+        <h2 id="biotech" class="text-3xl font-bold text-gray-900 dark:text-sky-50 mb-3">Die Idee</h2>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6">
+        <div
+          class="w-1/2 mx-auto bg-sky-50 dark:bg-black rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all group">
+          <div class="aspect-square relative overflow-hidden">
+            <img src="images/elektrophorese.jpg" alt="Gelektrophorese"
+              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+            <div
+              class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="flex gap-2"></div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-sky-50 hover:text-sky-700 dark:hover:text-sky-200">Gelektrophorese</h3>
+              <span class="text-xs font-medium text-sky-50 bg-gray-900 hover:bg-sky-50 hover:text-gray-900 dark:text-black dark:bg-sky-50 dark:hover:bg-black dark:hover:text-sky-50 px-2 py-1 text-center rounded-full"><a
+                  href="https://www.ibvt.uni-stuttgart.de/de/">Institut für Bioverfahrenstechnik </a> </span>
+            </div>
+            <p class="text-gray-900 dark:text-sky-50 font-medium text-sm mb-2">Task: Einfügen.</p>
+            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Einfügen.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+<section class="py-12 bg-sky-200 dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+
+      <div class="text-center mb-12">
+        <h2 id="biotech" class="text-3xl font-bold text-gray-900 dark:text-sky-50 mb-3">Recherche</h2>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6">
+        <div
+          class="w-1/2 mx-auto bg-sky-50 dark:bg-black rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all group">
+          <div class="aspect-square relative overflow-hidden">
+            <img src="images/eppi.jpg" alt="Eppi"
+              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+            <div
+              class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="flex gap-2"></div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-sky-50 hover:text-sky-700 dark:hover:text-sky-200">Dokumentation?</h3>
+              <span class="text-xs font-medium text-sky-50 bg-gray-900 hover:bg-sky-50 hover:text-gray-900 dark:text-black dark:bg-sky-50 dark:hover:bg-black dark:hover:text-sky-50 px-2 py-1 text-center rounded-full"><a
+                  href="https://www.ibvt.uni-stuttgart.de/de/">Institut für Bioverfahrenstechnik </a> </span>
+            </div>
+            <p class="text-gray-900 dark:text-sky-50 font-medium text-sm mb-2">Task: Einfügen.</p>
+            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Text einfügen.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  
+ <section class="py-12 bg-sky-200 dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+
+      <div class="text-center mb-12">
+        <h2 id="biotech" class="text-3xl font-bold text-gray-900 dark:text-sky-50 mb-3">OahA-Gen</h2>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6">
+        <div
+          class="w-1/2 mx-auto bg-sky-50 dark:bg-black rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all group">
+          <div class="aspect-square relative overflow-hidden">
+            <img src="images/kolonien.jpg" alt="Kolonien"
+              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+            <div
+              class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="flex gap-2"></div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-sky-50 hover:text-sky-700 dark:hover:text-sky-200">Kolonien zählen</h3>
+              <span class="text-xs font-medium text-sky-50 bg-gray-900 hover:bg-sky-50 hover:text-gray-900 dark:text-black dark:bg-sky-50 dark:hover:bg-black dark:hover:text-sky-50 px-2 py-1 text-center rounded-full"><a
+                  href="https://www.ibvt.uni-stuttgart.de/de/">Institut für Bioverfahrenstechnik </a> </span>
+            </div>
+            <p class="text-gray-900 dark:text-sky-50 font-medium text-sm mb-2">Task: Einfügen.</p>
+            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Text einfügen.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section> 
+
+<section class="py-12 bg-sky-200 dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+
+      <div class="text-center mb-12">
+        <h2 id="biotech" class="text-3xl font-bold text-gray-900 dark:text-sky-50 mb-3">Optimierung der Oxalat-Synthese</h2>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6">
+        <div
+          class="w-1/2 mx-auto bg-sky-50 dark:bg-black rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all group">
+          <div class="aspect-square relative overflow-hidden">
+            <img src="images/pipettieren.jpg" alt="Pipettieren"
+              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+            <div
+              class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="flex gap-2"></div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-sky-50 hover:text-sky-700 dark:hover:text-sky-200">Pipettieren</h3>
+              <span class="text-xs font-medium text-sky-50 bg-gray-900 hover:bg-sky-50 hover:text-gray-900 dark:text-black dark:bg-sky-50 dark:hover:bg-black dark:hover:text-sky-50 px-2 py-1 text-center rounded-full"><a
+                  href="https://www.ibvt.uni-stuttgart.de/de/">Institut für Bioverfahrenstechnik </a> </span>
+            </div>
+            <p class="text-gray-900 dark:text-sky-50 font-medium text-sm mb-2">Task: Stock image.</p>
+            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Text einfügen.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>  
+
+<section class="py-12 bg-sky-200 dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+
+      <div class="text-center mb-12">
+        <h2 id="biotech" class="text-3xl font-bold text-gray-900 dark:text-sky-50 mb-3">Analyse der Komplexbildung</h2>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6">
+        <div
+          class="w-1/2 mx-auto bg-sky-50 dark:bg-black rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all group">
+          <div class="aspect-square relative overflow-hidden">
+            <img src="images/tafel.jpg" alt="Tafel"
+              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+            <div
+              class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="flex gap-2"></div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-sky-50 hover:text-sky-700 dark:hover:text-sky-200">Keine Ahnung</h3>
+              <span class="text-xs font-medium text-sky-50 bg-gray-900 hover:bg-sky-50 hover:text-gray-900 dark:text-black dark:bg-sky-50 dark:hover:bg-black dark:hover:text-sky-50 px-2 py-1 text-center rounded-full"><a
+                  href="https://www.ibvt.uni-stuttgart.de/de/">Institut für Bioverfahrenstechnik </a> </span>
+            </div>
+            <p class="text-gray-900 dark:text-sky-50 font-medium text-sm mb-2">Task: Einfügen.</p>
+            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Text einfügen.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>  
+
+<section class="py-12 bg-sky-200 dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+
+      <div class="text-center mb-12">
+        <h2 id="chemie" class="text-3xl font-bold text-gray-900 dark:text-sky-50 mb-3">PR</h2>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6">
+        <div
+          class="w-1/2 mx-auto bg-sky-50 dark:bg-black rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all group">
+          <div class="aspect-square relative overflow-hidden">
+            <img src="images/aufbau1.jpg" alt="Chemieaufbau"
+              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+            <div
+              class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="flex gap-2"></div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-sky-50 hover:text-sky-700 dark:hover:text-sky-200">Aufbau</h3>
+              <span class="text-xs font-medium text-sky-50 bg-gray-900 hover:bg-sky-50 hover:text-gray-900 dark:text-black dark:bg-sky-50 dark:hover:bg-black dark:hover:text-sky-50 px-2 py-1 text-center rounded-full"><a
+                  href="https://www.ibvt.uni-stuttgart.de/de/">Institut für Bioverfahrenstechnik </a> </span>
+            </div>
+            <p class="text-gray-900 dark:text-sky-50 font-medium text-sm mb-2">Task: Sponsoring usw.</p>
+            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Text einfügen.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+<section class="py-12 bg-sky-200 dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+
+      <div class="text-center mb-12">
+        <h2 id="chemie" class="text-3xl font-bold text-gray-900 dark:text-sky-50 mb-3">Education</h2>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6">
+        <div
+          class="w-1/2 mx-auto bg-sky-50 dark:bg-black rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all group">
+          <div class="aspect-square relative overflow-hidden">
+            <img src="images/aufbau2.jpg" alt="Chemieaufbau"
+              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+            <div
+              class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="flex gap-2"></div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-sky-50 hover:text-sky-700 dark:hover:text-sky-200">Aufbau</h3>
+              <span class="text-xs font-medium text-sky-50 bg-gray-900 hover:bg-sky-50 hover:text-gray-900 dark:text-black dark:bg-sky-50 dark:hover:bg-black dark:hover:text-sky-50 px-2 py-1 text-center rounded-full"><a
+                  href="https://www.ibvt.uni-stuttgart.de/de/">Institut für Bioverfahrenstechnik </a> </span>
+            </div>
+            <p class="text-gray-900 dark:text-sky-50 font-medium text-sm mb-2">Task: Destillieren.</p>
+            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Text einfügen.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="py-12 bg-sky-200 dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+
+      <div class="text-center mb-12">
+        <h2 id="chemie" class="text-3xl font-bold text-gray-900 dark:text-sky-50 mb-3">Modellierung</h2>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6">
+        <div
+          class="w-1/2 mx-auto bg-sky-50 dark:bg-black rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all group">
+          <div class="aspect-square relative overflow-hidden">
+            <img src="images/trocken.jpg" alt="Trockenprobe"
+              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+            <div
+              class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="flex gap-2"></div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-sky-50 hover:text-sky-700 dark:hover:text-sky-200">Getrocknete Probe</h3>
+              <span class="text-xs font-medium text-sky-50 bg-gray-900 hover:bg-sky-50 hover:text-gray-900 dark:text-black dark:bg-sky-50 dark:hover:bg-black dark:hover:text-sky-50 px-2 py-1 text-center rounded-full"><a
+                  href="https://www.ibvt.uni-stuttgart.de/de/">Institut für Bioverfahrenstechnik </a> </span>
+            </div>
+            <p class="text-gray-900 dark:text-sky-50 font-medium text-sm mb-2">Task: Leachen.</p>
+            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Text einfügen.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
 
 <footer class="bg-gray-900 text-white pt-16 pb-8">
 <div class="container mx-auto px-4">
@@ -229,12 +619,12 @@ If humanity wants a sustainable future on this planet, the choice is clear, recy
 <a href="index.html" class="text-2xl font-['Pacifico'] text-primary">
     <img src="images/logo_neu.png" alt="Home" class="h-12 w-auto">
 </a>
-<p class="text-violet-50 font-semibold mb-6">Finde uns hier:</p>
+<p class="text-violet-50 font-semibold mb-6">Find us here:</p>
 <div class="flex space-x-4">
 <a href="https://teams.igem.org/5829" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
   <img src="images/igem_logo.png" alt="Logo" class="w-6 h-6" />
 </a>
-<a href="https://www.instagram.com/synbioteam/" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+<a href="https://www.instagram.com/igem_stuttgart/" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
   <img src="images/Instagram_logo_2016.svg.png" alt="Logo" class="w-6 h-6" />
 </a>
 </div>
@@ -244,16 +634,16 @@ If humanity wants a sustainable future on this planet, the choice is clear, recy
   <h3 class="text-violet-50 font-semibold mb-6">Quick Links</h3>
   <ul class="space-y-3">
   <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-  <li><a href="project.html" class="text-gray-400 hover:text-violet-50 transition-colors">Projekt</a></li>
-  <li><a href="notebook.html" class="text-gray-400 hover:text-violet-50 transition-colors">Labordokumentation</a></li>
-  <li><a href="groups.html" class="text-gray-400 hover:text-violet-50 transition-colors">Gruppen</a></li>
-  <li><a href="students.html" class="text-gray-400 hover:text-violet-50 transition-colors">Mitglieder</a></li>
-  <li><a href="contact.html" class="text-gray-400 hover:text-violet-50 transition-colors">Kontakt</a></li>
+  <li><a href="project.html" class="text-gray-400 hover:text-violet-50 transition-colors">Project</a></li>
+  <li><a href="notebook.html" class="text-gray-400 hover:text-violet-50 transition-colors">Ladocumentation</a></li>
+  <li><a href="groups.html" class="text-gray-400 hover:text-violet-50 transition-colors">Groups</a></li>
+  <li><a href="students.html" class="text-gray-400 hover:text-violet-50 transition-colors">Member</a></li>
+  <li><a href="contact.html" class="text-gray-400 hover:text-violet-50 transition-colors">Contact</a></li>
   </ul>
   </div>
 <!-- Kontakt -->
 <div>
-<h3 class="text-violet-50 font-semibold mb-6">Direkter Kontakt</h3>
+<h3 class="text-violet-50 font-semibold mb-6">Direct Contact</h3>
 <ul class="space-y-3">
 <li>
 <a href="mailto:synbioteam@ibmg.uni-stuttgart.de" class="text-gray-400 hover:text-violet-50 transition-colors flex items-start">
@@ -390,6 +780,43 @@ If humanity wants a sustainable future on this planet, the choice is clear, recy
       mobileMenu.querySelector('.close-menu').addEventListener('click', function () {
         mobileMenu.classList.add('translate-x-full');
       });
+    });
+
+    let content = document.querySelector(".content");
+    let preview = document.querySelector(".preview");
+
+    preview.addEventListener("click", () => {
+      content.classList.toggle("hidden");
+    });
+    const colonies = document.querySelectorAll(".colony");
+    const infoBox = document.getElementById("info-box");
+    const colonyName = document.getElementById("colony-name");
+    const colonyInfo = document.getElementById("colony-info");
+
+    let infoBoxOpen = false;
+    colonies.forEach(colony => {
+    colony.addEventListener("click", () => {
+        const name = colony.dataset.name;
+        const info = colony.dataset.info;
+        colonyName.textContent = name;
+        colonyInfo.textContent = info;
+        infoBox.classList.remove("hidden");
+        infoBoxOpen = true;
+        event.stopPropagation();
+    });
+    });
+    function closeInfo() {
+    infoBox.classList.add("hidden");
+    infoBoxOpen = false;
+    }
+    document.addEventListener("click", (event) => {
+    if (
+        infoBoxOpen &&
+        !infoBox.contains(event.target) &&
+        !event.target.classList.contains("colony")
+    ) {
+        closeInfo();
+    }
     });
     </script>
 </body>
