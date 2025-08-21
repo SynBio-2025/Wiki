@@ -207,10 +207,13 @@ Human Practices
   <div class="container mx-auto">
     <div class="flex justify-center relative">
       <div id="problemdarstellung" class="w-2/3 bg-white dark:bg-black shadow-lg rounded-lg p-6 flex items-start gap-6 outline outline-4 outline-blue-900 dark:outline-blue-500">
-        <div class="preview cursor-pointer flex-shrink-0 absolute left-[175px] -top-[25px]">
-          <svg id="Icon" xmlns="http://www.w3.org/2000/svg" fill="#3B82F6" width="100px" height="100px" viewBox="0 0 24 24" stroke="#1E3A8A" transform="rotate(180)">
+        <div class="preview flex items-center flex-shrink-0 absolute left-[175px] -top-[20px]">
+          <svg id="Icon" class="cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill="#3B82F6" width="100px" height="100px" viewBox="0 0 24 24" stroke="#1E3A8A" transform="rotate(180)">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path>
           </svg>
+        <div id="clickme">
+          <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-sky-200 mb-4">Click the i to find out more about the problem!</h2>
+        </div>  
         </div>
         <div class="content hidden bg-white dark:bg-black rounded-lg p-4">
         <h2 class="text-4xl font-bold text-center text-gray-900 dark:text-sky-200 mb-4">
@@ -800,9 +803,11 @@ icon.addEventListener("click", () => {
 
     let content = document.querySelector(".content");
     let preview = document.querySelector(".preview");
+    const clickme = document.getElementById("clickme");
 
     preview.addEventListener("click", () => {
       content.classList.toggle("hidden");
+      clickme.classList.toggle("hidden");
     });
     const colonies = document.querySelectorAll(".colony");
     const infoBox = document.getElementById("info-box");
