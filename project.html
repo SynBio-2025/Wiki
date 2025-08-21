@@ -121,6 +121,7 @@ tailwind.config = {
 darkMode: 'class',
 };
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </head>
 <body class="bg-sky-200 dark:bg-gray-900 min-h-screen">
 <!-- Reiter -->
@@ -201,17 +202,17 @@ Human Practices
 </section>
 <p class="text-lg text-gray-600 dark:text-gray-400">The cell (ellipsoid) consumes glucose (yellow circle). By fueling glycolysis, pyruvate is synthesized, which goes into TCA. When oxaloacetate is synthesized, Oxaloacetathydrolase (red dot) is expressed from the inserted gene (blue line). Oxaloacetatehydrolase catalyzes the reaction from oxaloacetate to oxalate (green dots). The oxalate ions are transported out of the cell and can form chemical complexes with positive charged PGMs (blue dot)</p>
 <body>
-  <!-- Problem Darstellung -->
+   <!-- Problem Darstellung -->
 <section class="bg-sky-200 dark:bg-gray-900 py-12">
   <div class="container mx-auto">
     <div class="flex justify-center relative">
       <div id="problemdarstellung" class="w-2/3 bg-white dark:bg-black shadow-lg rounded-lg p-6 flex items-start gap-6 outline outline-4 outline-blue-900 dark:outline-blue-500">
-        <div class="preview cursor-pointer flex-shrink-0">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="#3B82F6" width="100px" height="100px" viewBox="0 0 24 24" stroke="#1E3A8A" transform="rotate(180)">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"</path>
+        <div class="preview cursor-pointer flex-shrink-0 absolute left-[175px] -top-[25px]">
+          <svg id="Icon" xmlns="http://www.w3.org/2000/svg" fill="#3B82F6" width="100px" height="100px" viewBox="0 0 24 24" stroke="#1E3A8A" transform="rotate(180)">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path>
           </svg>
         </div>
-        <div class="content hidden bg-sky-50 border-2 border-blue-500 rounded-lg p-4">
+        <div class="content hidden bg-white dark:bg-black rounded-lg p-4">
         <h2 class="text-4xl font-bold text-center text-gray-900 dark:text-sky-200 mb-4">
         Too important to Waste
         </h2>
@@ -312,31 +313,31 @@ Human Practices
         References
         </h2>
           <p id="source1" class="text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
-          1. CME Group. Platinum recycling and the circular economy [Internet]. 2023 [cited: 19. Aug. 2025]. URL: <a href="https://www.cmegroup.com/articles/2023/platinum-recycling-and-the-circular-economy.html"> https://www.cmegroup.com/articles/2023/platinum-recycling-and-the-circular-economy.html</a> 
+          1. CME Group. Platinum recycling and the circular economy [Internet]. 2023 [cited: 19. Aug. 2025]. URL: <a href="https://www.cmegroup.com/articles/2023/platinum-recycling-and-the-circular-economy.html"> https://www.cmegroup.com/articles/2023/platinum-recycling-and-the-circular-economy.html</a>
           </p>
           <p id="source2" class="text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
-          2. Thermo Fisher Scientific. Platinum group metal recovery from spent catalytic converters using XRF [Internet]. 2020 [cited: 19. Aug. 2025]. URL: <a href="https://www.thermofisher.com/blog/metals/platinum-group-metal-recovery-from-spent-catalytic-converters-using-xrf/">https://www.thermofisher.com/blog/metals/platinum-group-metal-recovery-from-spent-catalytic-converters-using-xrf/</a>  
+          2. Thermo Fisher Scientific. Platinum group metal recovery from spent catalytic converters using XRF [Internet]. 2020 [cited: 19. Aug. 2025]. URL: <a href="https://www.thermofisher.com/blog/metals/platinum-group-metal-recovery-from-spent-catalytic-converters-using-xrf/">https://www.thermofisher.com/blog/metals/platinum-group-metal-recovery-from-spent-catalytic-converters-using-xrf/</a>
           </p>
           <p id="source3" class="text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
-          3. Wikipedia. Platinum [Internet]. 2025 [cited: 19. Aug. 2025]. URL: <a href="https://en.wikipedia.org/wiki/Platinum">https://en.wikipedia.org/wiki/Platinum</a> 
+          3. Wikipedia. Platinum [Internet]. 2025 [cited: 19. Aug. 2025]. URL: <a href="https://en.wikipedia.org/wiki/Platinum">https://en.wikipedia.org/wiki/Platinum</a>
           </p>
           <p id="source4" class="text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
-          4. Mining Weekly. PGM recycling and low-grade resources offer opportunities in low price environment [Internet]. 2024 Apr 15 [cited: 19. Aug. 2025]. URL: <a href="https://www.miningweekly.com/article/pgm-recycling-lower-grade-resources-offer-opportunities-in-low-price-environment-2024-04-15">https://www.miningweekly.com/article/pgm-recycling-lower-grade-resources-offer-opportunities-in-low-price-environment-2024-04-15</a> 
+          4. Mining Weekly. PGM recycling and low-grade resources offer opportunities in low price environment [Internet]. 2024 Apr 15 [cited: 19. Aug. 2025]. URL: <a href="https://www.miningweekly.com/article/pgm-recycling-lower-grade-resources-offer-opportunities-in-low-price-environment-2024-04-15">https://www.miningweekly.com/article/pgm-recycling-lower-grade-resources-offer-opportunities-in-low-price-environment-2024-04-15</a>
           </p>
           <p id="source5" class="text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
-          5. The Chemical Engineer. Worth its weight: Recycling platinum group metals [Internet]. 2020 [cited: 19. Aug. 2025]. URL: <a href="https://www.thechemicalengineer.com/features/worth-its-weight/">https://www.thechemicalengineer.com/features/worth-its-weight/</a> 
+          5. The Chemical Engineer. Worth its weight: Recycling platinum group metals [Internet]. 2020 [cited: 19. Aug. 2025]. URL: <a href="https://www.thechemicalengineer.com/features/worth-its-weight/">https://www.thechemicalengineer.com/features/worth-its-weight/</a>
           </p>
           <p id="source6" class="text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
-          6. MDPI Crystals. PGM resources and recycling potentials. Crystals [Internet]. 2023;13(4):550 [cited: 19. Aug. 2025]. URL: <a href="https://www.mdpi.com/2073-4352/13/4/550">https://www.mdpi.com/2073-4352/13/4/550</a> 
+          6. MDPI Crystals. PGM resources and recycling potentials. Crystals [Internet]. 2023;13(4):550 [cited: 19. Aug. 2025]. URL: <a href="https://www.mdpi.com/2073-4352/13/4/550">https://www.mdpi.com/2073-4352/13/4/550</a>
           </p>
           <p id="source7" class="text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
-          7. Wikipedia. 2000s commodities boom – Rhodium [Internet]. 2025 [cited: 19. Aug. 2025]. URL: <a href="https://en.wikipedia.org/wiki/2000s_commodities_boom">https://en.wikipedia.org/wiki/2000s_commodities_boom</a> 
+          7. Wikipedia. 2000s commodities boom – Rhodium [Internet]. 2025 [cited: 19. Aug. 2025]. URL: <a href="https://en.wikipedia.org/wiki/2000s_commodities_boom">https://en.wikipedia.org/wiki/2000s_commodities_boom</a>
           </p>
           <p id="source8" class="text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
-          8. ResearchGate. Removal of platinum group metals from the used auto catalytic converter [Internet]. 2008 [cited: 19. Aug. 2025]. URL: <a href="https://www.researchgate.net/publication/26583964_Removal_of_platinum_group_metals_from_the_used_auto_catalytic_converter">https://www.researchgate.net/publication/26583964_Removal_of_platinum_group_metals_from_the_used_auto_catalytic_converter</a> 
+          8. ResearchGate. Removal of platinum group metals from the used auto catalytic converter [Internet]. 2008 [cited: 19. Aug. 2025]. URL: <a href="https://www.researchgate.net/publication/26583964_Removal_of_platinum_group_metals_from_the_used_auto_catalytic_converter">https://www.researchgate.net/publication/26583964_Removal_of_platinum_group_metals_from_the_used_auto_catalytic_converter</a>
           </p>
           <p id="source9" class="text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
-          9. RoadSumo. How much platinum, rhodium and palladium is in a catalytic converter? [Internet]. 2024 [cited: 19. Aug. 2025]. URL: <a href="https://roadsumo.com/how-much-platinum-rhodium-and-palladium-is-in-a-catalytic-converter/">https://roadsumo.com/how-much-platinum-rhodium-and-palladium-is-in-a-catalytic-converter/</a> 
+          9. RoadSumo. How much platinum, rhodium and palladium is in a catalytic converter? [Internet]. 2024 [cited: 19. Aug. 2025]. URL: <a href="https://roadsumo.com/how-much-platinum-rhodium-and-palladium-is-in-a-catalytic-converter/">https://roadsumo.com/how-much-platinum-rhodium-and-palladium-is-in-a-catalytic-converter/</a>
           </p>
           <p id="source10" class="text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
           10. MDPI Minerals. Recycling rates of PGMs in industry vs. electronics. Minerals [Internet]. 2021;11(7):673 [cited: 19. Aug. 2025]. URL: <a href="https://www.mdpi.com/2075-163X/11/7/673">https://www.mdpi.com/2075-163X/11/7/673</a>
@@ -412,7 +413,7 @@ Human Practices
 
     </div>
   </section>
-  
+
  <section class="py-12 bg-sky-200 dark:bg-gray-900">
     <div class="container mx-auto px-4">
 
@@ -444,7 +445,7 @@ Human Practices
       </div>
 
     </div>
-  </section> 
+  </section>
 
 <section class="py-12 bg-sky-200 dark:bg-gray-900">
     <div class="container mx-auto px-4">
@@ -477,7 +478,7 @@ Human Practices
       </div>
 
     </div>
-  </section>  
+  </section>
 
 <section class="py-12 bg-sky-200 dark:bg-gray-900">
     <div class="container mx-auto px-4">
@@ -510,7 +511,7 @@ Human Practices
       </div>
 
     </div>
-  </section>  
+  </section>
 
 <section class="py-12 bg-sky-200 dark:bg-gray-900">
     <div class="container mx-auto px-4">
@@ -732,6 +733,21 @@ Human Practices
         }
       });
 
+        const icon = document.querySelector("#Icon");
+        const path = icon.querySelector("path");
+  let isRotated = false;
+
+icon.addEventListener("click", () => {
+  if (!isRotated) {
+    gsap.to(icon, { rotation: "+=180", transformOrigin: "50% 50%", duration: 1, ease: "power2.inOut" });
+    gsap.to(path, { fill: "#EF4444", stroke: "#7F1D1D", duration: 1, ease: "power2.inOut" });
+  } else {
+    gsap.to(icon, { rotation: "+=180", transformOrigin: "50% 50%", duration: 1, ease: "power2.inOut" });
+    gsap.to(path, { fill: "#3B82F6", stroke: "#1E3A8A", duration: 1, ease: "power2.inOut" });
+  }
+  isRotated = !isRotated;
+});
+
       // ===== MOBILE MENU TOGGLE =====
       const mobileMenuButton = document.querySelector('.md\\:hidden');
       const mobileMenu = document.createElement('div');
@@ -820,4 +836,5 @@ Human Practices
     });
     </script>
 </body>
+
 </html>
