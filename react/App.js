@@ -1,10 +1,11 @@
 import React from 'react';
+import Book from './components/book';
+import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Welcome to SynBio Team 2025</h1>
-      <p>This is the main React app page.</p>
+    <div className="container">
+        <Book />
     </div>
   );
 }
