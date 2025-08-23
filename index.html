@@ -73,16 +73,18 @@ tailwind.config = {
 darkMode: 'class',
 };
 </script>
+<script src="darkmode.js" defer></script>
 </head>
 <body class="bg-sky-100 min-h-screen"> <!-- Hier white-->
 <!-- Header-->
     <header class="sticky top-0 z-50 bg-sky-100 dark:bg-black shadow-sm">
     <div class="container mx-auto px-4 py-4 flex items-center justify-between">
     <a href="#" class="text-2xl font-['Pacifico'] text-primary">
-        <img src="images/logo_neu.png" alt="Home" class="h-16 w-auto">
+        <!-- <img src="images/logo_neu.png" alt="Home" class="h-16 w-auto"> -->
+        <img src="images/SynBio-Logo.svg" alt="Home" class="h-16 w-auto">
     </a>
     <nav class="hidden md:flex items-center space-x-8">
-    <a href="#" class="text-sky-700 dark:text-sky-200 font-medium flex items-center">Home</a>
+    <a href="#" class="text-sky-700 hover:text-sky-500 dark:text-gray-200 dark:hover:text-gray-700 font-medium flex items-center">Home</a>
     <div class="relative" id="projectDropdown">
     <button class="text-gray-700 hover:text-sky-700 dark:text-sky-200 dark:hover:text-gray-700 transition-colors flex items-center" id="projectButton">
             Project
@@ -117,7 +119,7 @@ Human Practices
     </div>
     </div>
     <a href="contact.html" class="text-gray-700 hover:text-sky-700 dark:text-sky-200 dark:hover:text-gray-700 transition-colors">Contact</a>
-    <button onclick="document.documentElement.classList.toggle('dark')" class="px-4 py-2 bg-sky-100 text-gray-700 hover:bg-gray-900 hover:text-sky-100 rounded">
+    <button id="darkToggle" onclick="document.documentElement.classList.toggle('dark')" class="px-4 py-2 bg-sky-100 text-gray-700 hover:bg-gray-900 hover:text-sky-100 rounded">
         <i class="ri-dna-line text-xl">Dark mode</i>
     </button>
     </nav>
@@ -174,15 +176,16 @@ Human Practices
 <div class="grid grid-cols-1 md:grid-cols-1 gap-4 mb-6">
 <div class="flex flex-col space-y-2 p-4 bg-sky-50 rounded-lg">
 <h2 class="text-2xl font-semibold text-gray-900 mb-4">Project Overview</h2>
-<p class="text-gray-600 mb-6"> In times of resource scarcity, global warming and overexploitation, it is our duty to find methods of responsible recycling. This was our mission with this project. <br> Our aim is to recycle valuable platinum group metals (PGMs) using a novel bioleaching method from exhausted automobile catalysts and even street dust. The project includes: <br> <ul class="list-square list-inside">
-  <li>Engineering C. glutamicum for efficient Oxalic acid production</li> <!-- ich check nicht warum hier keine bullet points erscheinen -_- -->
+<p class="text-gray-600 mb-6"> 
+  In times of resource scarcity, global warming and overexploitation, it is our duty to find methods of responsible recycling. This was our mission with this project. <br> Our aim is to recycle valuable platinum group metals (PGMs) using a novel bioleaching method from exhausted automobile catalysts and even street dust. The project includes:
+</p>
+<ul class="list-inside" style="list-style-type: disc;">
+  <li>Engineering C. glutamicum for efficient Oxalic acid production</li>
   <li>Using Oxalic acid as a leaching agent for PGM recovery from automobile catalysts</li>
   <li>Presenting our project to various audiences, including the iGEM competition</li>
-  <li>Educational work at local schools and events on synthetic biology, sustainability and our project </li>
+  <li>Educational work at local schools and events on synthetic biology, sustainability and our project</li>
   <li>Creating theoretical models for oxalic acid production</li>
 </ul>
-
-</p>
 </div>
 </div>
 </div>
@@ -690,6 +693,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     })
 });
+
 
     </script>
 </body>
