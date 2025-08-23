@@ -21,6 +21,9 @@ font-family: 'Inter', sans-serif;
 tailwind.config = {
 darkMode: 'class',
 };
+if (localStorage.getItem("darkmode") === "active") {
+  document.documentElement.classList.add("dark");
+}
 </script>
 <script src="darkmode.js" defer></script>
 </head>
