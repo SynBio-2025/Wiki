@@ -16,6 +16,36 @@
 body {
 font-family: 'Inter', sans-serif;
 }
+
+.page-content {
+  display: flex;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 10px;
+}
+
+.sidenav {
+  width: 130px;
+  position: sticky;
+  z-index: 1;
+  top: 110px;
+  left: 20px;
+  padding: 8px 0;
+  border-radius: 12px;
+  flex-shrink: 0;
+  height: fit-content;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  display: block;
+}
+
+.main {
+}
+
 </style>
 <script>
 tailwind.config = {
@@ -79,21 +109,30 @@ Dark Mode
 </div>
 </div>
 </header>
+
+<div class="page-content">
+<aside class="sidenav mt-24 bg-sky-50 dark:bg-black text-gray-900 dark:text-sky-200 outline outline-2 outline-sky-50 dark:outline-black shadow-lg">
+  <h2 class="text-center text-lg font-bold text-gray-900 dark:text-sky-200">Contents</h2>
+  <a class="rounded-lg hover:bg-sky-200 dark:hover:bg-gray-900" href="#mairec">Mairec</a>
+  <a class="rounded-lg hover:bg-sky-200 dark:hover:bg-gray-900" href="#srcsbday">SRCSB day</a>
+  <a class="rounded-lg hover:bg-sky-200 dark:hover:bg-gray-900" href="#chemie">Chemie</a>
+  <a class="rounded-lg hover:bg-sky-200 dark:hover:bg-gray-900" href="#igempubquiz">iGem pub quiz</a>
+</aside>
 <!-- Überschrift -->
+<div class="main">
 <section class="bg-sky-200 dark:bg-gray-900 py-12">
 <div class="container mx-auto px-4">
 <div class="max-w-3xl mx-auto text-center">
 <h1 class="text-4xl font-bold text-gray-900 dark:text-sky-50 mb-4">Human Practices</h1>
 <p class="text-lg text-gray-600 dark:text-gray-400 text-justify">The raw metal industry is huge and as a small team of aspiring scientists, we can only do so much.
 This is why we talked to a diverse set of advisors, from our own professors and mentors, over companies from within in the industry, to potential sponsors for the project.
-It is important to us to consider all different perspectives and work the advice into the project so we can create a product that safe, ethical, sustainable, and worthwhile.</p>
+It is important to us to consider all different perspectives and work their advice into the project so we can create a product that is safe, ethical, sustainable, and worthwhile.</p>
 </div>
 </div>
 </section>
-<body>
 <div class="container mx-auto px-4">
 <div class="text-center mb-12">
-<h2 id="reflective" class="text-3xl font-bold text-gray-900 dark:text-sky-50 mb-3">Reflective</h2>
+<h2 id="reflective" class="text-3xl font-bold text-gray-900 dark:text-sky-50 mb-3 scroll-mt-24">Reflective</h2>
 <section class="bg-sky-200 dark:bg-gray-900 py-12">
   <div class="relative w-full max-w-4xl mx-auto">
     <!-- Carousel track -->
@@ -179,12 +218,13 @@ It is important to us to consider all different perspectives and work the advice
       ›
     </button>
   </div>
+</section>
 </div>
 </div>
 
 <div class="container mx-auto px-4">
 <div class="text-center mb-12">
-<h2 id="responsible" class="text-3xl font-bold text-gray-900 dark:text-sky-50 mb-3">Responsible</h2>
+<h2 id="responsible" class="text-3xl font-bold text-gray-900 dark:text-sky-50 mb-3 scroll-mt-24">Responsible</h2>
 <section class="bg-sky-200 dark:bg-gray-900 py-12">
   <div class="relative w-full max-w-4xl mx-auto">
     <!-- Carousel track -->
@@ -222,7 +262,7 @@ It is important to us to consider all different perspectives and work the advice
 
         <!-- Card 2 -->
         <div class="flex-shrink-0 w-full px-2 mr-2">
-          <div class="bg-sky-50 dark:bg-black shadow-lg rounded-lg p-6 flex items-center gap-6">
+          <div class="bg-sky-50 dark:bg-black rounded-lg p-6 flex items-center gap-6">
             <div class="flex-shrink-0 w-24 h-24">
           <img
             src="images/logo.png"
@@ -241,7 +281,7 @@ It is important to us to consider all different perspectives and work the advice
 
         <!-- Card 3 -->
         <div class="flex-shrink-0 w-full px-2">
-          <div class="bg-sky-50 dark:bg-black shadow-lg rounded-lg p-6 flex items-center gap-6">
+          <div class="bg-sky-50 dark:bg-black rounded-lg p-6 flex items-center gap-6">
             <div class="flex-shrink-0 w-24 h-24">
           <img
             src="images/logo.png"
@@ -251,9 +291,15 @@ It is important to us to consider all different perspectives and work the advice
             </div>
             <div>
               <h2 class="text-xl text-gray-900 dark:text-sky-50 font-bold mb-2">Ethics</h2>
-        <p class="text-gray-600 dark:text-sky-200">
-          insert smth
-        </p>
+          <li class="flex items-start text-gray-900 dark:text-sky-200">
+          <i class="ri-error-warning-fill mr-2"></i>
+          <span class="text-left block text-justify"><strong>Exploitation of workers:</strong> Workers harvest PGMs under unsafe working conditions for barely livable wages .</span>
+          <li class="flex items-start text-gray-900 dark:text-sky-200">
+          <i class="ri-leaf-fill mr-2"></i>
+          <span class="text-left block text-justify"><strong>Environmental concerns:</strong> PGM harvesting requires large amounts of energy and water. Harvesting sites often lead to habitat loss and chemical pollution of water sources.</span>
+          <li class="flex items-start text-gray-900 dark:text-sky-200">
+          <i class="ri-money-dollar-circle-fill mr-2"></i>
+          <span class="text-left block text-justify"><strong>Supply shortages:</strong> PGMs are rare. Industries dependent on them are highly vulnerable to supply shortages, which can cause prices to spike and companies to suffer losses.</span>
             </div>
           </div>
         </div>
@@ -270,12 +316,13 @@ It is important to us to consider all different perspectives and work the advice
       ›
     </button>
   </div>
+</section>
 </div>
 </div>
 
 <div class="container mx-auto px-4">
 <div class="text-center mb-12">
-<h2 id="responsive" class="text-3xl font-bold text-gray-900 dark:text-sky-50 mb-3">Responsive</h2>
+<h2 id="responsive" class="text-3xl font-bold text-gray-900 dark:text-sky-50 mb-3 scroll-mt-24">Responsive</h2>
 <section class="bg-sky-200 dark:bg-gray-900 py-12">
   <div class="relative w-full max-w-4xl mx-auto">
     <!-- Carousel track -->
@@ -283,7 +330,7 @@ It is important to us to consider all different perspectives and work the advice
       <div id="carouselTrack3" class="flex transition-transform duration-300">
         <!-- Card 1 -->
         <div class="flex-shrink-0 w-full px-2 mr-2">
-          <div class="bg-sky-50 dark:bg-black shadow-lg rounded-lg p-6 flex items-center gap-6">
+          <div class="bg-sky-50 dark:bg-black rounded-lg p-6 flex items-center gap-6">
             <div class="flex-shrink-0 w-24 h-24">
           <img
             src="images/logo.png"
@@ -360,9 +407,127 @@ It is important to us to consider all different perspectives and work the advice
       ›
     </button>
   </div>
-</div>
-</div>
 </section>
+</div>
+</div>
+
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold text-gray-900 dark:text-sky-50 mb-3 py-12">Conversing with experts</h2>
+  <div class="flex justify-center">
+  <div id="mairec" class="w-[95%] bg-sky-50 dark:bg-black rounded-lg p-6 flex flex-col scroll-mt-28">
+    <div>
+    <h2 class="w-full text-3xl font-bold text-center text-gray-900 dark:text-white mb-4">Mairec</h2>
+    </div>
+    <div class="flex items-end gap-6">
+    <!-- image -->
+    <div class="flex-shrink-0 w-[25%]">
+      <img
+      src="images/mairec.jpeg"
+      class="w-full h-full object-cover rounded-md"
+      />
+    </div>
+    <!-- text -->
+    <div>
+      <p class="text-gray-900 dark:text-sky-200 text-justify">
+        <strong>Our goal:</strong> Gaining deeper insight into the current industrial process of leaching metals</p>
+      <p class="text-gray-900 dark:text-sky-200 text-justify mt-2">
+        <strong>What happened:</strong> A guided tour in the leaching facilities where we  learned more about the
+        current performance of conventional leaching. We learned how leaching is performed at large scales and how
+        broad the potential in this field still is, especially for environmentally friendly concepts.</p>
+    </div>
+  </div>
+    <div>
+      <p class="text-gray-900 dark:text-sky-200 text-justify ml-2 mt-4">
+        <strong>Main takeaways:</strong></p>
+      <p class="text-gray-900 dark:text-sky-200 text-justify ml-2">
+        1. Leaching is a sophisticated process containing many stations of treatment
+        during its run</p>
+      <p class="text-gray-900 dark:text-sky-200 text-justify ml-2">
+        2. The chemistry of our experiments is well established and needs the proper handling only. The crucial
+        innovation however would be biological. </p>
+      <p class="text-gray-900 dark:text-sky-200 text-justify ml-2">
+        3. Quantification was crucial for determining the success rate of our experiments. Only proper analysis can
+        verify proper lab work.</p>
+      <p class="text-gray-900 dark:text-sky-200 text-justify ml-2 mt-2">
+        <strong>Impact:</strong></p>
+      <p class="text-gray-900 dark:text-sky-200 text-justify ml-2">
+        1. Mairec supported us by providing us with a quantified sample of remnants of shredded catalysts which we used
+        to perform first experiments. </p>
+      <p class="text-gray-900 dark:text-sky-200 text-justify ml-2">
+        2. For the biological side, we started working under the supervision of our supervisor Marvin Höninger. </p>
+      <p class="text-gray-900 dark:text-sky-200 text-justify ml-2">
+          3. We contacted experts working of analytical chemistry who consulted us on our experimental set-up and analysis</p>
+    </div>
+  </div>
+  </div>
+
+  <div class="mt-24 flex justify-center">
+  <div id="srcsbday" class="w-[95%] bg-sky-50 dark:bg-black rounded-lg p-6 flex flex-col scroll-mt-28">
+    <div>
+    <h2 class="w-full text-3xl font-bold text-center text-gray-900 dark:text-white mb-4">SRCSB day</h2>
+    </div>
+    <div class="flex items-center gap-6 justify-end">
+    <!-- text -->
+    <div>
+      <p class="text-gray-900 dark:text-sky-200 text-justify">smth smth smth smth smth smth smth smth smth smth</p>
+    </div>
+    <!-- image -->
+    <div class="flex-shrink-0 w-[25%]">
+      <img
+      src="images/mairec.jpeg"
+      class="w-full h-full object-cover rounded-md"
+      />
+    </div>
+  </div>
+  </div>
+  </div>
+
+  <div class="mt-24 flex justify-center">
+  <div id="chemie" class="w-[95%] bg-sky-50 dark:bg-black rounded-lg p-6 flex flex-col scroll-mt-28">
+    <div>
+    <h2 class="w-full text-3xl font-bold text-center text-gray-900 dark:text-white mb-4">Chemie</h2>
+    </div>
+    <div class="flex items-center gap-6">
+    <!-- image -->
+    <div class="flex-shrink-0 w-[25%]">
+      <img
+      src="images/mairec.jpeg"
+      class="w-full h-full object-cover rounded-md"
+      />
+    </div>
+    <!-- text -->
+    <div>
+      <p class="text-gray-900 dark:text-sky-200 text-justify">smth smth smth smth smth smth smth smth smth smth</p>
+    </div>
+  </div>
+  </div>
+  </div>
+
+  <div class="mt-24 flex justify-center">
+  <div id="igempubquiz" class="w-[95%] bg-sky-50 dark:bg-black rounded-lg p-6 flex flex-col scroll-mt-28">
+    <div>
+    <h2 class="w-full text-3xl font-bold text-center text-gray-900 dark:text-white mb-4">iGem Global Pub Quiz</h2>
+    </div>
+    <div class="flex items-center gap-6 justify-end">
+    <!-- text -->
+    <div>
+      <p class="text-gray-900 dark:text-sky-200 text-justify">smth smth smth smth smth smth smth smth smth smth</p>
+    </div>
+    <!-- image -->
+    <div class="flex-shrink-0 w-[25%]">
+      <img
+      src="images/mairec.jpeg"
+      class="w-full h-full object-cover rounded-md"
+      />
+    </div>
+  </div>
+  </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
 </body>
 
 <footer class="bg-gray-900 text-white pt-16 pb-8">
@@ -438,6 +603,7 @@ It is important to us to consider all different perspectives and work the advice
 <a href="#" class="hover:text-violet-50 transition-colors">Privacy Policy</a>
 <a href="#" class="hover:text-violet-50 transition-colors">Terms of Service</a>
 <a href="#" class="hover:text-violet-50 transition-colors">Cookie Policy</a>
+</div>
 </div>
 </div>
 </div>
@@ -617,4 +783,5 @@ updateSlide3();
 
 
 </body>
+
 </html>
