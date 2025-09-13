@@ -16,6 +16,16 @@
 body {
 font-family: 'Inter', sans-serif;
 }
+
+.page-content {
+  display: flex;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 10px;
+}
+
+.main {
+}
 </style>
 <script>
 tailwind.config = {
@@ -79,18 +89,66 @@ Dark Mode
 </div>
 </div>
 </header>
+<div class="page-content">
 <!-- Überschrift -->
+<div class="main">
 <section class="bg-sky-200 dark:bg-gray-900 py-12">
 <div class="container mx-auto px-4">
 <div class="max-w-3xl mx-auto text-center">
 <h1 class="text-4xl font-bold text-gray-900 dark:text-sky-50 mb-4">Contribution</h1>
-<p class="text-lg text-gray-600 dark:text-gray-400">Find out how our project contributes to the iGem competition and the world.</p>
+<p class="text-lg text-gray-600 dark:text-gray-400 text-justify">Find out how our project contributes to the iGem competition and the world.
+    To support future iGem teams and scientists, we've compiled information on our part contribution, oxalate assay, and education material.
+</p>
 </div>
 </div>
 </section>
-<body>
-
-</body>
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 id="biobrick" class="text-3xl font-bold text-gray-900 dark:text-sky-50 mb-3 py-12 scroll-mt-28">BioBrick</h2>
+  <div class="flex justify-center">
+  <div class="w-[95%] bg-sky-50 dark:bg-black rounded-lg p-6 flex flex-col">
+    <div>
+    <h2 class="w-full text-3xl font-bold text-center text-gray-900 dark:text-white mb-4">
+        Name
+    </h2>
+    </div>
+    <div class="flex items-center gap-6">
+    <!-- image -->
+    <div class="flex-shrink-0 w-[25%]">
+      <img
+      src="images/mairec.jpeg"
+      class="w-full h-full object-cover rounded-md"
+      />
+    </div>
+    <!-- text -->
+    <div>
+      <p class="text-gray-900 dark:text-sky-200 text-justify">
+          Our Biobrick KUHLER NAME was developed to insert the expression of oxaloacetate hydrolase into our host organism.
+          This allows oxalate to be formed from oxaloacetate, an intermediate of the TCA cycle.
+      </p>
+      <p class="text-gray-900 dark:text-sky-200 text-justify mt-4">
+          The part is based on the oahA-gene from <i>Aspergillus niger</i>. The sequence was codon-optimized for <i>Corynebacterium
+          glutamicum</i> and provided with a ribosome binding site, a His₆ tag, and a terminator.
+      </p>
+      <p class="text-gray-900 dark:text-sky-200 text-justify mt-4">
+          The functionality of the part was tested in <i>Corynebacterium glutamicum</i> ATCC 13032. Using the commercially
+          available oxalate assay kit MAK315-1KT from Sigma Aldrich, we were able to confirm the successful production
+          of oxalate. This is a metabolite that the wild type cannot produce without genetic modification. Our Biobrick
+          thus expands the metabolic capabilities of the host organism.
+      </p>
+      <p class="text-gray-900 dark:text-sky-200 text-justify mt-4">
+          The part is fully documented and submitted to the Registry of Standard Biological Parts. It enables the iGEM
+          community to introduce oxalate production into their own organisms. As an organic acid, oxalate has a wide
+          range of applications and can also serve as a starting metabolite for further metabolic pathways.
+      </p>
+    </div>
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
 
 <footer class="bg-gray-900 text-white pt-16 pb-8">
 <div class="container mx-auto px-4">
@@ -165,6 +223,7 @@ Dark Mode
 <a href="#" class="hover:text-violet-50 transition-colors">Privacy Policy</a>
 <a href="#" class="hover:text-violet-50 transition-colors">Terms of Service</a>
 <a href="#" class="hover:text-violet-50 transition-colors">Cookie Policy</a>
+</div>
 </div>
 </div>
 </div>
@@ -264,4 +323,5 @@ Dark Mode
     });
     </script>
 </body>
+
 </html>
