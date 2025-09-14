@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Projekt</title>
+<link rel="icon" type="image/png" href="images/logo_icon.png">
 <script src="https://cdn.tailwindcss.com/3.4.16"></script>
 <script>tailwind.config={theme:{extend:{colors:{primary:'#3b82f6',secondary:'#64748b'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -162,7 +163,8 @@ if (localStorage.getItem("darkmode") === "active") {
   <header class="sticky top-0 z-50 bg-sky-100 dark:bg-black shadow-sm">
   <div class="container mx-auto px-4 py-4 flex items-center justify-between">
   <a href="index.html" class="text-2xl font-['Pacifico'] text-primary">
-      <img src="images/logo_neu.png" alt="Home" class="h-16 w-auto">
+    <img src="images/logo_neu_light.png" alt="Home" class="h-20 w-auto block dark:hidden">
+    <img src="images/logo_neu_dark.png" alt="Home" class="h-20 w-auto hidden dark:block">
   </a>
   <nav class="hidden md:flex items-center space-x-8">
   <a href="index.html" class="text-gray-700 hover:text-sky-700 dark:text-sky-200 dark:hover:text-gray-700 transition-colors">Home</a>
@@ -200,7 +202,7 @@ Human Practices
   </div>
   </div>
   <a href="contact.html" class="text-gray-700 hover:text-sky-700 dark:text-sky-200 dark:hover:text-gray-700 transition-colors">Contact</a>
-  <button id="darkToggle" onclick="document.documentElement.classList.toggle('dark')" class="px-4 py-2 bg-sky-100 text-gray-700 hover:bg-gray-900 hover:text-sky-100 rounded">
+  <button id="darkToggle" onclick="document.documentElement.classList.toggle('dark')" class="px-4 py-2 bg-sky-100 text-gray-700 hover:bg-gray-900 hover:text-sky-100 rounded dark:text-sky-200 dark:bg-black dark:hover:bg-sky-100 dark:hover:text-gray-700">
   Dark Mode
   </button>
   </nav>
@@ -308,6 +310,70 @@ Human Practices
   </div>
 </div>
 </div>
+<!-- svg_code = ''' -->
+<svg width="500" height="200" viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Bacterium Body -->
+  <ellipse cx="250" cy="100" rx="80" ry="40" fill="lightgreen" stroke="green" stroke-width="3" />
+
+  <!-- Glucose Molecule (Moving to Bacterium) -->
+  <circle id="glucose" cx="50" cy="100" r="10" fill="orange">
+    <!-- Moves the glucose molecule continuously from left to right -->
+    <animate attributeName="cx" from="50" to="200" dur="3s" repeatCount="indefinite" />
+    <!-- Makes the glucose fade out (simulate absorption) -->
+    <animate attributeName="opacity" values="1;0" dur="3s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Pathway (Metabolic Pathway) -->
+  <path id="pathway" d="M200 100 C 230 70, 230 130, 270 100" stroke="blue" fill="transparent" stroke-width="2">
+    <animate attributeName="stroke-dashoffset" from="500" to="0" dur="3s" repeatCount="indefinite" />
+  </path>
+
+  <!-- Product Molecules (Simulating ATP exit and movement toward external atom) -->
+  <circle id="product1" cx="270" cy="100" r="8" fill="green">
+    <animate attributeName="cx" from="270" to="320" dur="2s" begin="3s" repeatCount="indefinite" />
+    <animate attributeName="cy" from="100" to="90" dur="2s" begin="3s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0;1;0" dur="2s" begin="3s" repeatCount="indefinite" />
+  </circle>
+
+  <circle id="product2" cx="270" cy="110" r="8" fill="green">
+    <animate attributeName="cx" from="270" to="320" dur="2s" begin="3s" repeatCount="indefinite" />
+    <animate attributeName="cy" from="110" to="120" dur="2s" begin="3s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0;1;0" dur="2s" begin="3s" repeatCount="indefinite" />
+  </circle>
+
+  <circle id="product3" cx="270" cy="90" r="8" fill="green">
+    <animate attributeName="cx" from="270" to="320" dur="2s" begin="3s" repeatCount="indefinite" />
+    <animate attributeName="cy" from="90" to="80" dur="2s" begin="3s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0;1;0" dur="2s" begin="3s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- External Atom (Target for Complex Formation) -->
+  <circle id="external_atom" cx="400" cy="100" r="10" fill="blue" />
+
+  <!-- Product Molecules forming a Complex around the External Atom -->
+  <circle id="product_complex1" cx="320" cy="90" r="8" fill="green">
+    <animate attributeName="cx" from="320" to="400" dur="2s" begin="6s" repeatCount="indefinite" />
+    <animate attributeName="cy" from="90" to="100" dur="2s" begin="6s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0;1;0" dur="2s" begin="6s" repeatCount="indefinite" />
+  </circle>
+
+  <circle id="product_complex2" cx="320" cy="110" r="8" fill="green">
+    <animate attributeName="cx" from="320" to="400" dur="2s" begin="6s" repeatCount="indefinite" />
+    <animate attributeName="cy" from="110" to="100" dur="2s" begin="6s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0;1;0" dur="2s" begin="6s" repeatCount="indefinite" />
+  </circle>
+
+  <circle id="product_complex3" cx="320" cy="80" r="8" fill="green">
+    <animate attributeName="cx" from="320" to="400" dur="2s" begin="6s" repeatCount="indefinite" />
+    <animate attributeName="cy" from="80" to="100" dur="2s" begin="6s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0;1;0" dur="2s" begin="6s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Internal Metabolism (Rotation effect inside the bacterium) -->
+  <circle cx="250" cy="100" r="5" fill="red">
+    <animateTransform attributeName="transform" type="rotate" from="0 250 100" to="360 250 100" dur="2s" repeatCount="indefinite" />
+  </circle>
+</svg>
 
 <div class="container mx-auto px-4">
 <div class="text-center mb-12">
@@ -672,14 +738,14 @@ Human Practices
 <!-- Links -->
 <div>
 <a href="index.html" class="text-2xl font-['Pacifico'] text-primary">
-    <img src="images/logo_neu.png" alt="Home" class="h-12 w-auto">
+    <img src="images/logo_neu_footer.png" alt="Home" class="h-24 w-auto">
 </a>
 <p class="text-violet-50 font-semibold mb-6">Find us here:</p>
 <div class="flex space-x-4">
-<a href="https://teams.igem.org/5829" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+<a href="https://teams.igem.org/5829" target="_blank" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
   <img src="images/igem_logo.png" alt="Logo" class="w-6 h-6" />
 </a>
-<a href="https://www.instagram.com/igem_stuttgart/" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+<a href="https://www.instagram.com/igem_stuttgart/" target="_blank" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
   <img src="images/Instagram_logo_2016.svg.png" alt="Logo" class="w-6 h-6" />
 </a>
 </div>
@@ -919,11 +985,12 @@ Human Practices
     if (
         infoBoxOpen &&
         !infoBox.contains(event.target) &&
-        !event.target.classList.contains("colony")
+        !event.target.classList.contains("colony") &&
+        !event.target.closest("#darkToggle")
     ) {
         closeInfo();
     }
     });
     </script>
-
+</body>
 </html>

@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SynBio Team 2025</title>
+<link rel="icon" type="image/png" href="images/logo_icon.png">
 <script src="https://cdn.tailwindcss.com/3.4.16"></script>
 <script>tailwind.config={theme:{extend:{colors:{primary:'#3b82f6',secondary:'#64748b'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,6 +68,109 @@ background-color: #e5e7eb;
 .timeline-item:last-child::after {
 display: none;
 }
+.platesection {
+    background-color: #BAE6FD;
+    color: white;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.plate-container {
+    position: relative;
+}
+.plate {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #f5f5dc 0%, #ffd145 100%);
+  position: relative;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+.colony {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  position: absolute;
+  /* cursor: pointer; */
+  cursor: url(images/öse_transp_32.png) 16 16, auto;
+  border: 1px solid #fff;
+  transition: transform 0.2s ease;
+  background-color: #000000;
+}
+.colony:hover {
+  transform: scale(1.2);
+}
+.colony.active {
+  background: radial-gradient(circle at center, #8197a9 0%, #ffd145 100%);
+  transform: scale(1.5);
+  border: 2px solid #c39f33;
+}
+#info-box {
+    position: absolute;
+    top: 10px;
+    left: 420px;
+    width: 200px;
+    background-color: #222;
+    border: 1px solid #555;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #000;
+}
+.hidden {
+    display: none;
+}
+.new-button{
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 7px 14px;
+    background: linear-gradient(145deg, #0f0f0f, #1c1c1c);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 100px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    z-index: 1;
+    width: 100px;
+}
+.new-button::before{
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, #7c3aed, #7c3aed, #7c3aed);
+    animation: rotate 4s linear infinite;
+    z-index: -2;
+}
+.new-button::after{
+    content: "";
+    position: absolute;
+    inset: 2px;
+    background: #0a0a0a;
+    border-radius: inherit;
+    z-index: -1;
+}
+.new-button:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+}
+.new-button:hover .arrow{
+    transform: translateX(6px);
+}
+
 </style>
 <script>
 tailwind.config = {
@@ -83,8 +187,8 @@ if (localStorage.getItem("darkmode") === "active") {
     <header class="sticky top-0 z-50 bg-sky-100 dark:bg-black shadow-sm">
     <div class="container mx-auto px-4 py-4 flex items-center justify-between">
     <a href="#" class="text-2xl font-['Pacifico'] text-primary">
-        <!-- <img src="images/logo_neu.png" alt="Home" class="h-16 w-auto"> -->
-        <img src="images/SynBio-Logo.svg" alt="Home" class="h-16 w-auto">
+      <img src="images/logo_neu_light.png" alt="Home" class="h-20 w-auto block dark:hidden">
+      <img src="images/logo_neu_dark.png" alt="Home" class="h-20 w-auto hidden dark:block">
     </a>
     <nav class="hidden md:flex items-center space-x-8">
     <a href="#" class="text-sky-700 hover:text-sky-500 dark:text-gray-200 dark:hover:text-gray-700 font-medium flex items-center">Home</a>
@@ -122,7 +226,7 @@ Human Practices
     </div>
     </div>
     <a href="contact.html" class="text-gray-700 hover:text-sky-700 dark:text-sky-200 dark:hover:text-gray-700 transition-colors">Contact</a>
-    <button id="darkToggle" onclick="document.documentElement.classList.toggle('dark')" class="px-4 py-2 bg-sky-100 text-gray-700 hover:bg-gray-900 hover:text-sky-100 rounded">
+    <button id="darkToggle" onclick="document.documentElement.classList.toggle('dark')" class="px-4 py-2 bg-sky-100 text-gray-700 hover:bg-gray-900 hover:text-sky-100 rounded dark:text-sky-200 dark:bg-black dark:hover:bg-sky-100 dark:hover:text-gray-700">
         <i class="ri-dna-line text-xl">Dark mode</i>
     </button>
     </nav>
@@ -156,6 +260,22 @@ Human Practices
 </video>
 </div>
 </div>
+</section>
+<section class="platesection dark:bg-gray-900">
+  <div class="plate-container">
+    <div class="plate">
+      <div class="colony" data-name="Corynebacterium glutamicum" data-info="Corynebacterium glutamicum is gram-positive, non-pathogenic bacteria."  style="top: 15%; left: 35%;"></div>
+      <div class="colony" data-name="Usage of Coryne" data-info="It was discovered 1957 in Japan as glutamic acid producer." style="top: 75%; left: 60%;"></div>
+      <div class="colony" data-name="Member" data-info="We are a student team of 17 members of Technical Biology and Chemistry B.Sc." style="top: 40%; left: 75%;"></div>
+      <div class="colony" data-name="Beschreibung 4" data-info="Irgendein Inhalt 4." style="top: 75%; left: 30%;"></div>
+      <div class="colony" data-name="Beschreibung 5" data-info="Irgendein Inhalt 5." style="top: 40%; left: 15%;"></div>
+      <div class="colony" data-name="Beschreibung 6" data-info="Irgendein Inhalt 6." style="top: 50%; left: 35%;"></div>
+  </div>
+  <div id="info-box" class="hidden">
+    <h3 id="colony-name"></h3>
+    <p id="colony-info"></p>
+    <button onclick="closeInfo()" class="new-button">Close</button>
+  </div>
 </section>
 <!-- Kurze Projektbeschreibung -->
 <section class="py-20 bg-sky-200 dark:bg-gray-900"> <!-- Hier white -->
@@ -386,10 +506,14 @@ Don't miss to also check out the work of the other teams. Enjoy !</p>
 </a>
 </div>
 <div class="flex items-center justify-center p-8 bg-gray-50 rounded-lg">
-<img src="images/imgmiss.jpeg" alt="Sponsor 3" class="max-h-12 w-auto grayscale hover:grayscale-0 transition-all">
+<a href="https://frankhirschvogelstiftung.de/">
+<img src="images/hirschvogel.svg" alt="Sponsor 3" class="max-h-12 w-auto grayscale hover:grayscale-0 transition-all">
+</a>
 </div>
 <div class="flex items-center justify-center p-8 bg-gray-50 rounded-lg">
-<img src="images/imgmiss.jpeg" alt="Sponsor 4" class="max-h-12 w-auto grayscale hover:grayscale-0 transition-all">
+<a href="https://www.microsynth.com/home-ch.html">
+<img src="images/microsynth.svg" alt="Sponsor 4" class="max-h-12 w-auto grayscale hover:grayscale-0 transition-all">
+</a>
 </div>
 </div>
 <div class="sponsor-slide min-w-full grid grid-cols-4 gap-8 items-center px-4">
@@ -438,14 +562,14 @@ Don't miss to also check out the work of the other teams. Enjoy !</p>
 <!-- Links -->
 <div>
 <a href="#" class="text-2xl font-['Pacifico'] text-primary">
-    <img src="images/logo_neu.png" alt="Home" class="h-12 w-auto">
+    <img src="images/logo_neu_footer.png" alt="Home" class="h-24 w-auto">
 </a>
 <p class="text-sky-50 font-semibold mb-6">Find us here:</p>
 <div class="flex space-x-4">
-<a href="https://teams.igem.org/5829" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+<a href="https://teams.igem.org/5829" target="_blank" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
   <img src="images/igem_logo.png" alt="Logo" class="w-6 h-6" />
 </a>
-<a href="https://www.instagram.com/igem_stuttgart/" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+<a href="https://www.instagram.com/igem_stuttgart/" target="_blank" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
   <img src="images/Instagram_logo_2016.svg.png" alt="Logo" class="w-6 h-6" />
 </a>
 </div>
@@ -695,6 +819,65 @@ document.addEventListener('DOMContentLoaded', function () {
         scrub: 2
       }
     })
+});
+ document.addEventListener('DOMContentLoaded', () => {
+  const colonies = document.querySelectorAll('.colony');
+  const infoBox = document.getElementById('info-box');
+  const colonyName = document.getElementById('colony-name');
+  const colonyInfo = document.getElementById('colony-info');
+  const infoCloseBtn = infoBox.querySelector('.new-button');
+
+  let activeColony = null;
+  let infoBoxOpen = false;
+
+  function openInfo(colony) {
+    if (activeColony && activeColony !== colony) {
+      activeColony.classList.remove('active');
+    }
+
+    colony.classList.add('active');
+    activeColony = colony;
+    colonyName.textContent = colony.dataset.name || '';
+    colonyInfo.textContent = colony.dataset.info || '';
+
+    infoBox.classList.remove('hidden');
+    infoBoxOpen = true;
+  }
+
+  function closeInfo() {
+    infoBox.classList.add('hidden');
+    infoBoxOpen = false;
+    if (activeColony) {
+      activeColony.classList.remove('active');
+      activeColony = null;
+    }
+  }
+
+  window.closeInfo = closeInfo;
+
+  colonies.forEach(colony => {
+    colony.addEventListener('click', (event) => {
+      event.stopPropagation();   
+      openInfo(colony);
+    });
+  });
+
+  if (infoCloseBtn) {
+    infoCloseBtn.addEventListener('click', (event) => {
+      event.stopPropagation();
+      closeInfo();
+    });
+  }
+
+  document.addEventListener('click', (event) => {
+    if (infoBoxOpen && !infoBox.contains(event.target) && !event.target.classList.contains('colony') && !event.target.closest("#darkToggle")) {
+      closeInfo();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && infoBoxOpen) closeInfo();
+  });
 });
 
 

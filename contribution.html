@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contribution</title>
+<link rel="icon" type="image/png" href="images/logo_icon.png">
 <script src="https://cdn.tailwindcss.com/3.4.16"></script>
 <script>tailwind.config={theme:{extend:{colors:{primary:'#3b82f6',secondary:'#64748b'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,12 +43,13 @@ if (localStorage.getItem("darkmode") === "active") {
 <header class="sticky top-0 z-50 bg-sky-100 dark:bg-black shadow-sm">
 <div class="container mx-auto px-4 py-4 flex items-center justify-between">
 <a href="index.html" class="text-2xl font-['Pacifico'] text-primary">
-    <img src="images/logo_neu.png" alt="Home" class="h-16 w-auto">
+    <img src="images/logo_neu_light.png" alt="Home" class="h-20 w-auto block dark:hidden">
+    <img src="images/logo_neu_dark.png" alt="Home" class="h-20 w-auto hidden dark:block">
 </a>
 <nav class="hidden md:flex items-center space-x-8">
 <a href="index.html" class="text-gray-700 hover:text-sky-700 dark:text-sky-200 dark:hover:text-gray-700 transition-colors">Home</a>
 <div class="relative" id="projectDropdown">
-<button class="text-gray-700 hover:text-sky-700 dark:text-gray-200 dark:hover:text-gray-700 transition-colors" id="projectButton">
+<button class="text-sky-700 hover:text-sky-900 dark:text-gray-200 dark:hover:text-gray-700 transition-colors" id="projectButton">
 Project
 <i class="ri-arrow-down-s-line ml-1"></i>
 </button>
@@ -156,14 +158,14 @@ Dark Mode
 <!-- Links -->
 <div>
 <a href="index.html" class="text-2xl font-['Pacifico'] text-primary">
-    <img src="images/logo_neu.png" alt="Home" class="h-12 w-auto">
+    <img src="images/logo_neu_footer.png" alt="Home" class="h-16 w-auto">
 </a>
-<p class="text-violet-50 font-semibold mb-6">Finde uns hier:</p>
+<p class="text-violet-50 font-semibold mb-6">Find us here:</p>
 <div class="flex space-x-4">
-<a href="https://teams.igem.org/5829" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+<a href="https://teams.igem.org/5829" target="_blank" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
   <img src="images/igem_logo.png" alt="Logo" class="w-6 h-6" />
 </a>
-<a href="https://www.instagram.com/synbioteam/" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+<a href="https://www.instagram.com/igem_stuttgart/" target="_blank" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
   <img src="images/Instagram_logo_2016.svg.png" alt="Logo" class="w-6 h-6" />
 </a>
 </div>
@@ -173,16 +175,16 @@ Dark Mode
 <h3 class="text-violet-50 font-semibold mb-6">Quick Links</h3>
 <ul class="space-y-3">
 <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-<li><a href="project.html" class="text-gray-400 hover:text-violet-50 transition-colors">Projekt</a></li>
-<li><a href="notebook.html" class="text-gray-400 hover:text-violet-50 transition-colors">Labordokumentation</a></li>
-<li><a href="groups.html" class="text-gray-400 hover:text-violet-50 transition-colors">Gruppen</a></li>
-<li><a href="students.html" class="text-gray-400 hover:text-violet-50 transition-colors">Mitglieder</a></li>
-<li><a href="contact.html" class="text-gray-400 hover:text-violet-50 transition-colors">Kontakt</a></li>
+<li><a href="project.html" class="text-gray-400 hover:text-violet-50 transition-colors">Project</a></li>
+<li><a href="notebook.html" class="text-gray-400 hover:text-violet-50 transition-colors">Labdocumentation</a></li>
+<li><a href="groups.html" class="text-gray-400 hover:text-violet-50 transition-colors">Groups</a></li>
+<li><a href="students.html" class="text-gray-400 hover:text-violet-50 transition-colors">Member</a></li>
+<li><a href="contact.html" class="text-gray-400 hover:text-violet-50 transition-colors">Contact</a></li>
 </ul>
 </div>
 <!-- Kontakt -->
 <div>
-<h3 class="text-violet-50 font-semibold mb-6">Direkter Kontakt</h3>
+<h3 class="text-violet-50 font-semibold mb-6">Direct Contact</h3>
 <ul class="space-y-3">
 <li>
 <a href="mailto:synbioteam@ibmg.uni-stuttgart.de" class="text-gray-400 hover:text-violet-50 transition-colors flex items-start">

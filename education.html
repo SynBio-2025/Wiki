@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Education</title>
+<link rel="icon" type="image/png" href="images/logo_icon.png">
 <script src="https://cdn.tailwindcss.com/3.4.16"></script>
 <script>tailwind.config={theme:{extend:{colors:{primary:'#3b82f6',secondary:'#64748b'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -90,7 +91,8 @@ if (localStorage.getItem("darkmode") === "active") {
 <header class="sticky top-0 z-50 bg-sky-100 dark:bg-black shadow-sm">
 <div class="container mx-auto px-4 py-4 flex items-center justify-between">
 <a href="index.html" class="text-2xl font-['Pacifico'] text-primary">
-    <img src="images/logo_neu.png" alt="Home" class="h-16 w-auto">
+    <img src="images/logo_neu_light.png" alt="Home" class="h-20 w-auto block dark:hidden">
+    <img src="images/logo_neu_dark.png" alt="Home" class="h-20 w-auto hidden dark:block">
 </a>
 <nav class="hidden md:flex items-center space-x-8">
 <a href="index.html" class="text-gray-700 hover:text-sky-700 dark:text-sky-200 dark:hover:text-gray-700 transition-colors">Home</a>
@@ -107,7 +109,7 @@ Project
 </div>
 </div>
 <div class="relative" id="engagementDropdown">
-<button class="text-gray-700 hover:text-sky-700 dark:text-gray-200 dark:hover:text-gray-700 transition-colors" id="engagementButton">
+<button class="text-sky-700 hover:text-sky-900 dark:text-gray-200 dark:hover:text-gray-700 transition-colors" id="engagementButton">
 Human Practices
 <i class="ri-arrow-down-s-line ml-1"></i>
 </button>
@@ -297,8 +299,111 @@ Dark Mode
 
 </div>
 </div>
+
 </div>
 </div>
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 id="schools" class="text-3xl font-bold text-gray-900 dark:text-sky-50 mb-3 py-12 scroll-mt-28">School Visits</h2>
+  <div class="flex justify-center">
+  <div class="w-[95%] bg-sky-50 dark:bg-black rounded-lg p-6 flex flex-col">
+    <div>
+    <h2 class="w-full text-3xl font-bold text-center text-gray-900 dark:text-white mb-4">
+        Why did we present our project and synthetic biology to students?
+    </h2>
+    </div>
+    <div class="flex items-center gap-6">
+    <!-- image -->
+    <div class="flex-shrink-0 w-[25%]">
+      <img
+      src="images/mairec.jpeg"
+      class="w-full h-full object-cover rounded-md"
+      />
+    </div>
+    <!-- text -->
+    <div>
+      <p class="text-gray-900 dark:text-sky-200 text-justify">
+          School visits are a great way to present young people world wide problems and how to solve them with synthetic biology.
+      </p>
+      <p class="text-gray-900 dark:text-sky-200 text-justify mt-4">
+        We visited schools which were visited by our members to give more vicinity to the students as they can relate more to our life course and possibly use that as inspiration for their own life.    
+      </p>
+    </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="flex justify-center">
+  <div class="w-[95%] bg-sky-200 dark:bg-gray-900 rounded-lg p-6 flex flex-col scroll-mt-28">
+    <div>
+    <h2 class="w-full text-3xl font-bold text-center text-gray-900 dark:text-white">Our core message</h2>
+    </div>
+    <hr class="border-t-4 border-indigo-300 dark:border-indigo-600 mt-4 mb-4">
+    <div class="flex items-center gap-6 justify-end">
+    <!-- text -->
+    <div>
+      <p class="text-gray-900 dark:text-sky-200 text-justify mt-4 mb-4">
+          <strong>Why is teaching school kids about synthetic biology important?</strong> Getting relatable insights at a young age is very important to introduce a possible path and showing that problems can be solved using distinct concepts. Synthetic biology requires critical thinking and interdisciplinary skills, which are useful abilities not only in science!
+      </p>
+      <ul class="list-none space-y-2 text-gray-900 dark:text-sky-200 text-justify">
+          <li class="before:content-['🧬'] before:mr-2"><strong>What was the core message we tried to communicate?</strong> 
+          Problems which affect the whole population can be approached using methods from other disciplines. On first thoughts no one would believe that bacteria can be used to recycle spent catalysts. By thinking innovative and out of the box almost any problem can be solved.
+          </li>
+          <li class="before:content-['🦠'] before:mr-2"><strong>How did we bring the message across?</strong> We introduced the classes to the problem by presenting statistics about PGM waste. Then we linked it to our project by using their ideas on what bacteria could possibly do to create the understanding of thinking more broadly. Using their ideas we guided them through our project from the very beginning to the end. We also briefly presented our own life course to show that we once were in their phase of life.
+          </li>
+          <li class="before:content-['🌍'] before:mr-2"><strong>What did we take away from it?</strong> Synthetic biology is despite its importance still quite unknown to the broad population and what possible applications it has. By doing more and better science communication not only to young people but also non-specialists can help solving world wide problems using synthetic biology.
+      </ul>
+    </div>
+    <!-- image -->
+    <div class="flex-shrink-0 w-[25%]">
+      <img
+      src="images/mairec.jpeg"
+      class="w-full h-full object-cover rounded-md"
+      />
+    </div>
+  </div>
+      <hr class="border-t-4 border-indigo-300 dark:border-indigo-600 mt-4 mb-4">
+  </div>
+  </div>
+
+
+<div class="flex justify-center">
+<div class="w-[95%] bg-sky-200 dark:bg-gray-900 rounded-lg p-6 flex flex-col scroll-mt-28">
+    <div>
+    <h2 class="w-full text-3xl font-bold text-center text-gray-900 dark:text-white mb-4">The Schools</h2>
+    </div>
+<div class="flex">
+<div class="h-[130px] flex-1 p-4 bg-indigo-300 dark:bg-indigo-600 rounded-lg relative p-6 cursor-pointer overflow-hidden flex items-center justify-center" onclick="openTab('bb1');">
+  <span class="relative z-10 text-white font-bold text-xxl"><a href="https://www.lss-rt.de/" target="_blank">Laura Schradin Schule</a></span>
+</div>
+<div class="h-[130px] flex-1 p-4 bg-sky-600 dark:bg-sky-300 rounded-lg relative p-6 cursor-pointer overflow-hidden flex items-center justify-center" onclick="openTab('bb2');">
+    <span class="relative z-10 text-white font-bold text-xxl"><a href="https://www.thg-es.de/" target="_blank">Theodor-Heuss-Gymnasium</a></span>
+</div>
+</div>
+
+<div id="bb1" class="containerTab bg-white dark:bg-black rounded-lg" style="display:none">
+  <!-- If you want the ability to close the container, add a close button -->
+  <span onclick="this.parentElement.style.display='none'" class="closebtn text-black dark:text-white">x</span>
+  <h2 class="text-gray-900 dark:text-sky-200 text-justify">The Laura Schradin School in Reutlingen was the school Manuel Baumann visited.</h2>
+  <p class="text-gray-900 dark:text-sky-200 text-justify">detailed description</p>
+  <img src="images/ls_schule.jpg">
+</div>
+
+<div id="bb2" class="containerTab bg-white dark:bg-black rounded-lg" style="display:none">
+  <span onclick="this.parentElement.style.display='none'" class="closebtn text-black dark:text-white">x</span>
+  <h2 class="text-gray-900 dark:text-sky-200 text-justify">The Theodor-Heuss-Gymnasium was the school Amasia Schneider Rocha visited.</h2>
+  <p class="text-gray-900 dark:text-sky-200 text-justify">detailed description</p>
+  <img src="images/th_schule.jpg">
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+
 </body>
 <footer class="bg-gray-900 text-white pt-16 pb-8">
 <div class="container mx-auto px-4">
@@ -306,14 +411,14 @@ Dark Mode
 <!-- Links -->
 <div>
 <a href="index.html" class="text-2xl font-['Pacifico'] text-primary">
-    <img src="images/logo_neu.png" alt="Home" class="h-12 w-auto">
+    <img src="images/logo_neu_footer.png" alt="Home" class="h-24 w-auto">
 </a>
-<p class="text-violet-50 font-semibold mb-6">Finde uns hier:</p>
+<p class="text-violet-50 font-semibold mb-6">Find us here:</p>
 <div class="flex space-x-4">
-<a href="https://teams.igem.org/5829" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+<a href="https://teams.igem.org/5829" target="_blank" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
   <img src="images/igem_logo.png" alt="Logo" class="w-6 h-6" />
 </a>
-<a href="https://www.instagram.com/synbioteam/" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+<a href="https://www.instagram.com/igem_stuttgart/" target="_blank" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
   <img src="images/Instagram_logo_2016.svg.png" alt="Logo" class="w-6 h-6" />
 </a>
 </div>
@@ -323,16 +428,16 @@ Dark Mode
 <h3 class="text-violet-50 font-semibold mb-6">Quick Links</h3>
 <ul class="space-y-3">
 <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-<li><a href="project.html" class="text-gray-400 hover:text-violet-50 transition-colors">Projekt</a></li>
-<li><a href="notebook.html" class="text-gray-400 hover:text-violet-50 transition-colors">Labordokumentation</a></li>
-<li><a href="groups.html" class="text-gray-400 hover:text-violet-50 transition-colors">Gruppen</a></li>
-<li><a href="students.html" class="text-gray-400 hover:text-violet-50 transition-colors">Mitglieder</a></li>
-<li><a href="contact.html" class="text-gray-400 hover:text-violet-50 transition-colors">Kontakt</a></li>
+<li><a href="project.html" class="text-gray-400 hover:text-violet-50 transition-colors">Project</a></li>
+<li><a href="notebook.html" class="text-gray-400 hover:text-violet-50 transition-colors">Labdocumentation</a></li>
+<li><a href="groups.html" class="text-gray-400 hover:text-violet-50 transition-colors">Groups</a></li>
+<li><a href="students.html" class="text-gray-400 hover:text-violet-50 transition-colors">Member</a></li>
+<li><a href="contact.html" class="text-gray-400 hover:text-violet-50 transition-colors">Contact</a></li>
 </ul>
 </div>
 <!-- Kontakt -->
 <div>
-<h3 class="text-violet-50 font-semibold mb-6">Direkter Kontakt</h3>
+<h3 class="text-violet-50 font-semibold mb-6">Direct Contact</h3>
 <ul class="space-y-3">
 <li>
 <a href="mailto:synbioteam@ibmg.uni-stuttgart.de" class="text-gray-400 hover:text-violet-50 transition-colors flex items-start">
