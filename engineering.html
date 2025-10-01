@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Engineering Success</title>
+<link rel="icon" type="image/jpeg" href="images/logo_icon.png">
 <script src="https://cdn.tailwindcss.com/3.4.16"></script>
 <script>tailwind.config={theme:{extend:{colors:{primary:'#3b82f6',secondary:'#64748b'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,9 +32,10 @@ if (localStorage.getItem("darkmode") === "active") {
 <!-- Reiter -->
 <header class="sticky top-0 z-50 bg-sky-100 dark:bg-black shadow-sm">
 <div class="container mx-auto px-4 py-4 flex items-center justify-between">
-<a href="index.html" class="text-2xl font-['Pacifico'] text-primary">
-    <img src="images/logo_neu.png" alt="Home" class="h-16 w-auto">
-</a>
+<a href="#" class="text-2xl font-['Pacifico'] text-primary">
+      <img src="images/logo_neu_light.png" alt="Home" class="h-20 w-auto block dark:hidden">
+      <img src="images/logo_neu_dark.png" alt="Home" class="h-20 w-auto hidden dark:block">
+    </a>
 <nav class="hidden md:flex items-center space-x-8">
 <a href="index.html" class="text-gray-700 hover:text-sky-700 dark:text-sky-200 dark:hover:text-gray-700 transition-colors">Home</a>
 <div class="relative" id="projectDropdown">
@@ -84,11 +86,734 @@ Dark Mode
 <div class="container mx-auto px-4">
 <div class="max-w-3xl mx-auto text-center">
 <h1 class="text-4xl font-bold text-gray-900 dark:text-sky-50 mb-4">Our engineering success</h1>
-<p class="text-lg text-gray-600 dark:text-gray-400">...</p>
+<p class="text-lg text-gray-600 dark:text-gray-400 text-center">
+    <strong>Design.</strong> Every project starts with an idea. This idea is then refined into a concise plan.</p>
+<p class="text-lg text-gray-600 dark:text-gray-400 text-center">
+    <strong>Build.</strong> The plan is then applied. DNA constructs are assembled.</p>
+<p class="text-lg text-gray-600 dark:text-gray-400 text-center">
+    <strong>Design.</strong> The design is put to the test. Does it work? How does it perform?
+<p class="text-lg text-gray-600 dark:text-gray-400 text-center">
+    <strong>Learn.</strong> The takeaways from this cycle are gathered. Improvements are made. The cycle begins again.
+</p>
 </div>
 </div>
 </section>
 <body>
+
+<div class="text-center mb-12">
+<h2 id="main" class="text-3xl font-bold text-gray-900 dark:text-sky-50 mb-3 scroll-mt-24">The main cycle</h2>
+<section class="bg-sky-200 dark:bg-gray-900 py-12">
+  <div class="relative w-full max-w-4xl mx-auto">
+    <!-- Carousel track -->
+    <div id="carousel" class="overflow-hidden">
+      <div id="carouselTrack" class="flex transition-transform duration-300">
+        <!-- Card 1 -->
+        <div class="flex-shrink-0 w-full px-2 mr-2">
+          <div class="bg-sky-50 dark:bg-black shadow-lg rounded-lg p-6 flex items-start gap-6 h-[450px]">
+            <div class="flex-1 overflow-y-auto max-h-[400px] flex flex-col gap-4 pr-4 pt-4 pb-8">
+              <div class="flex items-center gap-4">
+              <div class="flex-shrink-0 w-[10%] flex justify-center">
+              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 513.156 513.156"
+             xml:space="preserve" fill="#000000" transform="rotate(90)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+             stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#C4B5FD;" d="M272.108,0.578l1.048,276h-272c10.216,132.028,121.352,236,256,236c141.384,0,256-114.612,256-256 C513.156,120.218,405.44,9.086,272.108,0.578z"></path>
+             <path style="fill:#7C3AED;" d="M254.844,0.606C114.844,1.166,0,115.538,0,256.578c0,1.34,1.132,2.664,1.156,4h253.688V0.606z"></path> <path style="fill:#C4B5FD;" d="M273.156,284.578h5.688v-8V0.994c0-0.252-4.696-0.248-7.368-0.416l1.68,276h-272 c0.208,2.684,0.524,5.34,0.816,8H273.156z"></path> </g>
+              </svg>
+            </div>
+              <h2 class="text-2xl text-gray-900 dark:text-sky-50 font-bold mb-2">Design</h2>
+              </div>
+            <p class="text-gray-900 dark:text-sky-200 text-justify ml-8 mr-8 mb-2">
+              Our team successfully engineered the bacterium <i>Corynebacterium glutamicum</i> to produce oxalic acid, a valuable chemical used
+              in everything from cleaning products to pharmaceuticals. We used <i>C. glutamicum</i> because it’s a proven industrial workhorse,
+              and we gave it a new ability by borrowing a gene from the fungus <i>Aspergillus niger</i> [<a href="#Ray" class="hover:underline">Ray et al, 2022</a>].
+            </p>
+            <p class="text-gray-900 dark:text-sky-200 text-justify mt-2 mb-2 ml-8 mr-8">
+              The key was the oxaloacetate hydrolase (oahA) gene. This gene provides the instruction to make an enzyme that directly converts a common
+              cellular compound, oxaloacetate, into oxalic acid.
+            </p>
+            <p class="text-gray-900 dark:text-sky-200 text-justify mt-2 mb-2 ml-8 mr-8">
+              Our plan was to insert the fungal OAH gene into <i>C. glutamicum</i> using a delivery vehicle called the pEKEx2 plasmid [<a href="#Bakkes" class="hover:underline">Bakkes et al, 2020</a>].
+              To make it all work, we first digitally optimized the gene's DNA sequence, adding a His6-tag (for easier protein handling later)
+              and special adapter ends for our cloning method, Gibson Assembly.
+            </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="flex-shrink-0 w-full px-2 mr-2">
+          <div class="bg-sky-50 dark:bg-black shadow-lg rounded-lg p-6 flex items-center gap-6 max-h-[450px]">
+            <div class="flex-1 overflow-y-auto max-h-[400px] flex flex-col gap-4 pr-4 pt-4 pb-4">
+              <div class="flex items-center gap-4">
+              <div class="flex-shrink-0 w-[10%] flex items-center justify-center">
+              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 513.156 513.156"
+             xml:space="preserve" fill="#000000" transform="rotate(180)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+             stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#C4B5FD;" d="M272.108,0.578l1.048,276h-272c10.216,132.028,121.352,236,256,236c141.384,0,256-114.612,256-256 C513.156,120.218,405.44,9.086,272.108,0.578z"></path>
+             <path style="fill:#7C3AED;" d="M254.844,0.606C114.844,1.166,0,115.538,0,256.578c0,1.34,1.132,2.664,1.156,4h253.688V0.606z"></path> <path style="fill:#C4B5FD;" d="M273.156,284.578h5.688v-8V0.994c0-0.252-4.696-0.248-7.368-0.416l1.68,276h-272 c0.208,2.684,0.524,5.34,0.816,8H273.156z"></path> </g>
+              </svg>
+              </div>
+              <h2 class="text-2xl text-gray-900 dark:text-sky-50 font-bold mb-2">Build</h2>
+              </div>
+            <p class="text-gray-900 dark:text-sky-200 text-justify mb-2 ml-8 mr-8">
+              We built our final plasmid in a few steps:
+            </p>
+            <ul class="list-decimal pl-6 mt-2 ml-8 mr-8 text-gray-900 dark:text-sky-200 text-justify">
+            <li>Prepare the Vector: We cut the circular pEKEx2 plasmid with two restriction enzymes, PstI and SalI,
+              to make it a linear piece of DNA.</li>
+            <li>Prepare the Insert: We used a high-fidelity Q5 PCR to make millions of copies of our optimized oahA gene.</li>
+            <li>Assemble: Using Gibson Assembly, we seamlessly stitched the oahA gene into the linearized plasmid.</li>
+            </ul>
+            <p class="text-gray-900 dark:text-sky-200 text-justify mt-2 mb-2 ml-8 mr-8">
+              The complete plasmid was first put into <i>E. coli</i>, which acts like a factory to produce lots of copies for our main experiment.
+            </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="flex-shrink-0 w-full px-2 mr-2">
+          <div class="bg-sky-50 dark:bg-black shadow-lg rounded-lg p-6 flex items-center gap-6 max-h-[450px]">
+            <div class="flex-1 overflow-y-auto max-h-[400px] flex flex-col gap-4 pr-4 pt-4 pb-4">
+              <div class="flex items-center gap-4">
+              <div class="flex-shrink-0 w-[10%] flex items-center justify-center">
+              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 513.156 513.156"
+             xml:space="preserve" fill="#000000" transform="rotate(270)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+             stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#C4B5FD;" d="M272.108,0.578l1.048,276h-272c10.216,132.028,121.352,236,256,236c141.384,0,256-114.612,256-256 C513.156,120.218,405.44,9.086,272.108,0.578z"></path>
+             <path style="fill:#7C3AED;" d="M254.844,0.606C114.844,1.166,0,115.538,0,256.578c0,1.34,1.132,2.664,1.156,4h253.688V0.606z"></path> <path style="fill:#C4B5FD;" d="M273.156,284.578h5.688v-8V0.994c0-0.252-4.696-0.248-7.368-0.416l1.68,276h-272 c0.208,2.684,0.524,5.34,0.816,8H273.156z"></path> </g>
+              </svg>
+            </div>
+              <h2 class="text-2xl text-gray-900 dark:text-sky-50 font-bold mb-2">Test</h2>
+              </div>
+            <p class="text-gray-900 dark:text-sky-200 text-justify mb-2 ml-8 mr-8">
+              We performed growth experiments to test if the genetically engineered strains would be able to grow with their
+              TCA cycle altered. While the bacteria with the oahA gene did show reduced growth rates, the effects were
+              negligible in the long run, as seen below.
+            </p>
+            <div class="flex-shrink-0 w-24 h-24 flex items-center justify-center ml-8 mr-8">
+          <img
+            src="images/logo.png"
+            alt="Justice scale"
+            class="w-full h-full object-cover rounded-md"
+          />
+            </div>
+            <p class="text-gray-900 dark:text-sky-200 text-justify mt-2 mb-2 ml-8 mr-8">
+              Using an oxalate test kit, we were also able to prove that our newly engineered strains produce oxalic acid
+              and quantify the yield in the supernatant. The production of oxalic acid over the time of a growth experiment
+              can be seen below.
+            </p>
+            <div class="flex-shrink-0 w-24 h-24 flex items-center justify-center ml-8 mr-8">
+          <img
+            src="images/logo.png"
+            alt="Justice scale"
+            class="w-full h-full object-cover rounded-md"
+          />
+            </div>
+            </div>
+          </div>
+        </div>
+
+      <!-- Card 4 -->
+      <div class="flex-shrink-0 w-full px-2 mr-2">
+          <div class="bg-sky-50 dark:bg-black shadow-lg rounded-lg p-6 flex items-center gap-6  h-[450px]">
+            <div class="flex-1 overflow-y-auto max-h-[400px] flex flex-col gap-4 pr-4 pt-4 pb-4">
+              <div class="flex items-center gap-4">
+              <div class="flex-shrink-0 w-[10%] flex items-center justify-center">
+              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 513.156 513.156"
+             xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+             stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#C4B5FD;" d="M272.108,0.578l1.048,276h-272c10.216,132.028,121.352,236,256,236c141.384,0,256-114.612,256-256 C513.156,120.218,405.44,9.086,272.108,0.578z"></path>
+             <path style="fill:#7C3AED;" d="M254.844,0.606C114.844,1.166,0,115.538,0,256.578c0,1.34,1.132,2.664,1.156,4h253.688V0.606z"></path> <path style="fill:#C4B5FD;" d="M273.156,284.578h5.688v-8V0.994c0-0.252-4.696-0.248-7.368-0.416l1.68,276h-272 c0.208,2.684,0.524,5.34,0.816,8H273.156z"></path> </g>
+              </svg>
+            </div>
+              <h2 class="text-2xl text-gray-900 dark:text-sky-50 font-bold mb-2">Learn</h2>
+              </div>
+            <p class="text-gray-900 dark:text-sky-200 text-justify mb-2 ml-8 mr-8">
+              This first cycle provided us with a proof of concept. Our genetically engineered <i>C. glutamicum</i> strains
+              are growing and producing the desired oxalic acid en masse. This was our first big breakthrough in the project.
+            </p>
+            <p class="text-gray-900 dark:text-sky-200 text-justify mt-2 mb-2 ml-8 mr-8">
+              We had to decide what our plans were from here on out:
+            </p>
+            <ul class="list-disc pl-6 mt-2 ml-8 mr-8">
+            <li class="text-gray-900 dark:text-sky-200 text-justify"> We wanted to optimize the oxalic acid production
+                of our bacteria by means of finding the optimal IPTG-induction-time and concentration.
+            </li>
+            <li class="text-gray-900 dark:text-sky-200 text-justify"> We also wanted to integrate the oahA gene into the
+                <i>C. glutamicum</i> genome to obtain a stable production strain without the need for antibiotic selection.
+            </li>
+            <li class="text-gray-900 dark:text-sky-200 text-justify"> Additionally, we wanted to test if our bacteria could
+                survive and thrive when PGM dust was added to the medium directly.
+            </li>
+            </ul>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+    <!-- Arrows -->
+    <button id="prevBtn" class="absolute top-1/2 -left-5 transform -translate-y-1/2 bg-sky-800 dark:bg-sky-200 text-white dark:text-gray-900 p-2 rounded-full z-10">
+      ‹
+    </button>
+    <button id="nextBtn" class="absolute top-1/2 -right-5 transform -translate-y-1/2 bg-sky-800 dark:bg-sky-200 text-white dark:text-gray-900 p-2 rounded-full z-10">
+      ›
+    </button>
+  </div>
+</section>
+</div>
+
+<!-- Carousel 2 -->
+<div class="text-center mb-12">
+<h2 id="opt" class="text-3xl font-bold text-gray-900 dark:text-sky-50 mb-3 scroll-mt-24">Optimization</h2>
+<section class="bg-sky-200 dark:bg-gray-900 py-12">
+  <div class="relative w-full max-w-4xl mx-auto">
+    <!-- Carousel track -->
+    <div id="carousel2" class="overflow-hidden">
+      <div id="carouselTrack2" class="flex transition-transform duration-300">
+        <!-- Card 1 -->
+        <div class="flex-shrink-0 w-full px-2 mr-2">
+          <div class="bg-sky-50 dark:bg-black shadow-lg rounded-lg p-6 flex items-center gap-6  h-[450px]">
+            <div class="flex-1 overflow-y-auto max-h-[400px] flex flex-col gap-4 pr-4 pt-4 pb-4">
+              <div class="flex items-center gap-4">
+              <div class="flex-shrink-0 w-[10%] flex items-center justify-center">
+              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 513.156 513.156"
+             xml:space="preserve" fill="#000000" transform="rotate(90)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+             stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#7DD3FC;" d="M272.108,0.578l1.048,276h-272c10.216,132.028,121.352,236,256,236c141.384,0,256-114.612,256-256 C513.156,120.218,405.44,9.086,272.108,0.578z"></path>
+             <path style="fill:#0284C7;" d="M254.844,0.606C114.844,1.166,0,115.538,0,256.578c0,1.34,1.132,2.664,1.156,4h253.688V0.606z"></path> <path style="fill:#7DD3FC;" d="M273.156,284.578h5.688v-8V0.994c0-0.252-4.696-0.248-7.368-0.416l1.68,276h-272 c0.208,2.684,0.524,5.34,0.816,8H273.156z"></path> </g>
+              </svg>
+            </div>
+              <h2 class="text-2xl text-gray-900 dark:text-sky-50 font-bold mb-2">Design</h2>
+              </div>
+            <p class="text-gray-900 dark:text-sky-200 text-justify mb-2 ml-8 mr-8">
+              For the optimization, we repeated our growth experiments with differing parameters to find the optimum.
+              To make sure our results were conclusive, we measured in triplicates.
+            </p>
+            <div class="flex-shrink-0 w-24 h-24 flex items-center justify-center ml-8 mr-8">
+          <img
+            src="images/logo.png"
+            alt="Justice scale"
+            class="w-full h-full object-cover rounded-md"
+          />
+            </div>
+            <p class="text-gray-900 dark:text-sky-200 text-justify mt-2 mb-2 ml-8 mr-8">
+              detailed description
+            </p>
+            <div class="flex-shrink-0 w-24 h-24 flex items-center justify-center ml-8 mr-8">
+          <img
+            src="images/logo.png"
+            alt="Justice scale"
+            class="w-full h-full object-cover rounded-md"
+          />
+            </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="flex-shrink-0 w-full px-2 mr-2">
+          <div class="bg-sky-50 dark:bg-black shadow-lg rounded-lg p-6 flex items-start gap-6 h-[450px]">
+            <div class="flex-1 overflow-y-auto max-h-[400px] flex flex-col gap-4 pr-4 pt-4 pb-4">
+              <div class="flex items-center gap-4">
+              <div class="flex-shrink-0 w-[10%] flex items-center justify-center">
+              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 513.156 513.156"
+             xml:space="preserve" fill="#000000" transform="rotate(180)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+             stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#7DD3FC;" d="M272.108,0.578l1.048,276h-272c10.216,132.028,121.352,236,256,236c141.384,0,256-114.612,256-256 C513.156,120.218,405.44,9.086,272.108,0.578z"></path>
+             <path style="fill:#0284C7;" d="M254.844,0.606C114.844,1.166,0,115.538,0,256.578c0,1.34,1.132,2.664,1.156,4h253.688V0.606z"></path> <path style="fill:#7DD3FC;" d="M273.156,284.578h5.688v-8V0.994c0-0.252-4.696-0.248-7.368-0.416l1.68,276h-272 c0.208,2.684,0.524,5.34,0.816,8H273.156z"></path> </g>
+              </svg>
+            </div>
+              <h2 class="text-2xl text-gray-900 dark:text-sky-50 font-bold mb-2">Build</h2>
+              </div>
+            <p class="text-gray-900 dark:text-sky-200 text-justify mb-2 ml-8 mr-8">
+              detailed description
+            </p>
+            <div class="flex-shrink-0 w-24 h-24 flex items-center justify-center ml-8 mr-8">
+          <img
+            src="images/logo.png"
+            alt="Justice scale"
+            class="w-full h-full object-cover rounded-md"
+          />
+            </div>
+            <p class="text-gray-900 dark:text-sky-200 text-justify mt-2 mb-2 ml-8 mr-8">
+              detailed description
+            </p>
+            <div class="flex-shrink-0 w-24 h-24 flex items-center justify-center ml-8 mr-8">
+          <img
+            src="images/logo.png"
+            alt="Justice scale"
+            class="w-full h-full object-cover rounded-md"
+          />
+            </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="flex-shrink-0 w-full px-2 mr-2">
+          <div class="bg-sky-50 dark:bg-black shadow-lg rounded-lg p-6 flex items-start gap-6 h-[450px]">
+            <div class="flex-1 overflow-y-auto max-h-[400px] flex flex-col gap-4 pr-4 pt-4 pb-4">
+              <div class="flex items-center gap-4">
+              <div class="flex-shrink-0 w-[10%] flex items-center justify-center">
+              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 513.156 513.156"
+             xml:space="preserve" fill="#000000" transform="rotate(270)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+             stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#7DD3FC;" d="M272.108,0.578l1.048,276h-272c10.216,132.028,121.352,236,256,236c141.384,0,256-114.612,256-256 C513.156,120.218,405.44,9.086,272.108,0.578z"></path>
+             <path style="fill:#0284C7;" d="M254.844,0.606C114.844,1.166,0,115.538,0,256.578c0,1.34,1.132,2.664,1.156,4h253.688V0.606z"></path> <path style="fill:#7DD3FC;" d="M273.156,284.578h5.688v-8V0.994c0-0.252-4.696-0.248-7.368-0.416l1.68,276h-272 c0.208,2.684,0.524,5.34,0.816,8H273.156z"></path> </g>
+              </svg>
+            </div>
+              <h2 class="text-2xl text-gray-900 dark:text-sky-50 font-bold mb-2">Test</h2>
+              </div>
+            <p class="text-gray-900 dark:text-sky-200 text-justify mb-2 ml-8 mr-8">
+              We performed growth experiments to test if the genetically engineered strains would be able to grow with their
+              TCA cycle altered. While the bacteria with the oahA gene did show reduced growth rates, the effects were
+              negligible in the long run, as seen below.
+            </p>
+            <div class="flex-shrink-0 w-24 h-24 flex items-center justify-center ml-8 mr-8">
+          <img
+            src="images/logo.png"
+            alt="Justice scale"
+            class="w-full h-full object-cover rounded-md"
+          />
+            </div>
+            <p class="text-gray-900 dark:text-sky-200 text-justify mt-2 mb-2 ml-8 mr-8">
+              Using an oxalate test kit, we were also able to prove that our newly engineered strains produce oxalic acid
+              and quantify the yield in the supernatant. The production of oxalic acid over the time of a growth experiment
+              can be seen below.
+            </p>
+            <div class="flex-shrink-0 w-24 h-24 flex items-center justify-center ml-8 mr-8">
+          <img
+            src="images/logo.png"
+            alt="Justice scale"
+            class="w-full h-full object-cover rounded-md"
+          />
+            </div>
+            </div>
+          </div>
+        </div>
+
+      <!-- Card 4 -->
+      <div class="flex-shrink-0 w-full px-2 mr-2">
+        <div class="bg-sky-50 dark:bg-black shadow-lg rounded-lg p-6 flex items-start gap-6 h-[450px]">            <div class="flex-1 overflow-y-auto max-h-[400px] flex flex-col gap-4 pr-4 pt-4 pb-4">
+              <div class="flex items-center gap-4">
+              <div class="flex-shrink-0 w-[10%] flex items-center justify-center">
+              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 513.156 513.156"
+             xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+             stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#7DD3FC;" d="M272.108,0.578l1.048,276h-272c10.216,132.028,121.352,236,256,236c141.384,0,256-114.612,256-256 C513.156,120.218,405.44,9.086,272.108,0.578z"></path>
+             <path style="fill:#0284C7;" d="M254.844,0.606C114.844,1.166,0,115.538,0,256.578c0,1.34,1.132,2.664,1.156,4h253.688V0.606z"></path> <path style="fill:#7DD3FC;" d="M273.156,284.578h5.688v-8V0.994c0-0.252-4.696-0.248-7.368-0.416l1.68,276h-272 c0.208,2.684,0.524,5.34,0.816,8H273.156z"></path> </g>
+              </svg>
+            </div>
+              <h2 class="text-2xl text-gray-900 dark:text-sky-50 font-bold mb-2">Learn</h2>
+              </div>
+            <p class="text-gray-900 dark:text-sky-200 text-justify mb-2 ml-8 mr-8">
+              This first cycle provided us with a proof of concept. Our genetically engineered <i>C. glutamicum</i> strains
+              are growing and producing the desired oxalic acid en masse. This was our first big breakthrough in the project.
+            </p>
+            <p class="text-gray-900 dark:text-sky-200 text-justify mt-2 mb-2 ml-8 mr-8">
+              We had to decide what our plans were from here on out:
+            </p>
+            <ul class="list-disc pl-6 mt-2 ml-8 mr-8">
+            <li class="text-gray-900 dark:text-sky-200 text-justify"> We wanted to optimize the oxalic acid production
+                of our bacteria by means of finding the optimal IPTG-induction-time and concentration.
+            </li>
+            <li class="text-gray-900 dark:text-sky-200 text-justify"> We also wanted to integrate the oahA gene into the
+                <i>C. glutamicum</i> genome to obtain a stable production strain without the need for antibiotic selection.
+            </li>
+            <li class="text-gray-900 dark:text-sky-200 text-justify"> Additionally, we wanted to test if our bacteria could
+                survive and thrive when PGM dust was added to the medium directly.
+            </li>
+            </ul>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+    <!-- Arrows -->
+    <button id="prevBtn2" class="absolute top-1/2 -left-5 transform -translate-y-1/2 bg-sky-800 dark:bg-sky-200 text-white dark:text-gray-900 p-2 rounded-full z-10">
+      ‹
+    </button>
+    <button id="nextBtn2" class="absolute top-1/2 -right-5 transform -translate-y-1/2 bg-sky-800 dark:bg-sky-200 text-white dark:text-gray-900 p-2 rounded-full z-10">
+      ›
+    </button>
+  </div>
+</section>
+</div>
+
+<!-- Carousel 3 -->
+<div class="text-center mb-12">
+<h2 id="chem" class="text-3xl font-bold text-gray-900 dark:text-sky-50 mb-3 scroll-mt-24">Chemistry</h2>
+<section class="bg-sky-200 dark:bg-gray-900 py-12">
+  <div class="relative w-full max-w-4xl mx-auto">
+    <!-- Carousel track -->
+    <div id="carousel3" class="overflow-hidden">
+      <div id="carouselTrack3" class="flex transition-transform duration-300">
+        <!-- Card 1 -->
+        <div class="flex-shrink-0 w-full px-2 mr-2">
+          <div class="bg-sky-50 dark:bg-black shadow-lg rounded-lg p-6 flex items-start gap-6 h-[450px]">
+            <div class="flex-1 overflow-y-auto max-h-[400px] flex flex-col gap-4 pr-4 pt-4 pb-8">
+              <div class="flex items-center gap-4">
+              <div class="flex-shrink-0 w-[10%] flex justify-center">
+              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 513.156 513.156"
+             xml:space="preserve" fill="#000000" transform="rotate(90)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+             stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#F9A8D4;" d="M272.108,0.578l1.048,276h-272c10.216,132.028,121.352,236,256,236c141.384,0,256-114.612,256-256 C513.156,120.218,405.44,9.086,272.108,0.578z"></path>
+             <path style="fill:#DB2777;" d="M254.844,0.606C114.844,1.166,0,115.538,0,256.578c0,1.34,1.132,2.664,1.156,4h253.688V0.606z"></path> <path style="fill:#F9A8D4;" d="M273.156,284.578h5.688v-8V0.994c0-0.252-4.696-0.248-7.368-0.416l1.68,276h-272 c0.208,2.684,0.524,5.34,0.816,8H273.156z"></path> </g>
+              </svg>
+            </div>
+              <h2 class="text-2xl text-gray-900 dark:text-sky-50 font-bold mb-2">Design</h2>
+              </div>
+            <p class="text-gray-900 dark:text-sky-200 text-justify ml-8 mr-8 mb-2">
+              Oxalate ions can form soluble metal oxalato complexes with PGMs like platinum, predominately as [Pt(C₂O₄)₂]²⁻
+              [<a href="#Krishnamurty" class="hover:underline">Krishnamurty, 1961</a>].
+            </p>
+            <p class="text-gray-900 dark:text-sky-200 text-justify mt-2 mb-2 ml-8 mr-8">
+              To make our own claims about PGM yields from leaching with oxalic acid, we designed a simple experimental set-up
+              with varying parameters to determine the optimal conditions. For this, we used spent catalysts ground-up into
+              PGM dust (courtesy of Mairec) that was mixed with oxalic acid and heated up over an oil bath. The resulting solution
+              with the metal oxalato complexes was filtered and distilled. The samples were analyzed via inductively coupled plasma
+              optical emission spectroscopy (ICP-OES).
+            </p>
+            <div class="flex-shrink-0 w-24 h-24 flex items-center justify-center ml-8 mr-8">
+          <img
+            src="images/logo.png"
+            alt="Justice scale"
+            class="w-full h-full object-cover rounded-md"
+          />
+            </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="flex-shrink-0 w-full px-2 mr-2">
+          <div class="bg-sky-50 dark:bg-black shadow-lg rounded-lg p-6 flex items-center gap-6 max-h-[450px]">
+            <div class="flex-1 overflow-y-auto max-h-[400px] flex flex-col gap-4 pr-4 pt-4 pb-4">
+              <div class="flex items-center gap-4">
+              <div class="flex-shrink-0 w-[10%] flex items-center justify-center">
+              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 513.156 513.156"
+             xml:space="preserve" fill="#000000" transform="rotate(180)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+             stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#F9A8D4;" d="M272.108,0.578l1.048,276h-272c10.216,132.028,121.352,236,256,236c141.384,0,256-114.612,256-256 C513.156,120.218,405.44,9.086,272.108,0.578z"></path>
+             <path style="fill:#DB2777;" d="M254.844,0.606C114.844,1.166,0,115.538,0,256.578c0,1.34,1.132,2.664,1.156,4h253.688V0.606z"></path> <path style="fill:#F9A8D4;" d="M273.156,284.578h5.688v-8V0.994c0-0.252-4.696-0.248-7.368-0.416l1.68,276h-272 c0.208,2.684,0.524,5.34,0.816,8H273.156z"></path> </g>
+              </svg>
+              </div>
+              <h2 class="text-2xl text-gray-900 dark:text-sky-50 font-bold mb-2">Build</h2>
+              </div>
+            <div class="flex items-center gap-[50px] ml-8 mr-8">
+            <p class="text-gray-900 dark:text-sky-200 text-justify">
+              The experiment was set up as follows: The PGM dust and the oxalic acid were deposited into a
+              three-neck round-bottom flask placed in an oil bath and solved in water. The leaching process
+              takes several hours, during which the oxalate ions form soluble complexes with the PGMs.
+            </p>
+            <div class="flex-shrink-0 w-1/5">
+          <img
+            src="images/chemprocess.png"
+            alt="Justice scale"
+            class="w-full object-cover rounded-md"
+          />
+          </div>
+            </div>
+            <div class="flex items-center gap-[50px] ml-8 mr-8">
+            <div class="flex-shrink-0 w-1/4">
+          <img
+            src="images/chemprocess2.png"
+            alt="Justice scale"
+            class="w-full object-cover rounded-md"
+          />
+            </div>
+            <p class="text-gray-900 dark:text-sky-200 text-justify">
+              Then, the solution is filtered to separate the complexes solved in the solution from the remaining
+              unsolved PGM dust components. This time is also used to heat up the oil bath to >100°C to evaporate
+              the water, leaving behind the desired metal oxalato complexes. This is done with the help of a reflux
+              cooler. The dry sample was then analyzed via ICP-OES.
+            </p>
+            </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="flex-shrink-0 w-full px-2 mr-2">
+          <div class="bg-sky-50 dark:bg-black shadow-lg rounded-lg p-6 flex items-center gap-6 max-h-[450px]">
+            <div class="flex-1 overflow-y-auto max-h-[400px] flex flex-col gap-4 pr-4 pt-4 pb-4">
+              <div class="flex items-center gap-4">
+              <div class="flex-shrink-0 w-[10%] flex items-center justify-center">
+              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 513.156 513.156"
+             xml:space="preserve" fill="#000000" transform="rotate(270)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+             stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#F9A8D4;" d="M272.108,0.578l1.048,276h-272c10.216,132.028,121.352,236,256,236c141.384,0,256-114.612,256-256 C513.156,120.218,405.44,9.086,272.108,0.578z"></path>
+             <path style="fill:#DB2777;" d="M254.844,0.606C114.844,1.166,0,115.538,0,256.578c0,1.34,1.132,2.664,1.156,4h253.688V0.606z"></path> <path style="fill:#F9A8D4;" d="M273.156,284.578h5.688v-8V0.994c0-0.252-4.696-0.248-7.368-0.416l1.68,276h-272 c0.208,2.684,0.524,5.34,0.816,8H273.156z"></path> </g>
+              </svg>
+            </div>
+              <h2 class="text-2xl text-gray-900 dark:text-sky-50 font-bold mb-2">Test</h2>
+              </div>
+            <p class="text-gray-900 dark:text-sky-200 text-justify mb-2 ml-8 mr-8">
+              The ICP-OES analysis offered the following results.
+            </p>
+            <div class="flex-shrink-0 w-24 h-24 flex items-center justify-center ml-8 mr-8">
+          <img
+            src="images/logo.png"
+            alt="Justice scale"
+            class="w-full h-full object-cover rounded-md"
+          />
+            </div>
+            <p class="text-gray-900 dark:text-sky-200 text-justify mt-2 mb-2 ml-8 mr-8">
+              In this simple set-up, it seems that no other PGMs than platinum were leached by the oxalic acid.
+              The leaching rate for Pt is relatively low compared to rates acquired from leaching cycles performed
+              with <i>A. niger</i> [37% <a href="#Malekian" class="hover:underline">Malekian, 2019</a>].
+            </p>
+            </div>
+          </div>
+        </div>
+
+      <!-- Card 4 -->
+      <div class="flex-shrink-0 w-full px-2 mr-2">
+          <div class="bg-sky-50 dark:bg-black shadow-lg rounded-lg p-6 flex items-center gap-6 h-[450px]">
+            <div class="flex-1 overflow-y-auto max-h-[400px] flex flex-col gap-4 pr-4 pt-4 pb-4">
+              <div class="flex items-center gap-4">
+              <div class="flex-shrink-0 w-[10%] flex items-center justify-center">
+              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 513.156 513.156"
+             xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+             stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#F9A8D4;" d="M272.108,0.578l1.048,276h-272c10.216,132.028,121.352,236,256,236c141.384,0,256-114.612,256-256 C513.156,120.218,405.44,9.086,272.108,0.578z"></path>
+             <path style="fill:#DB2777;" d="M254.844,0.606C114.844,1.166,0,115.538,0,256.578c0,1.34,1.132,2.664,1.156,4h253.688V0.606z"></path> <path style="fill:#F9A8D4;" d="M273.156,284.578h5.688v-8V0.994c0-0.252-4.696-0.248-7.368-0.416l1.68,276h-272 c0.208,2.684,0.524,5.34,0.816,8H273.156z"></path> </g>
+              </svg>
+            </div>
+              <h2 class="text-2xl text-gray-900 dark:text-sky-50 font-bold mb-2">Learn</h2>
+              </div>
+            <p class="text-gray-900 dark:text-sky-200 text-justify mb-2 ml-8 mr-8">
+              These first rudimentary cycles confirmed that we could leach platinum out of spent catalysts with oxalic acid.
+              Yet, it also proved that both the analysis of our samples as well as the complexity of the experimental set-up
+              to be more complicated than previously anticipated.
+            </p>
+            <p class="text-gray-900 dark:text-sky-200 text-justify mt-2 mb-2 ml-8 mr-8">
+              We drew the following conclusions:
+            </p>
+            <ul class="list-disc pl-6 mt-2 ml-8 mr-8">
+            <li class="text-gray-900 dark:text-sky-200 text-justify"> We needed to reach out to chemists in the field who could
+              provide necessary know-how on how and where we could analyze our samples.
+            </li>
+            <li class="text-gray-900 dark:text-sky-200 text-justify"> To improve the leaching yield, we should pretreat the
+              PGM dust. This started a lengthy process of literature research, which helped us finalize the process in theory.
+            </li>
+            </ul>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+    <!-- Arrows -->
+    <button id="prevBtn3" class="absolute top-1/2 -left-5 transform -translate-y-1/2 bg-sky-800 dark:bg-sky-200 text-white dark:text-gray-900 p-2 rounded-full z-10">
+      ‹
+    </button>
+    <button id="nextBtn3" class="absolute top-1/2 -right-5 transform -translate-y-1/2 bg-sky-800 dark:bg-sky-200 text-white dark:text-gray-900 p-2 rounded-full z-10">
+      ›
+    </button>
+  </div>
+</section>
+</div>
+
+
+<div class="text-center mb-12">
+<h2 id="model" class="text-3xl font-bold text-gray-900 dark:text-sky-50 mb-3 scroll-mt-24">Modeling</h2>
+<section class="bg-sky-200 dark:bg-gray-900 py-12">
+  <div class="relative w-full max-w-4xl mx-auto">
+    <!-- Carousel track -->
+    <div id="carousel4" class="overflow-hidden">
+      <div id="carouselTrack4" class="flex transition-transform duration-300">
+        <!-- Card 1 -->
+        <div class="flex-shrink-0 w-full px-2 mr-2">
+          <div class="bg-sky-50 dark:bg-black shadow-lg rounded-lg p-6 flex items-center gap-6  h-[450px]">
+            <div class="flex-1 overflow-y-auto max-h-[400px] flex flex-col gap-4 pr-4 pt-4 pb-4">
+              <div class="flex items-center gap-4">
+              <div class="flex-shrink-0 w-[10%] flex items-center justify-center">
+              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 513.156 513.156"
+             xml:space="preserve" fill="#000000" transform="rotate(90)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+             stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#86EFAC;" d="M272.108,0.578l1.048,276h-272c10.216,132.028,121.352,236,256,236c141.384,0,256-114.612,256-256 C513.156,120.218,405.44,9.086,272.108,0.578z"></path>
+             <path style="fill:#16A34A;" d="M254.844,0.606C114.844,1.166,0,115.538,0,256.578c0,1.34,1.132,2.664,1.156,4h253.688V0.606z"></path> <path style="fill:#86EFAC;" d="M273.156,284.578h5.688v-8V0.994c0-0.252-4.696-0.248-7.368-0.416l1.68,276h-272 c0.208,2.684,0.524,5.34,0.816,8H273.156z"></path> </g>
+              </svg>
+            </div>
+              <h2 class="text-2xl text-gray-900 dark:text-sky-50 font-bold mb-2">Design</h2>
+              </div>
+            <p class="text-gray-900 dark:text-sky-200 text-justify mb-2 ml-8 mr-8">
+              detailed description
+            </p>
+            <div class="flex-shrink-0 w-24 h-24 flex items-center justify-center ml-8 mr-8">
+          <img
+            src="images/logo.png"
+            alt="Justice scale"
+            class="w-full h-full object-cover rounded-md"
+          />
+            </div>
+            <p class="text-gray-900 dark:text-sky-200 text-justify mt-2 mb-2 ml-8 mr-8">
+              detailed description
+            </p>
+            <div class="flex-shrink-0 w-24 h-24 flex items-center justify-center ml-8 mr-8">
+          <img
+            src="images/logo.png"
+            alt="Justice scale"
+            class="w-full h-full object-cover rounded-md"
+          />
+            </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="flex-shrink-0 w-full px-2 mr-2">
+          <div class="bg-sky-50 dark:bg-black shadow-lg rounded-lg p-6 flex items-center gap-6 max-h-[450px]">
+            <div class="flex-1 overflow-y-auto max-h-[400px] flex flex-col gap-4 pr-4 pt-4 pb-4">
+              <div class="flex items-center gap-4">
+              <div class="flex-shrink-0 w-[10%] flex items-center justify-center">
+              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 513.156 513.156"
+             xml:space="preserve" fill="#000000" transform="rotate(180)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+             stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#86EFAC;" d="M272.108,0.578l1.048,276h-272c10.216,132.028,121.352,236,256,236c141.384,0,256-114.612,256-256 C513.156,120.218,405.44,9.086,272.108,0.578z"></path>
+             <path style="fill:#16A34A;" d="M254.844,0.606C114.844,1.166,0,115.538,0,256.578c0,1.34,1.132,2.664,1.156,4h253.688V0.606z"></path> <path style="fill:#86EFAC;" d="M273.156,284.578h5.688v-8V0.994c0-0.252-4.696-0.248-7.368-0.416l1.68,276h-272 c0.208,2.684,0.524,5.34,0.816,8H273.156z"></path> </g>
+              </svg>
+            </div>
+              <h2 class="text-2xl text-gray-900 dark:text-sky-50 font-bold mb-2">Build</h2>
+              </div>
+            <p class="text-gray-900 dark:text-sky-200 text-justify mb-2 ml-8 mr-8">
+              detailed description
+            </p>
+            <div class="flex-shrink-0 w-24 h-24 flex items-center justify-center ml-8 mr-8">
+          <img
+            src="images/logo.png"
+            alt="Justice scale"
+            class="w-full h-full object-cover rounded-md"
+          />
+            </div>
+            <p class="text-gray-900 dark:text-sky-200 text-justify mt-2 mb-2 ml-8 mr-8">
+              detailed description
+            </p>
+            <div class="flex-shrink-0 w-24 h-24 flex items-center justify-center ml-8 mr-8">
+          <img
+            src="images/logo.png"
+            alt="Justice scale"
+            class="w-full h-full object-cover rounded-md"
+          />
+            </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="flex-shrink-0 w-full px-2 mr-2">
+          <div class="bg-sky-50 dark:bg-black shadow-lg rounded-lg p-6 flex items-center gap-6 max-h-[450px]">
+            <div class="flex-1 overflow-y-auto max-h-[400px] flex flex-col gap-4 pr-4 pt-4 pb-4">
+              <div class="flex items-center gap-4">
+              <div class="flex-shrink-0 w-[10%] flex items-center justify-center">
+              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 513.156 513.156"
+             xml:space="preserve" fill="#000000" transform="rotate(270)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+             stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#86EFAC;" d="M272.108,0.578l1.048,276h-272c10.216,132.028,121.352,236,256,236c141.384,0,256-114.612,256-256 C513.156,120.218,405.44,9.086,272.108,0.578z"></path>
+             <path style="fill:#16A34A;" d="M254.844,0.606C114.844,1.166,0,115.538,0,256.578c0,1.34,1.132,2.664,1.156,4h253.688V0.606z"></path> <path style="fill:#86EFAC;" d="M273.156,284.578h5.688v-8V0.994c0-0.252-4.696-0.248-7.368-0.416l1.68,276h-272 c0.208,2.684,0.524,5.34,0.816,8H273.156z"></path> </g>
+              </svg>
+            </div>
+              <h2 class="text-2xl text-gray-900 dark:text-sky-50 font-bold mb-2">Test</h2>
+              </div>
+            <p class="text-gray-900 dark:text-sky-200 text-justify mb-2 ml-8 mr-8">
+              We performed growth experiments to test if the genetically engineered strains would be able to grow with their
+              TCA cycle altered. While the bacteria with the oahA gene did show reduced growth rates, the effects were
+              negligible in the long run, as seen below.
+            </p>
+            <div class="flex-shrink-0 w-24 h-24 flex items-center justify-center ml-8 mr-8">
+          <img
+            src="images/logo.png"
+            alt="Justice scale"
+            class="w-full h-full object-cover rounded-md"
+          />
+            </div>
+            <p class="text-gray-900 dark:text-sky-200 text-justify mt-2 mb-2 ml-8 mr-8">
+              Using an oxalate test kit, we were also able to prove that our newly engineered strains produce oxalic acid
+              and quantify the yield in the supernatant. The production of oxalic acid over the time of a growth experiment
+              can be seen below.
+            </p>
+            <div class="flex-shrink-0 w-24 h-24 flex items-center justify-center ml-8 mr-8">
+          <img
+            src="images/logo.png"
+            alt="Justice scale"
+            class="w-full h-full object-cover rounded-md"
+          />
+            </div>
+            </div>
+          </div>
+        </div>
+
+      <!-- Card 4 -->
+      <div class="flex-shrink-0 w-full px-2 mr-2">
+          <div class="bg-sky-50 dark:bg-black shadow-lg rounded-lg p-6 flex items-center gap-6  h-[450px]">
+            <div class="flex-1 overflow-y-auto max-h-[400px] flex flex-col gap-4 pr-4 pt-4 pb-4">
+              <div class="flex items-center gap-4">
+              <div class="flex-shrink-0 w-[10%] flex items-center justify-center">
+              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 513.156 513.156"
+             xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+             stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#86EFAC;" d="M272.108,0.578l1.048,276h-272c10.216,132.028,121.352,236,256,236c141.384,0,256-114.612,256-256 C513.156,120.218,405.44,9.086,272.108,0.578z"></path>
+             <path style="fill:#16A34A;" d="M254.844,0.606C114.844,1.166,0,115.538,0,256.578c0,1.34,1.132,2.664,1.156,4h253.688V0.606z"></path> <path style="fill:#86EFAC;" d="M273.156,284.578h5.688v-8V0.994c0-0.252-4.696-0.248-7.368-0.416l1.68,276h-272 c0.208,2.684,0.524,5.34,0.816,8H273.156z"></path> </g>
+              </svg>
+            </div>
+              <h2 class="text-2xl text-gray-900 dark:text-sky-50 font-bold mb-2">Learn</h2>
+              </div>
+            <p class="text-gray-900 dark:text-sky-200 text-justify mb-2 ml-8 mr-8">
+              This first cycle provided us with a proof of concept. Our genetically engineered <i>C. glutamicum</i> strains
+              are growing and producing the desired oxalic acid en masse. This was our first big breakthrough in the project.
+            </p>
+            <p class="text-gray-900 dark:text-sky-200 text-justify mt-2 mb-2 ml-8 mr-8">
+              We had to decide what our plans were from here on out:
+            </p>
+            <ul class="list-disc pl-6 mt-2 ml-8 mr-8">
+            <li class="text-gray-900 dark:text-sky-200 text-justify"> We wanted to optimize the oxalic acid production
+                of our bacteria by means of finding the optimal IPTG-induction-time and concentration.
+            </li>
+            <li class="text-gray-900 dark:text-sky-200 text-justify"> We also wanted to integrate the oahA gene into the
+                <i>C. glutamicum</i> genome to obtain a stable production strain without the need for antibiotic selection.
+            </li>
+            <li class="text-gray-900 dark:text-sky-200 text-justify"> Additionally, we wanted to test if our bacteria could
+                survive and thrive when PGM dust was added to the medium directly.
+            </li>
+            </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Arrows -->
+    <button id="prevBtn4" class="absolute top-1/2 -left-5 transform -translate-y-1/2 bg-sky-800 dark:bg-sky-200 text-white dark:text-gray-900 p-2 rounded-full z-10">
+      ‹
+    </button>
+    <button id="nextBtn4" class="absolute top-1/2 -right-5 transform -translate-y-1/2 bg-sky-800 dark:bg-sky-200 text-white dark:text-gray-900 p-2 rounded-full z-10">
+      ›
+    </button>
+  </div>
+</section>
+</div>
+
+<!-- Referenzen-->
+<section class="bg-sky-200 dark:bg-gray-900 py-12">
+  <div class="container mx-auto">
+    <div class="flex justify-center relative">
+      <div class="w-[75%] bg-white dark:bg-black shadow-lg p-6 flex items-center gap-6 rounded-lg">
+        <div>
+        <h2 class="text-4xl font-bold text-center text-gray-900 dark:text-sky-200 mb-4">
+        References
+        </h2>
+          <p id="Ray" class="text-sm text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
+          1. Ray et al. (2022): The soil bacterium, Corynebacterium glutamicum, from biosynthesis of value-added products to bioremediation: A master of many trades, Environmental Research, Volume 213, 2022, 113622 URL: <a href="https://doi.org/10.1016/j.envres.2022.113622">https://doi.org/10.1016/j.envres.2022.113622</a>
+          </p>
+          <p id="Bakkes" class="text-sm text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
+          2. Bakkes et al. (2020): Improved pEKEx2-derived expression vectors for tightly controlled production of recombinant proteins in Corynebacterium glutamicum, Plasmid, Volume 112, 2020, 102540 URL: <a href="https://doi.org/10.1016/j.plasmid.2020.102540">https://doi.org/10.1016/j.plasmid.2020.102540</a>
+          </p>
+          <p id="Krishnamurty" class="text-sm text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
+          3. Krishnamurty et al. (1961): The Chemistry of the Metal Oxalato Complexes, Chem. Rev., Volume 61. 213-246. URL: <a href="https://doi.org/10.1021/cr60211a001">https://doi.org/10.1021/cr60211a001</a>
+          </p>
+          <p id="Malekian" class="text-sm text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
+          4. Malekian H, Salehi M, Biria D (2019): Investigation of platinum recovery from a spent refinery catalyst with a hybrid of oxalic acid produced by Aspergillus niger and mineral acids. Waste Manag 85:264–271. URL: <a href="https://doi.org/10.1016/j.wasman.2018.12.045">https://doi.org/10.1016/j.wasman.2018.12.045</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 </body>
 
@@ -97,8 +822,8 @@ Dark Mode
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
 <!-- Links -->
 <div>
-<a href="index.html" class="text-2xl font-['Pacifico'] text-primary">
-    <img src="images/logo_neu.png" alt="Home" class="h-12 w-auto">
+<a href="#" class="text-2xl font-['Pacifico'] text-primary">
+    <img src="images/logo_neu_footer.png" alt="Home" class="h-24 w-auto">
 </a>
 <p class="text-violet-50 font-semibold mb-6">Finde uns hier:</p>
 <div class="flex space-x-4">
@@ -213,6 +938,94 @@ Dark Mode
         }
       });
 
+const track = document.getElementById('carouselTrack');
+const cards = track.children;
+let index = 0;
+
+function updateSlide() {
+  const cardWidth = cards[0].offsetWidth + 8;
+  track.style.transform = `translateX(-${index * cardWidth}px)`;
+}
+
+document.getElementById('nextBtn').addEventListener('click', () => {
+  index = (index + 1) % cards.length;  // wrap around forward
+  updateSlide();
+});
+
+document.getElementById('prevBtn').addEventListener('click', () => {
+  index = (index - 1 + cards.length) % cards.length; // wrap around backward
+  updateSlide();
+});
+
+window.addEventListener('resize', updateSlide);
+updateSlide();
+
+const track2 = document.getElementById('carouselTrack2');
+const cards2 = track2.children;
+let index2 = 0;
+
+function updateSlide2() {
+  const cardWidth = cards2[0].offsetWidth + 8;
+  track2.style.transform = `translateX(-${index2 * cardWidth}px)`;
+}
+
+document.getElementById('nextBtn2').addEventListener('click', () => {
+  index2 = (index2 + 1) % cards2.length;  // wrap around forward
+  updateSlide2();
+});
+
+document.getElementById('prevBtn2').addEventListener('click', () => {
+  index2 = (index2 - 1 + cards2.length) % cards.length; // wrap around backward
+  updateSlide2();
+});
+
+window.addEventListener('resize', updateSlide2);
+updateSlide2();
+
+const track3 = document.getElementById('carouselTrack3');
+const cards3 = track3.children;
+let index3 = 0;
+
+function updateSlide3() {
+  const cardWidth = cards3[0].offsetWidth + 8;
+  track3.style.transform = `translateX(-${index3 * cardWidth}px)`;
+}
+
+document.getElementById('nextBtn3').addEventListener('click', () => {
+  index3 = (index3 + 1) % cards3.length;  // wrap around forward
+  updateSlide3();
+});
+
+document.getElementById('prevBtn3').addEventListener('click', () => {
+  index3 = (index3 - 1 + cards3.length) % cards.length; // wrap around backward
+  updateSlide3();
+});
+
+window.addEventListener('resize', updateSlide3);
+updateSlide3();
+
+const track4 = document.getElementById('carouselTrack4');
+const cards4 = track4.children;
+let index4 = 0;
+
+function updateSlide4() {
+  const cardWidth = cards4[0].offsetWidth + 8;
+  track4.style.transform = `translateX(-${index4 * cardWidth}px)`;
+}
+
+document.getElementById('nextBtn4').addEventListener('click', () => {
+  index4 = (index4 + 1) % cards4.length;  // wrap around forward
+  updateSlide4();
+});
+
+document.getElementById('prevBtn4').addEventListener('click', () => {
+  index4 = (index4 - 1 + cards4.length) % cards.length; // wrap around backward
+  updateSlide4();
+});
+
+window.addEventListener('resize', updateSlide3);
+updateSlide3();
+
       // ===== MOBILE MENU TOGGLE =====
       const mobileMenuButton = document.querySelector('.md\\:hidden');
       const mobileMenu = document.createElement('div');
@@ -264,4 +1077,5 @@ Dark Mode
     });
     </script>
 </body>
+
 </html>
