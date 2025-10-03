@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Subgroups</title>
+  <link rel="icon" type="image/png" href="images/logo_icon.png">
   <script src="https://cdn.tailwindcss.com/3.4.16"></script>
   <script>tailwind.config = {theme: {extend: {colors: {primary: '#3b82f6', secondary: '#64748b'}, borderRadius: {'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px', 'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px'}}}}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,21 +37,24 @@ if (localStorage.getItem("darkmode") === "active") {
   <!-- Reiter -->
   <header class="sticky top-0 z-50 bg-sky-100 dark:bg-black shadow-sm">
   <div class="container mx-auto px-4 py-4 flex items-center justify-between">
-  <a href="index.html" class="text-2xl font-['Pacifico'] text-primary">
-      <img src="images/logo_neu.png" alt="Home" class="h-16 w-auto">
+  <a href="index.html" target="_blank" class="text-2xl font-['Pacifico'] text-primary">
+    <img src="images/logo_neu_light.png" alt="Home" class="h-20 w-auto block dark:hidden">
+    <img src="images/logo_neu_dark.png" alt="Home" class="h-20 w-auto hidden dark:block">
   </a>
   <nav class="hidden md:flex items-center space-x-8">
-  <a href="index.html" class="text-gray-700 dark:text-sky-200 transition-colors">Home</a>
+  <a href="index.html" target="_blank" class="text-gray-700 dark:text-sky-200 transition-colors">Home</a>
   <div class="relative" id="projectDropdown">
   <button class="text-gray-700 hover:text-sky-700 dark:text-sky-200 dark:hover:text-gray-700 transition-colors" id="projectButton">
   Project
   <i class="ri-arrow-down-s-line ml-1"></i>
   </button>
   <div class="absolute top-full left-0 mt-2 w-48 bg-white dark:bg-black rounded-lg shadow-lg py-2 hidden" id="projectMenu">
-  <a href="project.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:text-gray-300 dark:hover:bg-gray-900 dark:hover:text-sky-100">Project</a>
-  <a href="notebook.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:text-gray-300 dark:hover:bg-gray-900 dark:hover:text-sky-100">Lab documentation</a>
-  <a href="contribution.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:text-gray-300 dark:hover:bg-gray-900 dark:hover:text-sky-100">Contribution</a>
-  <a href="engineering.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:text-gray-300 dark:hover:bg-gray-900 dark:hover:text-sky-100">Engineering success</a>
+  <a href="project.html" target="_blank" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:text-gray-300 dark:hover:bg-gray-900 dark:hover:text-sky-100">Project</a>
+  <a href="notebook.html" target="_blank" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:text-gray-300 dark:hover:bg-gray-900 dark:hover:text-sky-100">Lab documentation</a>
+  <a href="contribution.html" target="_blank" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:text-gray-300 dark:hover:bg-gray-900 dark:hover:text-sky-100">Contribution</a>
+  <a href="engineering.html" target="_blank" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:text-gray-300 dark:hover:bg-gray-900 dark:hover:text-sky-100">Engineering success</a>
+  <a href="modeling.html" target="_blank" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Modeling</a>
+  <a href="results.html" target="_blank" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Results</a>
   </div>
   </div>
   <div class="relative" id="engagementDropdown">
@@ -59,8 +63,8 @@ Human Practices
 <i class="ri-arrow-down-s-line ml-1"></i>
 </button>
 <div class="absolute top-full left-0 mt-2 w-48 bg-white dark:bg-black rounded-lg shadow-lg py-2 hidden" id="engagementMenu">
-<a href="human-practices.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:text-gray-300 dark:hover:bg-gray-900 dark:hover:text-sky-100">Human Practices</a>
-<a href="education.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:text-gray-300 dark:hover:bg-gray-900 dark:hover:text-sky-100">Education</a>
+<a href="human-practices.html" target="_blank" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:text-gray-300 dark:hover:bg-gray-900 dark:hover:text-sky-100">Human Practices</a>
+<a href="education.html" target="_blank" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:text-gray-300 dark:hover:bg-gray-900 dark:hover:text-sky-100">Education</a>
 </div>
 </div>
   <div class="relative" id="groupsDropdown">
@@ -69,13 +73,13 @@ Human Practices
   <i class="ri-arrow-down-s-line ml-1"></i>
   </button>
   <div class="absolute top-full left-0 mt-2 w-48 bg-white dark:bg-black rounded-lg shadow-lg py-2 hidden" id="groupsMenu">
-  <a href="students.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:text-gray-300 dark:hover:bg-gray-900 dark:hover:text-sky-100">Members</a>
+  <a href="students.html" target="_blank" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:text-gray-300 dark:hover:bg-gray-900 dark:hover:text-sky-100">Members</a>
   <a href="groups.html" class="block px-4 py-2 text-sky-700 hover:text-sky-500 rounded-lg hover:bg-sky-50 dark:text-gray-200 dark:hover:bg-gray-900 dark:hover:text-sky-100">Subgroups</a>
-  <a href="attributions.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:text-gray-300 dark:hover:bg-gray-900 dark:hover:text-sky-100">Attributions</a>
+  <a href="attributions.html" target="_blank" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:text-gray-300 dark:hover:bg-gray-900 dark:hover:text-sky-100">Attributions</a>
   </div>
   </div>
-  <a href="contact.html" class="text-gray-700 hover:text-sky-700 dark:text-sky-200 dark:hover:text-gray-700 transition-colors">Contact</a>
-  <button id="darkToggle" onclick="document.documentElement.classList.toggle('dark')" class="px-4 py-2 bg-sky-100 text-gray-700 hover:bg-gray-900 hover:text-sky-100 rounded">
+  <a href="contact.html" target="_blank" class="text-gray-700 hover:text-sky-700 dark:text-sky-200 dark:hover:text-gray-700 transition-colors">Contact</a>
+  <button id="darkToggle" onclick="document.documentElement.classList.toggle('dark')" class="px-4 py-2 bg-sky-100 text-gray-700 hover:bg-gray-900 hover:text-sky-100 rounded dark:text-sky-200 dark:bg-black dark:hover:bg-sky-100 dark:hover:text-gray-700">
       Dark Mode
   </button>
   </nav>
@@ -148,7 +152,7 @@ Human Practices
               <h3 class="text-lg font-semibold text-gray-900 dark:text-sky-50 hover:text-sky-700 dark:hover:text-sky-200">Teamleader: <a href="students.html#noemireusing">Noemi
                   Reusing </a>, <a href="students.html#yazanahmad">Yazan Ahmad</a></h3>
               <span class="text-xs font-medium text-sky-50 bg-gray-900 hover:bg-sky-50 hover:text-gray-900 dark:text-black dark:bg-sky-50 dark:hover:bg-black dark:hover:text-sky-50 px-2 py-1 text-center rounded-full"><a
-                  href="https://www.ibvt.uni-stuttgart.de/de/">Institut für Bioverfahrenstechnik </a> </span>
+                  href="https://www.ibvt.uni-stuttgart.de/de/">Institut of Biochemical Engineering </a> </span>
             </div>
             <p class="text-gray-900 dark:text-sky-50 font-medium text-sm mb-2">Task: Genome integration of the ohaA-gene and optimization of the oxalate synthesis.</p>
             <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Beschreibung einfügen.</p>
@@ -264,7 +268,7 @@ Human Practices
             </div>
             <p class="text-gray-900 dark:text-sky-50 font-medium text-sm mb-2">Task: Sponsoring for iGem funding, PR work.</p>
             <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Our work mostly focuses on the promotion and the acquisition of our project.
-Participating at the iGEM competition is very expensive/ has grown very expensive over the past years and our team faced that challenge by net-working with various institutions at the university related with Biology like the <a href="https://www.srcsb.uni-stuttgart.de/">Stuttgarter Research Center for Systems Biology</a> and with many (major) companies like Würth and Audi which all supported our vision with financial aid as well as with promoting our project further.
+Participating at the iGEM competition is very expensive/ has grown very expensive over the past years and our team faced that challenge by net-working with various institutions at the university related with Biology like the <a href="https://www.srcsb.uni-stuttgart.de/">Stuttgarter Research Center for Systems Biology</a> and with many (major) companies like Audi which all supported our vision with financial aid as well as with promoting our project further.
 Additionally, we keep people constantly informed about all activities, successes and break-throughs on our <a href="https://www.instagram.com/igem_stuttgart/">Instagram channel</a> and on this <a href="index.html">website</a>.
 <br>Don't miss to also check out the work of the <a href="https://teams.igem.org/">other teams</a>. Enjoy.</p>
           </div>
@@ -350,7 +354,7 @@ Additionally, we keep people constantly informed about all activities, successes
           </div>
           <div class="p-6">
             <div class="flex items-center justify-between mb-2">
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-sky-50">Schulbesuche</a> </h3>
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-sky-50">School Visits</a> </h3>
               <span class="text-xs font-medium text-sky-50 bg-gray-900 hover:bg-sky-50 hover:text-gray-900 dark:text-black dark:bg-sky-50 dark:hover:bg-black dark:hover:text-sky-50 px-2 py-1 rounded-full">iGem Education</span>
             </div>
             <p class="text-gray-900 dark:text-sky-50 font-medium text-sm mb-2">Task: Educate youth on synthetic biology, iGem, and the workflow of a project from brainstorming to lab work.</p>
@@ -400,17 +404,15 @@ Additionally, we keep people constantly informed about all activities, successes
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
         <!-- Links -->
         <div>
-          <a href="#" class="text-2xl font-['Pacifico'] text-primary">
-            <img src="images/logo_neu.png" alt="Home" class="h-12 w-auto">
+          <a href="index.html" target="_blank" class="text-2xl font-['Pacifico'] text-primary">
+            <img src="images/logo_neu_footer.png" alt="Home" class="h-24 w-auto">
           </a>
           <p class="text-violet-50 font-semibold mb-6">Find us here:</p>
           <div class="flex space-x-4">
-            <a href="https://teams.igem.org/5829"
-              class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+            <a href="https://teams.igem.org/5829" target="_blank" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
               <img src="images/igem_logo.png" alt="Logo" class="w-6 h-6" />
             </a>
-            <a href="https://www.instagram.com/igem_stuttgart/"
-              class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+            <a href="https://www.instagram.com/igem_stuttgart/" target="_blank" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
               <img src="images/Instagram_logo_2016.svg.png" alt="Logo" class="w-6 h-6" />
             </a>
           </div>
@@ -419,12 +421,12 @@ Additionally, we keep people constantly informed about all activities, successes
         <div>
         <h3 class="text-violet-50 font-semibold mb-6">Quick Links</h3>
         <ul class="space-y-3">
-        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-        <li><a href="project.html" class="text-gray-400 hover:text-violet-50 transition-colors">Project</a></li>
-        <li><a href="notebook.html" class="text-gray-400 hover:text-violet-50 transition-colors">Labdocumentation</a></li>
+        <li><a href="index.html" target="_blank" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+        <li><a href="project.html" target="_blank" class="text-gray-400 hover:text-violet-50 transition-colors">Project</a></li>
+        <li><a href="notebook.html" target="_blank" class="text-gray-400 hover:text-violet-50 transition-colors">Labdocumentation</a></li>
         <li><a href="groups.html" class="text-gray-400 hover:text-violet-50 transition-colors">Groups</a></li>
-        <li><a href="students.html" class="text-gray-400 hover:text-violet-50 transition-colors">Member</a></li>
-        <li><a href="contact.html" class="text-gray-400 hover:text-violet-50 transition-colors">Contact</a></li>
+        <li><a href="students.html" target="_blank" class="text-gray-400 hover:text-violet-50 transition-colors">Member</a></li>
+        <li><a href="contact.html" target="_blank" class="text-gray-400 hover:text-violet-50 transition-colors">Contact</a></li>
         </ul>
         </div>
         <!-- Kontakt -->
@@ -432,51 +434,26 @@ Additionally, we keep people constantly informed about all activities, successes
           <h3 class="text-violet-50 font-semibold mb-6">Direct Contact</h3>
           <ul class="space-y-3">
             <li>
-              <a href="mailto:synbioteam@ibmg.uni-stuttgart.de"
-                class="text-gray-400 hover:text-violet-50 transition-colors flex items-start">
-                <i class="ri-mail-line mr-3 mt-1"></i>
-                <span>synbioteam@ibmg.uni-stuttgart.de</span>
-              </a>
-            </li>
-            <li>
-              <a href="mailto:collaboration@studentshowcase.edu"
-                class="text-gray-400 hover:text-violet-50 transition-colors flex items-start">
-                <i class="ri-mail-line mr-3 mt-1"></i>
-                <span>Finanzen Mail einfügen</span>
-              </a>
-            </li>
-            <li>
-              <a href="mailto:info@studentshowcase.edu"
-                class="text-gray-400 hover:text-violet-50 transition-colors flex items-start">
-                <i class="ri-mail-line mr-3 mt-1"></i>
-                <span>IT Mail einfügen</span>
-              </a>
-            </li>
-            <li>
-              <a href="mailto:info@studentshowcase.edu"
-                class="text-gray-400 hover:text-violet-50 transition-colors flex items-start">
-                <i class="ri-mail-line mr-3 mt-1"></i>
-                <span>Bio Mail einfügen</span>
-              </a>
-            </li>
-            <li>
-              <a href="mailto:info@studentshowcase.edu"
-                class="text-gray-400 hover:text-violet-50 transition-colors flex items-start">
-                <i class="ri-mail-line mr-3 mt-1"></i>
-                <span>Chemie Mail einfügen</span>
-              </a>
+<a href="mailto:synbioteam@ibmg.uni-stuttgart.de" class="text-gray-400 hover:text-sky-50 transition-colors flex items-start">
+<i class="ri-mail-line mr-3 mt-1"></i>
+<span>synbioteam@ibmg.uni-stuttgart.de</span>
+</a>
+</li>
+<li>
+<a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x4799dc403b966fb1:0xfdc3e256ffac2fff?sa=X&ved=1t:8290&ictx=111" class="text-gray-400 hover:text-sky-50 transition-colors flex items-start" target="_blank">
+<i class="ri-home-3-line mr-3 mt-1"></i>
+<span>Allmandring 31, 70569 Stuttgart</span>
+</a>
+</li>
+<li>
+<a href="tel:071168564574" class="text-gray-400 hover:text-sky-50 transition-colors flex items-start">
+<i class="ri-phone-line mr-3 mt-1"></i>
+<span>0711 68564574</span>
+</a>
             </li>
           </ul>
         </div>
         <!-- Datenschutz -->
-        <div class="pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
-          <p>&copy; 2025 SynBio Team. All rights reserved.</p>
-          <div class="flex justify-center space-x-4 mt-4">
-            <a href="#" class="hover:text-violet-50 transition-colors">Privacy Policy</a>
-            <a href="#" class="hover:text-violet-50 transition-colors">Terms of Service</a>
-            <a href="#" class="hover:text-violet-50 transition-colors">Cookie Policy</a>
-          </div>
-        </div>
       </div>
   </footer>
     <script>
@@ -496,11 +473,29 @@ Additionally, we keep people constantly informed about all activities, successes
         engagementMenu.classList.add('hidden');
       });
 
+      projectButton.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+        event.stopPropagation();
+        projectMenu.classList.toggle('hidden');
+        groupsMenu.classList.add('hidden');
+        engagementMenu.classList.add('hidden');
+        }
+      });
+
       groupsButton.addEventListener('click', function (e) {
         e.stopPropagation();
         groupsMenu.classList.toggle('hidden');
         projectMenu.classList.add('hidden');
         engagementMenu.classList.add('hidden');
+      });
+         
+      groupsButton.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+        event.stopPropagation();
+        groupsMenu.classList.toggle('hidden');
+        projectMenu.classList.add('hidden');
+        engagementMenu.classList.add('hidden');
+        }
       });
 
       engagementButton.addEventListener('click', function (e) {
@@ -508,6 +503,15 @@ Additionally, we keep people constantly informed about all activities, successes
         engagementMenu.classList.toggle('hidden');
         groupsMenu.classList.add('hidden');
         projectMenu.classList.add('hidden');
+      });
+            
+      engagementButton.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+        event.stopPropagation();
+        projectMenu.classList.add('hidden');
+        groupsMenu.classList.add('hidden');
+        engagementMenu.classList.toggle('hidden');
+        }
       });
 
       document.addEventListener('click', function (e) {
