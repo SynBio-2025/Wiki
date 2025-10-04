@@ -3,17 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Project</title>
+<title>Projekt</title>
 <link rel="icon" type="image/png" href="images/logo_icon.png">
 <script src="https://cdn.tailwindcss.com/3.4.16"></script>
 <script>tailwind.config={theme:{extend:{colors:{primary:'#3b82f6',secondary:'#64748b'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="reset.css">
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
 <style>
 :where([class^="ri-"])::before { content: "\f3c2"; }
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  list-style: none;
+}
 body {
 font-family: 'Inter', sans-serif;
 }
@@ -33,7 +41,7 @@ font-family: 'Inter', sans-serif;
   width: 130px;
   position: sticky;
   z-index: 1;
-  top: 120px;
+  top: 110px;
   left: 20px;
   padding: 8px 0;
   border-radius: 12px;
@@ -146,62 +154,6 @@ font-family: 'Inter', sans-serif;
 .new-button:hover .arrow{
     transform: translateX(6px);
 }
-
-.gallery-row::after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-
-.gallery-col {
-float: center;
-width: 25%;
-padding: 10px;
-text-align: center;
-cursor: pointer;
-}
-
-.gallery-col img {
-width: 100%;
-border-radius: 8px;
-transition: transform 0.3s ease;
-}
-
-.gallery-col img:hover {
-transform: scale(1.05);
-}
-
-/* Lightbox */
-.lightbox {
-display: none;
-position: fixed;
-z-index: 9999;
-padding-top: 60px;
-left: 0;
-top: 0;
-width: 100%;
-height: 100%;
-background: rgba(0,0,0,0.8);
-}
-
-.lightbox-content {
-margin: auto;
-display: block;
-max-width: 80%;
-max-height: 80%;
-border-radius: 8px;
-}
-
-.close {
-position: absolute;
-top: 20px;
-right: 35px;
-color: white;
-font-size: 40px;
-font-weight: bold;
-cursor: pointer;
-}
-
 </style>
 <script>
 tailwind.config = {
@@ -230,12 +182,12 @@ if (localStorage.getItem("darkmode") === "active") {
   <i class="ri-arrow-down-s-line ml-1"></i>
   </button>
   <div class="absolute top-full left-0 mt-2 w-48 bg-white dark:bg-black rounded-lg shadow-lg py-2 hidden" id="projectMenu">
-  <a href="project.html" class="block px-4 py-2 text-sky-700 hover:text-sky-500 rounded-lg hover:bg-sky-50 dark:text-gray-200 dark:hover:bg-gray-900 dark:hover:text-sky-100">Project</a>
+  <a href="project.html" target="_blank" class="block px-4 py-2 text-gray-700 hover:text-sky-500 rounded-lg hover:bg-sky-50 dark:text-gray-200 dark:hover:bg-gray-900 dark:hover:text-sky-100">Project</a>
   <a href="notebook.html" target="_blank" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:text-gray-300 dark:hover:bg-gray-900 dark:hover:text-sky-100">Lab documentation</a>
   <a href="contribution.html" target="_blank" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:text-gray-300 dark:hover:bg-gray-900 dark:hover:text-sky-100">Contribution</a>
   <a href="engineering.html" target="_blank" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:text-gray-300 dark:hover:bg-gray-900 dark:hover:text-sky-100">Engineering success</a>
   <a href="modeling.html" target="_blank" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Modeling</a>
-  <a href="results.html" target="_blank" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Results</a>
+  <a href="results.html" class="block px-4 py-2 text-sky-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Results</a>
   </div>
   </div>
   <div class="relative" id="engagementDropdown">
@@ -273,7 +225,6 @@ Human Practices
 <aside class="sidenav mt-24 bg-sky-50 dark:bg-black text-gray-900 dark:text-sky-200 outline outline-2 outline-sky-50 dark:outline-black shadow-lg">
   <h2 class="text-center text-lg font-bold text-gray-900 dark:text-sky-200">Contents</h2>
   <a class="rounded-lg hover:bg-sky-200 dark:hover:bg-gray-900" href="#problemdarstellung">The problem</a>
-  <a class="rounded-lg hover:bg-sky-200 dark:hover:bg-gray-900" href="#idea">The idea</a>
   <a class="rounded-lg hover:bg-sky-200 dark:hover:bg-gray-900" href="#organism">Organism</a>
   <a class="rounded-lg hover:bg-sky-200 dark:hover:bg-gray-900" href="#plasmid">Plasmid</a>
   <a class="rounded-lg hover:bg-sky-200 dark:hover:bg-gray-900" href="#optimization">Optimization</a>
@@ -300,9 +251,8 @@ Human Practices
           <svg id="Icon" class="cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill="#3B82F6" width="100px" height="100px" viewBox="0 0 24 24" stroke="#1E3A8A" transform="rotate(180)">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path>
           </svg>
-        <div id="clickme" class="group ml-[200px]">
-          <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-sky-200 group-hover:hidden">The current problem</h2>
-          <h2 class="hidden group-hover:block text-3xl font-bold text-center text-red-700 transition duration-300"><-- Click the i to find out!</h2>
+        <div id="clickme">
+          <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-sky-200 ml-[300px]">The current problem</h2>
         </div>
         </div>
         <div class="content hidden bg-white dark:bg-black rounded-lg p-4">
@@ -332,56 +282,6 @@ Human Practices
 
 <div class="container mx-auto px-4">
 <div class="text-center mb-12">
-  <div class="flex justify-center">
-  <div class="w-[95%] bg-sky-50 dark:bg-black rounded-lg p-4 flex flex-col">
-    <div>
-    <h2 id="idea" class="w-full text-3xl font-bold text-center text-gray-900 dark:text-white mb-4 scroll-mt-28">
-       The idea
-    </h2>
-    </div>
-    <div class="flex items-center gap-6 mx-8 mb-8">
-    <!-- text -->
-    <div>
-      <p class="text-gray-900 dark:text-sky-200 text-justify">
-          In order to optimize the oxalate production, we followed two different approaches:
-      </p>
-      <ul class="list-disc pl-6 mt-2">
-        <li class="text-gray-900 dark:text-sky-200 text-justify">Changing the cultivation parameters</li>
-        <li class="text-gray-900 dark:text-sky-200 text-justify">Engineering the strain itself</li>
-      </ul>
-      <p class="text-gray-900 dark:text-sky-200 text-justify mt-4">
-        Since we used a inducible plasmid as carrier for the oxalacetate hydrolysate gene, we tested different
-        induction times and inducer concentrations in our cultivations. This way, we were able to determine the optimal
-        production conditions. The experiments were carried out in BioLector or shake flask cultivations and oxalate
-        production was measured using an enzyme assay.
-      </p>
-      <p class="text-gray-900 dark:text-sky-200 text-justify mt-4">
-        To obtain a more stable production strain without the need for antibiotic selection, we are planning to
-        integrate the oahA gene into the <i>C. glutamicum</i> genome. For this, we will introduce the gene via Gibson
-        Assembly into the integration vector pK19mobsacB, which will then be electroporated into the bacteria. After
-        selection by antibiotic resistance markers, the confirmed mutants can be tested for oxalate production.
-      </p>
-      <figure class="mx-auto flex flex-col items-center w-[40%] mt-4">
-      <img
-      src="images/GenomeIntegration.jpeg"
-      class="w-full h-full object-cover rounded-md"
-      />
-      <figcaption class="text-sm text-gray-700 dark:text-gray-200 text-justify mt-2 w-[160%]">Integration of oahA_CG with lacI
-        repressor system into the genome of C. glutamicum.</figcaption>
-    </figure>
-      <p class="text-gray-900 dark:text-sky-200 text-justify mt-4">
-       detailed description
-      </p>
-    </div>
-    </div>
-  </div>
-  </div>
-</div>
-</div>
-
-
-<div class="container mx-auto px-4">
-<div class="text-center mb-12">
 <h2 id="organism" class="text-3xl font-bold text-gray-900 dark:text-sky-50 scroll-mt-28">Organism</h2>
   <div class="flex justify-center">
   <div class="w-[95%] bg-sky-200 dark:bg-gray-900 rounded-lg p-6 flex flex-col">
@@ -393,7 +293,7 @@ Human Practices
     </div>
     <div class="flex items-center gap-6">
     <!-- image -->
-    <div class="gallery-col flex-shrink-0 w-[30%]" onclick="openLightbox(this)">
+    <div class="flex-shrink-0 w-[25%]">
       <img
       src="images/mairec.jpeg"
       class="w-full h-full object-cover rounded-md"
@@ -604,13 +504,13 @@ Human Practices
 <div class="container mx-auto px-4">
 <div class="text-center mb-12">
   <div class="flex justify-center">
-  <div class="w-[95%] bg-sky-50 dark:bg-black rounded-lg p-4">
+  <div class="w-[95%] bg-sky-50 dark:bg-black rounded-lg p-4 flex flex-col">
     <div>
     <h2 id="optimization" class="w-full text-3xl font-bold text-center text-gray-900 dark:text-white mb-4 scroll-mt-28">
        Optimization
     </h2>
     </div>
-    <div class="mx-8 mb-8">
+    <div class="flex items-center gap-6 mx-8 mb-8">
     <!-- text -->
     <div>
       <p class="text-gray-900 dark:text-sky-200 text-justify">
@@ -632,14 +532,6 @@ Human Practices
         Assembly into the integration vector pK19mobsacB, which will then be electroporated into the bacteria. After
         selection by antibiotic resistance markers, the confirmed mutants can be tested for oxalate production.
       </p>
-      <figure class="gallery-col mx-auto flex flex-col items-center w-[40%] mt-4" onclick="openLightbox(this)">
-      <img
-      src="images/GenomeIntegration.jpeg"
-      class="w-full h-full object-cover rounded-md"
-      />
-      <figcaption class="text-sm text-gray-700 dark:text-gray-200 text-justify mt-2 w-[160%]">Integration of oahA_CG with lacI
-        repressor system into the genome of C. glutamicum.</figcaption>
-    </figure>
       <p class="text-gray-900 dark:text-sky-200 text-justify mt-4">
         Other not yet realized optimization strategies include the cultivation under nitrogen limitation as well as
         supplementing e.g. ethanol, since this has been proved to elavate organic acid production in some cases. Another
@@ -651,11 +543,6 @@ Human Practices
   </div>
   </div>
 </div>
-</div>
-
-<div id="lightbox" class="lightbox">
-  <span class="close" onclick="closeLightbox()">&times;</span>
-  <img class="lightbox-content" id="lightbox-img">
 </div>
 
 <div class="container mx-auto px-4">
@@ -693,7 +580,7 @@ Human Practices
         </li>
         <li class="text-gray-900 dark:text-sky-200 text-justify">
           <strong>Analysis:</strong> Analysis of the samples is performed via Inductively Coupled Plasma –
-          Optical Emission Spectrometry (ICP-OES).
+          Optical Emission Spectrometry (ICP-OES) at the <a href="https://www.ipoc.uni-stuttgart.de/">Institute of Polymer Chemistry</a>.
         </li>
       </ul>
       <p class="text-gray-900 dark:text-sky-200 text-justify mt-4">
@@ -878,7 +765,7 @@ Human Practices
   <h3 class="text-violet-50 font-semibold mb-6">Quick Links</h3>
   <ul class="space-y-3">
   <li><a href="index.html" target="_blank" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-  <li><a href="project.html" class="text-gray-400 hover:text-violet-50 transition-colors">Project</a></li>
+  <li><a href="project.html" target="_blank" class="text-gray-400 hover:text-violet-50 transition-colors">Project</a></li>
   <li><a href="notebook.html" target="_blank" class="text-gray-400 hover:text-violet-50 transition-colors">Ladocumentation</a></li>
   <li><a href="groups.html" target="_blank" class="text-gray-400 hover:text-violet-50 transition-colors">Groups</a></li>
   <li><a href="students.html" target="_blank" class="text-gray-400 hover:text-violet-50 transition-colors">Member</a></li>
@@ -981,35 +868,6 @@ Human Practices
           engagementMenu.classList.add('hidden');
         }
       });
-
- const images = document.querySelectorAll('.gallery-col img');
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  const closeBtn = document.querySelector('.lightbox .close');
-
-  images.forEach(img => {
-    img.addEventListener('click', () => {
-      lightbox.style.display = 'block';
-      lightboxImg.src = img.src;
-    });
-  });
-
-  closeBtn.addEventListener('click', () => {
-    lightbox.style.display = 'none';
-  });
-
-  // Close lightbox if clicking outside the image
-  lightbox.addEventListener('click', e => {
-    if (e.target === lightbox) {
-      lightbox.style.display = 'none';
-    }
-  });
-
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-      lightbox.style.display = 'none';
-    }
-  });
 
  const icon = document.querySelector("#Icon path");
   let isRed = false;
@@ -1151,5 +1009,4 @@ Human Practices
     });
     </script>
 </body>
-
 </html>

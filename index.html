@@ -116,53 +116,41 @@ display: none;
     background-color: #222;
     border: 1px solid #555;
     padding: 10px;
+    max-height: 250px;
     border-radius: 10px;
     box-shadow: 0 0 10px #000;
 }
 .hidden {
     display: none;
 }
-.new-button{
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    padding: 7px 14px;
-    background: linear-gradient(145deg, #0f0f0f, #1c1c1c);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 100px;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    overflow: hidden;
-    transition: all 0.4s ease-in-out;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(8px);
-    z-index: 1;
-    width: 100px;
+.new-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.new-button::before{
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(from 0deg, #7c3aed, #7c3aed, #7c3aed);
-    animation: rotate 4s linear infinite;
-    z-index: -2;
-}
-.new-button::after{
-    content: "";
+/* .new-button::before{
+    display: inline-block;
+    /* content: "\00d7"; */
+    /* justify-content: right;
+    align-items: right;
+} */
+/* .new-button::after{ */
+    /* content: "";
     position: absolute;
     inset: 2px;
     background: #0a0a0a;
     border-radius: inherit;
-    z-index: -1;
-}
+    z-index: -1; */
+    /* display: inline-block;
+    align-items: right; */
+    /* content: "\00d7"; */
+/* } */ 
 .new-button:hover{
     transform: scale(1.05);
     box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
@@ -170,7 +158,108 @@ display: none;
 .new-button:hover .arrow{
     transform: translateX(6px);
 }
-
+.center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        /* background: linear-gradient(45deg, rgb(15, 18, 25), rgb(16, 45, 98)); */
+      }
+      .progress {
+        width: 280px;
+        height: 300px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+      }
+      .bar {
+        width: 75px;
+        border-radius: 3mm;
+        position: relative;
+        animation: progress 1s ease-out;
+          transform: scaleX(0);
+  transform-origin: bottom;
+      }
+      .animate-bars .bar {
+  transform: scaleX(1);
+  transition: transform 1s ease-out;
+}
+      .bar:nth-child(1) {
+        height: calc(150px * 0.3);
+        background: linear-gradient(rgb(246, 225, 73), transparent 100%);
+      }
+      .bar:nth-child(2) {
+        height: calc(150px * 0.33);
+        background: linear-gradient(rgb(122, 209, 69), transparent 100%);
+      }
+      .bar:nth-child(3) {
+        height: calc(150px * 0.4);
+        background: linear-gradient(rgb(244, 115, 116), transparent 100%);
+      }
+      .text {
+        position: absolute;
+        top: -70px;
+        left: 50%;
+        width: 100%;
+        height: fit-content;
+        transform: translate(-50%, 0);
+        color: white;
+        font-family: poppins;
+        font-size: 12px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .text span {
+        font-weight: 200;
+      }
+      .bar::before {
+        position: absolute;
+        content: "";
+        top: 20px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 8px;
+        height: 8px;
+        /* background: red; */
+        border-radius: 50%;
+      }
+      .text::before {
+        position: absolute;
+        content: "";
+        bottom: -55px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        background: linear-gradient(transparent 1%, rgb(255, 255, 255));
+        border-radius: 0.5mm;
+        width: 1px;
+        height: 55px;
+      }
+      @keyframes progress {
+        from {
+          height: 0;
+        }
+      }
+      .bar:hover::after {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        border-radius: 3mm;
+        animation: move 5s linear infinite;
+        background-size: 200% 100%;
+      }
+      @keyframes move {
+        0% {
+          background-position: 100% 0;
+        }
+        100% {
+          background-position: 0 0;
+        }
+      }
 </style>
 <script>
 tailwind.config = {
@@ -198,10 +287,12 @@ if (localStorage.getItem("darkmode") === "active") {
     <i class="ri-arrow-down-s-line ml-1"></i>
     </button>
     <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 hidden" id="projectMenu">
-    <a href="project.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Project</a>
-    <a href="notebook.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Lab documentation</a>
-    <a href="contribution.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Contribution</a>
-    <a href="engineering.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Engineering success</a>
+    <a href="project.html" target="_blank" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Project</a>
+    <a href="notebook.html" target="_blank" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Lab documentation</a>
+    <a href="contribution.html" target="_blank" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Contribution</a>
+    <a href="engineering.html" target="_blank" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Engineering success</a>
+    <a href="modeling.html" target="_blank" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Modeling</a>
+    <a href="results.html" target="_blank" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Results</a>
     </div>
     </div>
     <div class="relative" id="engagementDropdown">
@@ -210,8 +301,8 @@ Human Practices
 <i class="ri-arrow-down-s-line ml-1"></i>
 </button>
 <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 hidden" id="engagementMenu">
-<a href="human-practices.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Human Practices</a>
-<a href="education.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Education</a>
+<a href="human-practices.html" target="_blank" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Human Practices</a>
+<a href="education.html" target="_blank" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Education</a>
 </div>
 </div>
     <div class="relative" id="groupsDropdown">
@@ -220,12 +311,12 @@ Human Practices
     <i class="ri-arrow-down-s-line ml-1"></i>
     </button>
     <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 hidden" id="groupsMenu">
-    <a href="students.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Members</a>
-    <a href="groups.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Subgroups</a>
-    <a href="attributions.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Attributions</a>
+    <a href="students.html" target="_blank" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Members</a>
+    <a href="groups.html" target="_blank" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Subgroups</a>
+    <a href="attributions.html" target="_blank" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Attributions</a>
     </div>
     </div>
-    <a href="contact.html" class="text-gray-700 hover:text-sky-700 dark:text-sky-200 dark:hover:text-gray-700 transition-colors">Contact</a>
+    <a href="contact.html" target="_blank" class="text-gray-700 hover:text-sky-700 dark:text-sky-200 dark:hover:text-gray-700 transition-colors">Contact</a>
     <button id="darkToggle" onclick="document.documentElement.classList.toggle('dark')" class="px-4 py-2 bg-sky-100 text-gray-700 hover:bg-gray-900 hover:text-sky-100 rounded dark:text-sky-200 dark:bg-black dark:hover:bg-sky-100 dark:hover:text-gray-700">
         <i class="ri-dna-line text-xl">Dark mode</i>
     </button>
@@ -245,10 +336,10 @@ Human Practices
 <h1 id="mainHeader" class="text-4xl md:text-5xl lg:text-6xl font-bold text-sky-900 dark:text-sky-500 mb-4">SynBio Team</h1>
 <p id="mainp" class="text-lg md:text-xl text-sky-700 dark:text-sky-300 mb-4">As a student research team at the University of Stuttgart, we are combining expertise in synthetic biology and chemistry to work towards a more sustainable future. Our current project will be presented internationally at the iGEM competition 2025 in Paris.</p>
 <div class="flex flex-wrap gap-4">
-<a href="project.html">
+<a href="project.html" target="_blank">
 <button id="button1" class="bg-white text-sky-700 dark: sky-300 px-6 py-3 font-medium !rounded-button whitespace-nowrap hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-50 transition-colors">The project</button>
 </a>
-<a href="students.html">
+<a href="students.html" target="_blank">
 <button id="button2" class="bg-white text-sky-700 px-6 py-3 font-medium !rounded-button whitespace-nowrap hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-50 transition-colors">The team</button>
 </a>
 </div>
@@ -260,41 +351,67 @@ Human Practices
 </video>
 </div>
 </div>
+
 </section>
+
+
 <section class="platesection dark:bg-gray-900">
   <div class="plate-container">
     <div class="plate">
       <div class="colony" data-name="Corynebacterium glutamicum" data-info="Corynebacterium glutamicum is gram-positive, non-pathogenic bacteria."  style="top: 15%; left: 35%;"></div>
       <div class="colony" data-name="Usage of Coryne" data-info="It was discovered 1957 in Japan as glutamic acid producer." style="top: 75%; left: 60%;"></div>
       <div class="colony" data-name="Member" data-info="We are a student team of 17 members of Technical Biology and Chemistry B.Sc." style="top: 40%; left: 75%;"></div>
-      <div class="colony" data-name="Beschreibung 4" data-info="Irgendein Inhalt 4." style="top: 75%; left: 30%;"></div>
+      <div class="colony" data-name="ARALEX" data-info="ARALEX Erklärung" style="top: 75%; left: 30%;"></div>
       <div class="colony" data-name="Beschreibung 5" data-info="Irgendein Inhalt 5." style="top: 40%; left: 15%;"></div>
       <div class="colony" data-name="Beschreibung 6" data-info="Irgendein Inhalt 6." style="top: 50%; left: 35%;"></div>
   </div>
   <div id="info-box" class="hidden">
     <h3 id="colony-name"></h3>
     <p id="colony-info"></p>
-    <button onclick="closeInfo()" class="new-button">Close</button>
+    <button onclick="closeInfo()" class="new-button">X</button>
   </div>
 </section>
 <!-- Kurze Projektbeschreibung -->
 <section class="py-20 bg-sky-200 dark:bg-gray-900"> <!-- Hier white -->
 <div class="container mx-auto px-4">
   <div class="max-w-4xl mx-auto">
-    <div class="bg-sky-200 dark:bg-gray-900 rounded-lg overflow-hidden">
-      <div class="relative h-[400px]">
-        <img src="images/logo_neu.png" alt="Logo" class="w-full h-full object-cover object-top">
-          <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black/60 to-transparent">
-            <span class="inline-block text-xs font-semibold text-white bg-primary/90 px-3 py-1 rounded-full mb-3">PGM-Bioleaching</span>
-              <h1 class="text-l md:text-2l font-bold text-white">
-              With these two disciplines combined, we present a new, efficient and far cheaper method to re-harvest platin-like elements from the remnants of the catalysts. 
-              We have modified bacteria to isolate platin-like elements from these remnants and to re-harvest those elements by established chemical purification methods. 
-              Interlinked with these experiments, we have created own models and assays to optimize our analysis and to elevate our working cycle's efficiency constantly. 
-              Furthermore we have endeavoured to share our compassion for our project and for biology in general with the world and have passed on interest in these fields to various groups of people.
-              We invite you to learn more about our work, our results and is on this website !
-              Enjoy :)</h1>
+    <div class="bg-sky-200 dark:bg-gray-900 rounded-lg overflow-hidden grid grid-cols-2 gap-4">
+              
+    <div id="scrollTarget" class="center bg-sky-200 dark:bg-gray-900">
+      <div class="progress">
+        <div class="bar">
+          <div class="text text-sky-700 dark:text-white">
+            <span>Pt</span>
+            30%
+          </div>
+        </div>
+        <div class="bar">
+          <div class="text text-sky-700 dark:text-white">
+            <span>Pd</span>
+            33%
+          </div>
+        </div>
+        <div class="bar">
+          <div class="text text-sky-700 dark:text-white">
+            <span>Rh</span>
+            40%
+          </div>
+        </div>
+      </div>
+    </div>
+      
+      <div class="relative h-[450px]">
+          <div class="absolute bottom-0 left-0 w-full p-8 bg-gray-400 rounded-lg dark:bg-gray-700">
+            <h1 class="text-l md:text-2l font-bold text-white">The overall recycling rates of the major PGMs, Platinum (Pt), Rhodium (Rh) and Palladium (Pd) from secondary sources are relatively low. The research about bioleaching has continuously increased in the last 10 years, highlighting its importance.</h1>
+              <h4 class="md:text-2l text-xs text-white">
+          Ashish Pathak, Hanadi Al-Sheeha, R. Navvamani, Richa Kothari, Meena Marafi,
+          and Mohan S. Rana. Recycling of platinum group metals from exhausted petroleum
+          and automobile catalysts using bioleaching approach: A critical review on potential,
+          challenges, and outlook. 21(4):1035–1059.</h4>
           </div>
       </div>
+    </div>
+
 <div class="mt-6">
 <div class="grid grid-cols-1 md:grid-cols-1 gap-4 mb-6">
 <div class="flex flex-col space-y-2 p-4 bg-sky-50 rounded-lg">
@@ -369,13 +486,13 @@ Human Practices
   <img src="images/stand_tdw_1.jpg" alt="igemposter"
        class="w-full rounded-lg transition duration-300 ease-in-out group-hover:blur-sm">
   <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-base px-2 py-1 rounded opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-    <a href="groups.html#tdw1">Tag der Wissenschaft Stand</a> 
+    <a href="groups.html#tdw1" target="_blank">Tag der Wissenschaft Stand</a> 
   </div>
 </div>
     <div class="relative group">  
       <img src="images/mairec.jpeg" alt="mairec" class="w-full rounded-lg transition duration-300 ease-in-out group-hover:blur-sm">
       <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-base px-2 py-1 rounded opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        <a href="attributions.html"> Mairec Besuch </a>
+        <a href="attributions.html" target="_blank"> Mairec Besuch </a>
       </div>
     </div>
   </div>
@@ -407,21 +524,30 @@ Human Practices
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 <!-- Biotech -->
 <div id="mainbiotech" class="bg-sky-50 dark:bg-black rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-<div class="h-40 bg-[url('images/gruppe.jpg')] bg-cover bg-center relative">
+<div class="h-64  relative">
+  <img src="images/Labor rq 2 zu 1.jpg" alt="BioTech Group" class="w-full h-full object-cover object-center">
 <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/50 to-transparent">
 <h3 class="text-xl font-semibold text-sky-50">BioTech</h3>
 </div>
 </div>
 <div class="p-6">
-<p class="text-gray-600 mb-4">We develop solutions for all bio-related questions. Our work involves strain engineering, cultivations from shake flask up to stirred-tank-reactor scale as well as developing analytical methods for Oxalate quantification in biosuspensions. Apart from wet-lab work, we create theoretical models for e.g. Oxalate production</p>
+<p class="text-gray-600 dark:text-sky-50 mb-4">We develop solutions for all bio-related questions. Our work involves strain engineering, cultivations from shake flask up to stirred-tank-reactor scale as well as developing analytical methods for Oxalate quantification in biosuspensions. Apart from wet-lab work, we create theoretical models for e.g. Oxalate production</p>
 <div class="flex -space-x-2 mb-4">
-<img src="images/imgmiss.jpeg" alt="Noemi Reusing" class="w-10 h-10 rounded-full">
-<img src="images/imgmiss.jpeg" alt="Yazan Ahmad" class="w-10 h-10 rounded-full">
-<img src="images/imgmiss.jpeg" alt="Alexander Hene" class="w-10 h-10 rounded-full">
+<a href="students.html#noemireusing" target="_blank">
+<img src="images/Noemi Icon.jpg" alt="Noemi Reusing" class="w-10 h-10 rounded-full">
+</a>
+<a href="students.html#yazanahmad" target="_blank">
+<img src="images/Yazan Icon.jpg" alt="Yazan Ahmad" class="w-10 h-10 rounded-full">
+</a>
+<a href="students.html#alexanderhene" target="_blank">
+<img src="images/Alex Icon.jpg" alt="Alexander Hene" class="w-10 h-10 rounded-full">
+</a>
+<a href="groups.html#biotech" target="_blank">
 <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-xs text-gray-500 font-medium">et al.</div>
+</a>
 </div>
 <div class="mt-4 pt-4">
-<a href="groups.html#biotech" class="text-sky-700 dark:text-sky-500 font-medium hover:underline flex items-center">
+<a href="groups.html#biotech" class="text-sky-700 dark:text-sky-500 font-medium hover:underline flex items-center" target="_blank">
 <span>See BioTech</span>
 <i class="ri-arrow-right-line ml-1"></i>
 </a>
@@ -430,7 +556,8 @@ Human Practices
 </div>
 <!-- Chemie -->
 <div id="mainchemistry" class="bg-sky-50 dark:bg-black rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-<div class="h-40 bg-[url('images/gruppe.jpg')] bg-cover bg-center relative">
+<div class="h-64 relative">
+  <img src="images/Chemie rq ungeschnitten.jpg" alt="Chemistry Group" class="w-full h-full object-cover object-center">
 <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/50 to-transparent">
 <h3 class="text-xl font-semibold text-sky-50">Chemistry</h3>
 </div>
@@ -438,13 +565,21 @@ Human Practices
 <div class="p-6">
 <p class="text-gray-600 mb-4">The Chemistry Group is responsible for research on the leaching process and complex separation.</p>
 <div class="flex -space-x-2 mb-4">
+<a href="students.html#nathanaelstrom" target="_blank">
 <img src="images/imgmiss.jpeg" alt="Nathanael Strom" class="w-10 h-10 rounded-full">
-<img src="images/imgmiss.jpeg" alt="Daniel Ringel" class="w-10 h-10 rounded-full">
+</a>
+<a href="students.html#danielringel" target="_blank">
+<img src="images/Daniel Icon.jpg" alt="Daniel Ringel" class="w-10 h-10 rounded-full">
+</a>
+<a href="students.html#johannesmeingast" target="_blank">
 <img src="images/imgmiss.jpeg" alt="Johannes Meingast" class="w-10 h-10 rounded-full">
+</a>
+<a href="groups.html#chemie" target="_blank">
 <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-xs text-gray-500 font-medium">et al.</div>
+</a>
 </div>
 <div class="mt-4 pt-4">
-<a href="groups.html#chemie" class="text-sky-700 dark:text-sky-500 font-medium hover:underline flex items-center">
+<a href="groups.html#chemie" class="text-sky-700 dark:text-sky-500 font-medium hover:underline flex items-center" target="_blank">
 <span>See Chemistry</span>
 <i class="ri-arrow-right-line ml-1"></i>
 </a>
@@ -453,7 +588,8 @@ Human Practices
 </div>
 <!-- Finanzen -->
 <div id="mainpr" class="bg-sky-50 dark:bg-black rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-<div class="h-40 bg-[url('images/gruppe.jpg')] bg-cover bg-center relative">
+<div class="h-64 relative">
+  <img src="images/Finanzen rq ungeschnitten.jpg" alt="Finances Group" class="w-full h-full object-cover object-center">
 <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/50 to-transparent">
 <h3 class="text-xl font-semibold text-sky-50">PR</h3>
 </div>
@@ -464,13 +600,19 @@ Participating at the iGEM competition is very expensive/ has grown very expensiv
 Additionally, we keep people constantly informed about all activities, successes and break-throughs on our Instagram channel and on this website
 Don't miss to also check out the work of the other teams. Enjoy !</p>
 <div class="flex -space-x-2 mb-4">
-<img src="images/imgmiss.jpeg" alt="Theresa Maurer" class="w-10 h-10 rounded-full">
-<img src="images/imgmiss.jpeg" alt="Person 1" class="w-10 h-10 rounded-full">
-<img src="images/imgmiss.jpeg" alt="Person 2" class="w-10 h-10 rounded-full">
+<a href="students.html#theresamaurer" target="_blank">
+<img src="images/Theresa Icon.jpg" alt="Theresa Maurer" class="w-10 h-10 rounded-full">
+</a>
+<a href="students.html#oliviaronczka" target="_blank">
+<img src="images/Olivia Icon.jpg" alt="Olivia Ronczka" class="w-10 h-10 rounded-full">
+</a>
+<img src="images/alexander - Kopie.JPG" alt="Alexander Hene" class="w-10 h-10 rounded-full">
+<a href="groups.html#finanzen" target="_blank">
 <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-xs text-gray-500 font-medium">et al.</div>
+</a>
 </div>
 <div class="mt-4 pt-4">
-<a href="groups.html#finanzen" class="text-sky-700 dark:text-sky-500 font-medium hover:underline flex items-center">
+<a href="groups.html#finanzen" target="_blank" class="text-sky-700 dark:text-sky-500 font-medium hover:underline flex items-center">
 <span>See Finances</span>
 <i class="ri-arrow-right-line ml-1"></i>
 </a>
@@ -479,7 +621,7 @@ Don't miss to also check out the work of the other teams. Enjoy !</p>
 </div>
 </div>
 <div class="mt-12 text-center">
-<a href="groups.html">
+<a href="groups.html" target="_blank">
 <button class="bg-white text-sky-700 px-6 py-3 font-medium !rounded-button whitespace-nowrap hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-50">See all groups</button>
 </a>
 </div>
@@ -496,23 +638,23 @@ Don't miss to also check out the work of the other teams. Enjoy !</p>
 <div class="sponsor-slider flex transition-transform duration-500 ease-in-out">
 <div class="sponsor-slide min-w-full grid grid-cols-4 gap-8 items-center px-4">
 <div class="flex items-center justify-center p-8 bg-gray-50 rounded-lg">
-<a href="https://gigabases.com/">
+<a href="https://gigabases.com/" target="_blank">
 <img src="images/gigabases.svg" alt="Gigabases" class="max-h-12 w-auto grayscale hover:grayscale-0 transition-all">
 </a>
 </div>
 <div class="flex items-center justify-center p-8 bg-gray-50 rounded-lg">
-<a href="https://www.srcsb.uni-stuttgart.de/">
+<a href="https://www.srcsb.uni-stuttgart.de/" target="_blank">
 <img src="images/srcsb.png" alt="SRCSB" class="max-h-12 w-auto grayscale hover:grayscale-0 transition-all">
 </a>
 </div>
 <div class="flex items-center justify-center p-8 bg-gray-50 rounded-lg">
-<a href="https://frankhirschvogelstiftung.de/">
-<img src="images/hirschvogel.svg" alt="Sponsor 3" class="max-h-12 w-auto grayscale hover:grayscale-0 transition-all">
+<a href="https://frankhirschvogelstiftung.de/" target="_blank">
+<img src="images/hirschvogel.svg" alt="Hirschvogel" class="max-h-12 w-auto grayscale hover:grayscale-0 transition-all">
 </a>
 </div>
 <div class="flex items-center justify-center p-8 bg-gray-50 rounded-lg">
-<a href="https://www.microsynth.com/home-ch.html">
-<img src="images/microsynth.svg" alt="Sponsor 4" class="max-h-12 w-auto grayscale hover:grayscale-0 transition-all">
+<a href="https://www.microsynth.com/home-ch.html" target="_blank">
+<img src="images/microsynth.svg" alt="Microsynth" class="max-h-12 w-auto grayscale hover:grayscale-0 transition-all">
 </a>
 </div>
 </div>
@@ -545,10 +687,10 @@ Don't miss to also check out the work of the other teams. Enjoy !</p>
 <h2 class="text-3xl md:text-4xl font-bold mb-6">Interested and want to support us?</h2>
 <p class="text-lg text-gray-900 dark:text-sky-50 mb-8">Contact us here:</p>
 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-<a href="contact.html">
+<a href="contact.html" target="_blank">
 <button class="bg-white text-sky-700 px-6 py-3 font-medium !rounded-button whitespace-nowrap hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-50 transition-colors">Contact</button>
 </a>
-<a href="students.html#leader">
+<a href="students.html#leader" target="_blank">
 <button class="bg-white text-sky-700 px-6 py-3 font-medium !rounded-button whitespace-nowrap hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-50 transition-colors">Team leaders</button>
 </a>
 </div>
@@ -578,17 +720,17 @@ Don't miss to also check out the work of the other teams. Enjoy !</p>
     <div>
     <h3 class="text-sky-50 font-semibold mb-6">Quick Links</h3>
     <ul class="space-y-3">
-    <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-    <li><a href="project.html" class="text-gray-400 hover:text-sky-50 transition-colors">Project</a></li>
-    <li><a href="notebook.html" class="text-gray-400 hover:text-sky-50 transition-colors">Lab documentation</a></li>
-    <li><a href="groups.html" class="text-gray-400 hover:text-sky-50 transition-colors">Groups</a></li>
-    <li><a href="students.html" class="text-gray-400 hover:text-sky-50 transition-colors">Members</a></li>
-    <li><a href="contact.html" class="text-gray-400 hover:text-sky-50 transition-colors">Contact</a></li>
+    <li><a href="index.html" target="_blank" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+    <li><a href="project.html" target="_blank" class="text-gray-400 hover:text-sky-50 transition-colors">Project</a></li>
+    <li><a href="notebook.html" target="_blank" class="text-gray-400 hover:text-sky-50 transition-colors">Lab documentation</a></li>
+    <li><a href="groups.html" target="_blank" class="text-gray-400 hover:text-sky-50 transition-colors">Groups</a></li>
+    <li><a href="students.html" target="_blank" class="text-gray-400 hover:text-sky-50 transition-colors">Members</a></li>
+    <li><a href="contact.html" target="_blank" class="text-gray-400 hover:text-sky-50 transition-colors">Contact</a></li>
     </ul>
     </div>
 <!-- Kontakt -->
 <div>
-<h3 class="text-sky-50 font-semibold mb-6">Direct contact</h3>
+<h3 class="text-sky-50 font-semibold mb-6">Direct Contact</h3>
 <ul class="space-y-3">
 <li>
 <a href="mailto:synbioteam@ibmg.uni-stuttgart.de" class="text-gray-400 hover:text-sky-50 transition-colors flex items-start">
@@ -597,39 +739,18 @@ Don't miss to also check out the work of the other teams. Enjoy !</p>
 </a>
 </li>
 <li>
-<a href="mailto:collaboration@studentshowcase.edu" class="text-gray-400 hover:text-sky-50 transition-colors flex items-start">
-<i class="ri-mail-line mr-3 mt-1"></i>
-<span>Finanzen Mail einfügen</span>
+<a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x4799dc403b966fb1:0xfdc3e256ffac2fff?sa=X&ved=1t:8290&ictx=111" class="text-gray-400 hover:text-sky-50 transition-colors flex items-start" target="_blank">
+<i class="ri-home-3-line mr-3 mt-1"></i>
+<span>Allmandring 31, 70569 Stuttgart</span>
 </a>
 </li>
 <li>
-<a href="mailto:info@studentshowcase.edu" class="text-gray-400 hover:text-sky-50 transition-colors flex items-start">
-<i class="ri-mail-line mr-3 mt-1"></i>
-<span>IT Mail einfügen</span>
-</a>
-</li>
-<li>
-<a href="mailto:info@studentshowcase.edu" class="text-gray-400 hover:text-sky-50 transition-colors flex items-start">
-<i class="ri-mail-line mr-3 mt-1"></i>
-<span>Bio Mail einfügen</span>
-</a>
-</li>
-<li>
-<a href="mailto:info@studentshowcase.edu" class="text-gray-400 hover:text-sky-50 transition-colors flex items-start">
-<i class="ri-mail-line mr-3 mt-1"></i>
-<span>Chemie Mail einfügen</span>
+<a href="tel:071168564574" class="text-gray-400 hover:text-sky-50 transition-colors flex items-start">
+<i class="ri-phone-line mr-3 mt-1"></i>
+<span>0711 68564574</span>
 </a>
 </li>
 </ul>
-</div>
-<!-- Datenschutz -->
-<div class="pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
-<p>&copy; 2025 SynBio Team. All rights reserved.</p>
-<div class="flex justify-center space-x-4 mt-4">
-<a href="#" class="hover:text-sky-50 transition-colors">Privacy Policy</a>
-<a href="#" class="hover:text-sky-50 transition-colors">Terms of Service</a>
-<a href="#" class="hover:text-sky-50 transition-colors">Cookie Policy</a>
-</div>
 </div>
 </div>
 </footer>
@@ -652,11 +773,29 @@ Don't miss to also check out the work of the other teams. Enjoy !</p>
         engagementMenu.classList.add('hidden');
       });
 
+      projectButton.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+        event.stopPropagation();
+        projectMenu.classList.toggle('hidden');
+        groupsMenu.classList.add('hidden');
+        engagementMenu.classList.add('hidden');
+        }
+      });
+
       groupsButton.addEventListener('click', function (e) {
         e.stopPropagation();
         groupsMenu.classList.toggle('hidden');
         projectMenu.classList.add('hidden');
         engagementMenu.classList.add('hidden');
+      });
+         
+      groupsButton.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+        event.stopPropagation();
+        groupsMenu.classList.toggle('hidden');
+        projectMenu.classList.add('hidden');
+        engagementMenu.classList.add('hidden');
+        }
       });
 
       engagementButton.addEventListener('click', function (e) {
@@ -664,6 +803,15 @@ Don't miss to also check out the work of the other teams. Enjoy !</p>
         engagementMenu.classList.toggle('hidden');
         groupsMenu.classList.add('hidden');
         projectMenu.classList.add('hidden');
+      });
+            
+      engagementButton.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+        event.stopPropagation();
+        projectMenu.classList.add('hidden');
+        groupsMenu.classList.add('hidden');
+        engagementMenu.classList.toggle('hidden');
+        }
       });
 
       document.addEventListener('click', function (e) {
@@ -878,6 +1026,29 @@ document.addEventListener('DOMContentLoaded', function () {
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && infoBoxOpen) closeInfo();
   });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const target = document.getElementById("scrollTarget");
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Trigger your animation or logic here
+        console.log("Div is in view!");
+
+        // Example: Add a class to animate bars
+        target.classList.add("animate-bars");
+
+        // Optional: Stop observing after trigger
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.5 // Adjust based on how much of the div should be visible
+  });
+
+  observer.observe(target);
 });
 
 
