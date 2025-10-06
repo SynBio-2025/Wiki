@@ -9,19 +9,11 @@
 <script>tailwind.config={theme:{extend:{colors:{primary:'#3b82f6',secondary:'#64748b'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="reset.css">
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
 <style>
 :where([class^="ri-"])::before { content: "\f3c2"; }
-* {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  list-style: none;
-}
 body {
 font-family: 'Inter', sans-serif;
 }
@@ -41,7 +33,7 @@ font-family: 'Inter', sans-serif;
   width: 130px;
   position: sticky;
   z-index: 1;
-  top: 110px;
+  top: 120px;
   left: 20px;
   padding: 8px 0;
   border-radius: 12px;
@@ -154,6 +146,62 @@ font-family: 'Inter', sans-serif;
 .new-button:hover .arrow{
     transform: translateX(6px);
 }
+
+.gallery-row::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+.gallery-col {
+float: center;
+width: 25%;
+padding: 10px;
+text-align: center;
+cursor: pointer;
+}
+
+.gallery-col img {
+width: 100%;
+border-radius: 8px;
+transition: transform 0.3s ease;
+}
+
+.gallery-col img:hover {
+transform: scale(1.05);
+}
+
+/* Lightbox */
+.lightbox {
+display: none;
+position: fixed;
+z-index: 9999;
+padding-top: 60px;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+background: rgba(0,0,0,0.8);
+}
+
+.lightbox-content {
+margin: auto;
+display: block;
+max-width: 80%;
+max-height: 80%;
+border-radius: 8px;
+}
+
+.close {
+position: absolute;
+top: 20px;
+right: 35px;
+color: white;
+font-size: 40px;
+font-weight: bold;
+cursor: pointer;
+}
+
 </style>
 <script>
 tailwind.config = {
@@ -182,12 +230,12 @@ if (localStorage.getItem("darkmode") === "active") {
   <i class="ri-arrow-down-s-line ml-1"></i>
   </button>
   <div class="absolute top-full left-0 mt-2 w-48 bg-white dark:bg-black rounded-lg shadow-lg py-2 hidden" id="projectMenu">
-  <a href="project.html" target="_blank" class="block px-4 py-2 text-gray-700 hover:text-sky-500 rounded-lg hover:bg-sky-50 dark:text-gray-200 dark:hover:bg-gray-900 dark:hover:text-sky-100">Project</a>
+  <a href="project.html" class="block px-4 py-2 text-sky-700 hover:text-sky-500 rounded-lg hover:bg-sky-50 dark:text-gray-200 dark:hover:bg-gray-900 dark:hover:text-sky-100">Project</a>
   <a href="notebook.html" target="_blank" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:text-gray-300 dark:hover:bg-gray-900 dark:hover:text-sky-100">Lab documentation</a>
   <a href="contribution.html" target="_blank" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:text-gray-300 dark:hover:bg-gray-900 dark:hover:text-sky-100">Contribution</a>
   <a href="engineering.html" target="_blank" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:text-gray-300 dark:hover:bg-gray-900 dark:hover:text-sky-100">Engineering success</a>
   <a href="modeling.html" target="_blank" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Modeling</a>
-  <a href="results.html" class="block px-4 py-2 text-sky-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Results</a>
+  <a href="results.html" target="_blank" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-sky-50 dark:hover:bg-gray-900 dark:hover:text-sky-100">Results</a>
   </div>
   </div>
   <div class="relative" id="engagementDropdown">
@@ -225,6 +273,7 @@ Human Practices
 <aside class="sidenav mt-24 bg-sky-50 dark:bg-black text-gray-900 dark:text-sky-200 outline outline-2 outline-sky-50 dark:outline-black shadow-lg">
   <h2 class="text-center text-lg font-bold text-gray-900 dark:text-sky-200">Contents</h2>
   <a class="rounded-lg hover:bg-sky-200 dark:hover:bg-gray-900" href="#problemdarstellung">The problem</a>
+  <a class="rounded-lg hover:bg-sky-200 dark:hover:bg-gray-900" href="#idea">The idea</a>
   <a class="rounded-lg hover:bg-sky-200 dark:hover:bg-gray-900" href="#organism">Organism</a>
   <a class="rounded-lg hover:bg-sky-200 dark:hover:bg-gray-900" href="#plasmid">Plasmid</a>
   <a class="rounded-lg hover:bg-sky-200 dark:hover:bg-gray-900" href="#optimization">Optimization</a>
@@ -251,8 +300,9 @@ Human Practices
           <svg id="Icon" class="cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill="#3B82F6" width="100px" height="100px" viewBox="0 0 24 24" stroke="#1E3A8A" transform="rotate(180)">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path>
           </svg>
-        <div id="clickme">
-          <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-sky-200 ml-[300px]">The current problem</h2>
+        <div id="clickme" class="group ml-[200px]">
+          <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-sky-200 group-hover:hidden">The current problem</h2>
+          <h2 class="hidden group-hover:block text-3xl font-bold text-center text-red-700 transition duration-300"><-- Click the i to find out!</h2>
         </div>
         </div>
         <div class="content hidden bg-white dark:bg-black rounded-lg p-4">
@@ -282,6 +332,69 @@ Human Practices
 
 <div class="container mx-auto px-4">
 <div class="text-center mb-12">
+  <div class="flex justify-center">
+  <div class="w-[95%] bg-white dark:bg-black rounded-lg p-4 flex flex-col">
+    <div>
+    <h2 id="idea" class="w-full text-3xl font-bold text-center text-gray-900 dark:text-white mb-4 scroll-mt-28">
+       The idea
+    </h2>
+    </div>
+    <div class="flex items-center gap-6 mx-8 mb-8">
+    <!-- text -->
+    <div>
+      <p class="text-gray-900 dark:text-sky-200 text-justify mt-4">
+       There are currently two main methods for recycling PGMs:
+      </p>
+    <div class="flex flex-row gap-12 mt-4">
+      <div class="flex-1 bg-sky-100 dark:bg-gray-900 p-4 rounded-lg">
+      <p class="text-gray-900 dark:text-sky-200 text-justify">
+       Pyrometallurgy:
+      </p>
+      <ul class="list-disc pl-6 mt-2">
+        <li class="text-gray-900 dark:text-sky-200 text-justify">Is often used industrially due to high recovery rates
+        </li>
+        <li class="text-gray-900 dark:text-sky-200 text-justify mt-2">Requires special equipment and high temperatues (up to 2000^C),
+          leading to high energy demands
+        </li>
+        <li class="text-gray-900 dark:text-sky-200 text-justify mt-2">Oven needs to be operational continuously, so secondary resources
+          are fed, leading to impurities
+        </li>
+        <li class="text-gray-900 dark:text-sky-200 text-justify mt-2">Leads to volatile waste and slag production, like sulfur dioxide emissions,
+          as well as CO and Cl₂ during separation
+        </li>
+      </ul>
+      </div>
+      <div class="flex-1 bg-sky-100 dark:bg-gray-900 p-4 rounded-lg">
+      <p class="text-gray-900 dark:text-sky-200 text-justify">
+       Hydrometallurgy:
+      </p>
+      <ul class="list-disc pl-6 mt-2">
+        <li class="text-gray-900 dark:text-sky-200 text-justify">Milder temperatures and lower energy costs
+        </li>
+        <li class="text-gray-900 dark:text-sky-200 text-justify mt-2">Uses chemical leaching with reagents like aqua regia (HCl/HNO₃),
+          cyanides or chloride-based systems, leading to hazardous waste and gas emissions
+        </li>
+        <li class="text-gray-900 dark:text-sky-200 text-justify mt-2">Washing stages produce a lot of wastewater [<a href="#yakoumis" class="hover:underline">Yakoumis et al, 2021</a>]
+        </li>
+      </ul>
+      </div>
+    </div>
+    <p class="text-gray-900 dark:text-sky-200 text-justify mt-4">
+       Bioleaching offers an environmentally friendly alternative for recycling PGMs. It does not use corrosive chemicals,
+      require high temperatures, nor does it involve emitting hazardous gases. Normally, fungi like <i>A. niger</i> are used to
+      produce organic acids with the ability of forming complexes with PGMs, but we wanted to try using genetically modified bacteria
+      to produce this acid [<a href="#pathak" class="hover:underline">Pathak et al, 2022</a>].
+      </p>
+    </div>
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+
+
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
 <h2 id="organism" class="text-3xl font-bold text-gray-900 dark:text-sky-50 scroll-mt-28">Organism</h2>
   <div class="flex justify-center">
   <div class="w-[95%] bg-sky-200 dark:bg-gray-900 rounded-lg p-6 flex flex-col">
@@ -293,19 +406,20 @@ Human Practices
     </div>
     <div class="flex items-center gap-6">
     <!-- image -->
-    <div class="flex-shrink-0 w-[25%]">
+    <div class="gallery-col flex-shrink-0 w-[30%]" onclick="openLightbox(this)">
       <img
       src="images/mairec.jpeg"
+      alt="coryne"
       class="w-full h-full object-cover rounded-md"
       />
     </div>
     <!-- text -->
     <div>
       <p class="text-gray-900 dark:text-sky-200 text-justify">
-          Although in literature <i>Aspergillus niger</i> is often used as a natural oxalic acid producer [<a href="#camselle" class="hover:underline">Cameselle, 1998</a>],
+          Although in literature <i>Aspergillus niger</i> is often used as a natural oxalic acid producer [<a href="#cameselle" class="hover:underline">Cameselle, 1998</a>],
           we chose <i>Corynebacterium glutamicum</i> as our production platform. This gram-positive bacterium is a well-established
           host organism and easy to manipulate genetically. Another reason for our decision towards a bacterial system is
-          the undesirable ability of fungi like <i>A. niger</i> to form spores [<a href="#lyu" class="hover:underline">Lyu, 2025</a>].
+          the undesirable ability of fungi like <i>A. niger</i> to form spores [<a href="#lyu" class="hover:underline">Lyu et al, 2025</a>].
       </p>
       <p class="text-gray-900 dark:text-sky-200 text-justify mt-4">
           In industrial biotechnology, <i>C. glutamicum</i> is well-known for producing amino acids [<a href="#bramkamp" class="hover:underline">Bramkamp, 2025</a>] and was
@@ -413,9 +527,9 @@ Human Practices
       </ul>
     </div>
     <!-- image -->
-    <div class="flex-shrink-0 w-[25%]">
+    <div class="gallery-col rounded-lg flex-shrink-0 w-[40%]" onclick="openLightbox(this)">
       <img
-      src="images/pGiga.png"
+      src="https://static.igem.wiki/teams/5829/images/pgiga.webp"
       class="w-full h-full object-cover rounded-md"
       />
     </div>
@@ -429,9 +543,9 @@ Human Practices
     </div>
     <div class="flex items-center gap-6 justify-start">
     <!-- image -->
-    <div class="flex-shrink-0 w-[25%]">
+    <div class="gallery-col rounded-lg flex-shrink-0 w-[35%]" onclick="openLightbox(this)">
       <img
-      src="images/pekex.png"
+      src="https://static.igem.wiki/teams/5829/images/pekex.webp"
       class="w-full h-full object-cover rounded-md"
       />
     </div>
@@ -488,9 +602,9 @@ Human Practices
       </p>
     </div>
     <!-- image -->
-    <div class="flex-shrink-0 w-[25%]">
+    <div class="gallery-col rounded-lg flex-shrink-0 w-[35%]" onclick="openLightbox(this)">
       <img
-      src="images/ppbex.png"
+      src="https://static.igem.wiki/teams/5829/images/pbex.webp"
       class="w-full h-full object-cover rounded-md"
       />
     </div>
@@ -504,13 +618,13 @@ Human Practices
 <div class="container mx-auto px-4">
 <div class="text-center mb-12">
   <div class="flex justify-center">
-  <div class="w-[95%] bg-sky-50 dark:bg-black rounded-lg p-4 flex flex-col">
+  <div class="w-[95%] bg-sky-50 dark:bg-black rounded-lg p-4">
     <div>
     <h2 id="optimization" class="w-full text-3xl font-bold text-center text-gray-900 dark:text-white mb-4 scroll-mt-28">
        Optimization
     </h2>
     </div>
-    <div class="flex items-center gap-6 mx-8 mb-8">
+    <div class="mx-8 mb-8">
     <!-- text -->
     <div>
       <p class="text-gray-900 dark:text-sky-200 text-justify">
@@ -532,6 +646,14 @@ Human Practices
         Assembly into the integration vector pK19mobsacB, which will then be electroporated into the bacteria. After
         selection by antibiotic resistance markers, the confirmed mutants can be tested for oxalate production.
       </p>
+      <figure class="gallery-col mx-auto flex flex-col items-center w-[40%] mt-4" onclick="openLightbox(this)">
+      <img
+      src="https://static.igem.wiki/teams/5829/images/genomeintegration.webp"
+      class="w-full h-full object-cover rounded-md"
+      />
+      <figcaption class="text-sm text-gray-700 dark:text-gray-200 text-justify mt-2 w-[160%]">Integration of oahA_CG with lacI
+        repressor system into the genome of C. glutamicum.</figcaption>
+    </figure>
       <p class="text-gray-900 dark:text-sky-200 text-justify mt-4">
         Other not yet realized optimization strategies include the cultivation under nitrogen limitation as well as
         supplementing e.g. ethanol, since this has been proved to elavate organic acid production in some cases. Another
@@ -543,6 +665,11 @@ Human Practices
   </div>
   </div>
 </div>
+</div>
+
+<div id="lightbox" class="lightbox">
+  <span class="close" onclick="closeLightbox()">&times;</span>
+  <img class="lightbox-content" id="lightbox-img">
 </div>
 
 <div class="container mx-auto px-4">
@@ -558,9 +685,9 @@ Human Practices
     </div>
     <div class="flex items-center gap-6">
     <!-- image -->
-    <div class="flex-shrink-0 w-[25%]">
+    <div class="gallery-col flex-shrink-0 w-[25%]" onclick="openLightbox">
       <img
-      src="images/chemprocess.png"
+      src="https://static.igem.wiki/teams/5829/images/chemprocess.webp"
       class="w-full h-full object-cover rounded-md"
       />
     </div>
@@ -580,11 +707,13 @@ Human Practices
         </li>
         <li class="text-gray-900 dark:text-sky-200 text-justify">
           <strong>Analysis:</strong> Analysis of the samples is performed via Inductively Coupled Plasma –
-          Optical Emission Spectrometry (ICP-OES) at the <a href="https://www.ipoc.uni-stuttgart.de/">Institute of Polymer Chemistry</a>.
+          Optical Emission Spectrometry (ICP-OES).
         </li>
       </ul>
       <p class="text-gray-900 dark:text-sky-200 text-justify mt-4">
-          detailed description
+          For the future, we did some literature research on how we could improve the leaching rates. One approach we want to try is
+        pre-treating the PGM dust via ultrasound following a Box-Behnken DoE to minimize experimental runs. We'll then perform response
+        surface methodology (RSM) to find the optimum across the parameter space [<a href="#karim" class="hover:underline">Karim et al, 2020</a>].
       </p>
     </div>
     </div>
@@ -635,12 +764,13 @@ Human Practices
             </p>
           </div>
           <!-- image -->
-          <div class="flex-shrink-0 w-[80%]">
+          <figure class="gallery-col flex-shrink-0 w-[70%]" onclick="openLightbox(this)">
             <img
-            src="images/mairec.jpeg"
+            src="https://static.igem.wiki/teams/5829/images/final-process.webp"
             class="w-full h-full object-cover rounded-md"
             />
-          </div>
+            <figcaption class="text-sm text-gray-700 dark:text-gray-200 text-center mt-2">Created in https://BioRender.com</figcaption>
+          </figure>
           <!-- text -->
           <ul class="list-decimal pl-6 mt-2">
               <li class="text-gray-900 dark:text-sky-200 text-justify">
@@ -715,23 +845,32 @@ Human Practices
           <p id="source10" class="text-sm text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
           10. MDPI Minerals. Recycling rates of PGMs in industry vs. electronics. Minerals [Internet]. 2021;11(7):673 [cited: 19. Aug. 2025]. URL: <a href="https://www.mdpi.com/2075-163X/11/7/673" target="_blank">https://www.mdpi.com/2075-163X/11/7/673</a>
           </p>
+          <p id="yakoumis" class="text-sm text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
+          11. Yakoumis et al. (2021): Recovery of platinum group metals from spent automotive catalysts: A review, Cleaner Engineering and Technology, Volume 3. 100-112. URL: <a href="https://doi.org/10.1016/j.clet.2021.100112" target="_blank">https://doi.org/10.1016/j.clet.2021.100112</a>
+          </p>
+          <p id="pathak" class="text-sm text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
+          12. Pathak et al. (2022): Recycling of platinum group metals from exhausted petroleum and automobile catalysts using bioleaching approach: a critical review on potential, challenges, and outlook, Reviews in Environmental Science and Bio/Technology, Volume 21. 1035-1059 URL: <a href="https://doi.org/10.1007/s11157-022-09636-x" target="_blank">https://doi.org/10.1007/s11157-022-09636-x</a>
+          </p>
           <p id="cameselle" class="text-sm text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
-          11. Cameselle et al. (1998): Oxalic acid production by Aspergillus niger, Bioprocess and Biosystems Engineering, Volume 19. 247-252. URL: <a href="https://doi.org/10.1007/PL00009017" target="_blank">https://doi.org/10.1007/PL00009017</a>
+          13. Cameselle et al. (1998): Oxalic acid production by Aspergillus niger, Bioprocess and Biosystems Engineering, Volume 19. 247-252. URL: <a href="https://doi.org/10.1007/PL00009017" target="_blank">https://doi.org/10.1007/PL00009017</a>
           </p>
           <p id="lyu" class="text-sm text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
-          12. Lyu et al. (2023): “Heterogeneity in Spore Aggregation and Germination Results in Different Sized, Cooperative Microcolonies in an Aspergillus niger Culture.” mBio vol. 14,1 (2023): e0087022. URL: <a href="https://doi.org/10.1128/mbio.00870-22" target="_blank">https://doi.org/10.1128/mbio.00870-22</a>
+          14. Lyu et al. (2023): “Heterogeneity in Spore Aggregation and Germination Results in Different Sized, Cooperative Microcolonies in an Aspergillus niger Culture.” mBio vol. 14,1 (2023): e0087022. URL: <a href="https://doi.org/10.1128/mbio.00870-22" target="_blank">https://doi.org/10.1128/mbio.00870-22</a>
           </p>
           <p id="bramkamp" class="text-sm text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
-          13. Bramkamp, M. Corynebacterium glutamicum: Modellorganismus der bakteriellen Zellbiologie. Biospektrum 31, 9–13 (2025). URL: <a href="https://doi.org/10.1007/s12268-025-2373-4" target="_blank">https://doi.org/10.1007/s12268-025-2373-4</a>
+          15. Bramkamp, M. Corynebacterium glutamicum: Modellorganismus der bakteriellen Zellbiologie. Biospektrum 31, 9–13 (2025). URL: <a href="https://doi.org/10.1007/s12268-025-2373-4" target="_blank">https://doi.org/10.1007/s12268-025-2373-4</a>
           </p>
           <p id="vaam" class="text-sm text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
-          14. VAAM: Microbe of the Year 2025: Corynebacterium glutamicum – a hidden champion.  URL: <a href="https://vaam.de/en/microbiology-portal/microbe-of-the-year/microbe-of-the-year-2025/" target="_blank">https://vaam.de/en/microbiology-portal/microbe-of-the-year/microbe-of-the-year-2025/</a>
+          16. VAAM: Microbe of the Year 2025: Corynebacterium glutamicum – a hidden champion.  URL: <a href="https://vaam.de/en/microbiology-portal/microbe-of-the-year/microbe-of-the-year-2025/" target="_blank">https://vaam.de/en/microbiology-portal/microbe-of-the-year/microbe-of-the-year-2025/</a>
           </p>
           <p id="zhouetal" class="text-sm text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
-          15. Zhou et al. (2023): Metabolic engineering and fermentation optimization strategies for producing organic acids of the tricarboxylic acid cycle by microbial cell factories, Bioresource Technology, Volume 379,128986, ISSN 0960-8524, URL: <a href="https://doi.org/10.1016/j.biortech.2023.128986" target="_blank"> https://doi.org/10.1016/j.biortech.2023.128986. </a>
+          17. Zhou et al. (2023): Metabolic engineering and fermentation optimization strategies for producing organic acids of the tricarboxylic acid cycle by microbial cell factories, Bioresource Technology, Volume 379,128986, ISSN 0960-8524, URL: <a href="https://doi.org/10.1016/j.biortech.2023.128986" target="_blank"> https://doi.org/10.1016/j.biortech.2023.128986. </a>
           </p>
           <p id="guillaume" class="text-sm text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
-          16. Billerach, Guillaume et al. (2021): Impact of nitrogen deficiency on succinic acid production by engineered strains of Yarrowia lipolytica,  Journal of biotechnology vol. 336. 30-40, <a href="https://doi.org/10.1016/j.jbiotec.2021.06.001" target="_blank"> https://doi.org/10.1016/j.jbiotec.2021.06.001.</a>
+          18. Billerach, Guillaume et al. (2021): Impact of nitrogen deficiency on succinic acid production by engineered strains of Yarrowia lipolytica, Journal of biotechnology vol. 336. 30-40, <a href="https://doi.org/10.1016/j.jbiotec.2021.06.001" target="_blank"> https://doi.org/10.1016/j.jbiotec.2021.06.001.</a>
+          </p>
+          <p id="karim" class="text-sm text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
+          19. Karim et al. (2020): Ultrasound-assisted nitric acid pretreatment for enhanced biorecovery of platinum group metals from spent automotive catalyst, Journal of Cleaner Production vol. 225. 120-199, <a href="https://doi.org/10.1016/j.jclepro.2020.120199" target="_blank"> https://doi.org/10.1016/j.jclepro.2020.120199.</a>
           </p>
         </div>
       </div>
@@ -765,7 +904,7 @@ Human Practices
   <h3 class="text-violet-50 font-semibold mb-6">Quick Links</h3>
   <ul class="space-y-3">
   <li><a href="index.html" target="_blank" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-  <li><a href="project.html" target="_blank" class="text-gray-400 hover:text-violet-50 transition-colors">Project</a></li>
+  <li><a href="project.html" class="text-gray-400 hover:text-violet-50 transition-colors">Project</a></li>
   <li><a href="notebook.html" target="_blank" class="text-gray-400 hover:text-violet-50 transition-colors">Ladocumentation</a></li>
   <li><a href="groups.html" target="_blank" class="text-gray-400 hover:text-violet-50 transition-colors">Groups</a></li>
   <li><a href="students.html" target="_blank" class="text-gray-400 hover:text-violet-50 transition-colors">Member</a></li>
@@ -797,6 +936,14 @@ Human Practices
 </ul>
 </div>
 <!-- Datenschutz -->
+<div class="pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
+<p>&copy; 2025 SynBio Team. All rights reserved.</p>
+<div class="flex justify-center space-x-4 mt-4">
+<a href="#" class="hover:text-violet-50 transition-colors">Privacy Policy</a>
+<a href="#" class="hover:text-violet-50 transition-colors">Terms of Service</a>
+<a href="#" class="hover:text-violet-50 transition-colors">Cookie Policy</a>
+</div>
+</div>
 </div>
 </footer>
 
@@ -832,7 +979,7 @@ Human Practices
         projectMenu.classList.add('hidden');
         engagementMenu.classList.add('hidden');
       });
-         
+
       groupsButton.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
         event.stopPropagation();
@@ -848,7 +995,7 @@ Human Practices
         groupsMenu.classList.add('hidden');
         projectMenu.classList.add('hidden');
       });
-            
+
       engagementButton.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
         event.stopPropagation();
@@ -868,6 +1015,36 @@ Human Practices
           engagementMenu.classList.add('hidden');
         }
       });
+
+
+ const images = document.querySelectorAll('.gallery-col img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const closeBtn = document.querySelector('.lightbox .close');
+
+  images.forEach(img => {
+    img.addEventListener('click', () => {
+      lightbox.style.display = 'block';
+      lightboxImg.src = img.src;
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+  });
+
+  // Close lightbox if clicking outside the image
+  lightbox.addEventListener('click', e => {
+    if (e.target === lightbox) {
+      lightbox.style.display = 'none';
+    }
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      lightbox.style.display = 'none';
+    }
+  });
 
  const icon = document.querySelector("#Icon path");
   let isRed = false;
@@ -1009,4 +1186,5 @@ Human Practices
     });
     </script>
 </body>
+
 </html>
