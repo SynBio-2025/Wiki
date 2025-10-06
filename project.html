@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Project</title>
+<title>Projekt</title>
 <link rel="icon" type="image/png" href="images/logo_icon.png">
 <script src="https://cdn.tailwindcss.com/3.4.16"></script>
 <script>tailwind.config={theme:{extend:{colors:{primary:'#3b82f6',secondary:'#64748b'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
@@ -333,7 +333,7 @@ Human Practices
 <div class="container mx-auto px-4">
 <div class="text-center mb-12">
   <div class="flex justify-center">
-  <div class="w-[95%] bg-sky-50 dark:bg-black rounded-lg p-4 flex flex-col">
+  <div class="w-[95%] bg-white dark:bg-black rounded-lg p-4 flex flex-col">
     <div>
     <h2 id="idea" class="w-full text-3xl font-bold text-center text-gray-900 dark:text-white mb-4 scroll-mt-28">
        The idea
@@ -342,35 +342,48 @@ Human Practices
     <div class="flex items-center gap-6 mx-8 mb-8">
     <!-- text -->
     <div>
+      <p class="text-gray-900 dark:text-sky-200 text-justify mt-4">
+       There are currently two main methods for recycling PGMs:
+      </p>
+    <div class="flex flex-row gap-12 mt-4">
+      <div class="flex-1 bg-sky-100 dark:bg-gray-900 p-4 rounded-lg">
       <p class="text-gray-900 dark:text-sky-200 text-justify">
-          In order to optimize the oxalate production, we followed two different approaches:
+       Pyrometallurgy:
       </p>
       <ul class="list-disc pl-6 mt-2">
-        <li class="text-gray-900 dark:text-sky-200 text-justify">Changing the cultivation parameters</li>
-        <li class="text-gray-900 dark:text-sky-200 text-justify">Engineering the strain itself</li>
+        <li class="text-gray-900 dark:text-sky-200 text-justify">Is often used industrially due to high recovery rates
+        </li>
+        <li class="text-gray-900 dark:text-sky-200 text-justify mt-2">Requires special equipment and high temperatues (up to 2000^C),
+          leading to high energy demands
+        </li>
+        <li class="text-gray-900 dark:text-sky-200 text-justify mt-2">Oven needs to be operational continuously, so secondary resources
+          are fed, leading to impurities
+        </li>
+        <li class="text-gray-900 dark:text-sky-200 text-justify mt-2">Leads to volatile waste and slag production, like sulfur dioxide emissions,
+          as well as CO and Cl₂ during separation
+        </li>
       </ul>
-      <p class="text-gray-900 dark:text-sky-200 text-justify mt-4">
-        Since we used a inducible plasmid as carrier for the oxalacetate hydrolysate gene, we tested different
-        induction times and inducer concentrations in our cultivations. This way, we were able to determine the optimal
-        production conditions. The experiments were carried out in BioLector or shake flask cultivations and oxalate
-        production was measured using an enzyme assay.
+      </div>
+      <div class="flex-1 bg-sky-100 dark:bg-gray-900 p-4 rounded-lg">
+      <p class="text-gray-900 dark:text-sky-200 text-justify">
+       Hydrometallurgy:
       </p>
-      <p class="text-gray-900 dark:text-sky-200 text-justify mt-4">
-        To obtain a more stable production strain without the need for antibiotic selection, we are planning to
-        integrate the oahA gene into the <i>C. glutamicum</i> genome. For this, we will introduce the gene via Gibson
-        Assembly into the integration vector pK19mobsacB, which will then be electroporated into the bacteria. After
-        selection by antibiotic resistance markers, the confirmed mutants can be tested for oxalate production.
-      </p>
-      <figure class="mx-auto flex flex-col items-center w-[40%] mt-4">
-      <img
-      src="images/GenomeIntegration.jpeg"
-      class="w-full h-full object-cover rounded-md"
-      />
-      <figcaption class="text-sm text-gray-700 dark:text-gray-200 text-justify mt-2 w-[160%]">Integration of oahA_CG with lacI
-        repressor system into the genome of C. glutamicum.</figcaption>
-    </figure>
-      <p class="text-gray-900 dark:text-sky-200 text-justify mt-4">
-       detailed description
+      <ul class="list-disc pl-6 mt-2">
+        <li class="text-gray-900 dark:text-sky-200 text-justify">Milder temperatures and lower energy costs
+        </li>
+        <li class="text-gray-900 dark:text-sky-200 text-justify mt-2">Uses chemical leaching with reagents like aqua regia (HCl/HNO₃),
+          cyanides or chloride-based systems, leading to hazardous waste and gas emissions
+        </li>
+        <li class="text-gray-900 dark:text-sky-200 text-justify mt-2">Washing stages produce a lot of wastewater [<a href="#yakoumis" class="hover:underline">Yakoumis et al, 2021</a>]
+        </li>
+      </ul>
+      </div>
+    </div>
+    <p class="text-gray-900 dark:text-sky-200 text-justify mt-4">
+       Bioleaching offers an environmentally friendly alternative for recycling PGMs. It does not use corrosive chemicals,
+      require high temperatures, nor does it involve emitting hazardous gases. Normally, fungi like <i>A. niger</i> are used to
+      produce organic acids with the ability of forming complexes with PGMs, but we wanted to try using genetically modified bacteria
+      to produce this acid [<a href="#pathak" class="hover:underline">Pathak et al, 2022</a>].
       </p>
     </div>
     </div>
@@ -396,16 +409,17 @@ Human Practices
     <div class="gallery-col flex-shrink-0 w-[30%]" onclick="openLightbox(this)">
       <img
       src="images/mairec.jpeg"
+      alt="coryne"
       class="w-full h-full object-cover rounded-md"
       />
     </div>
     <!-- text -->
     <div>
       <p class="text-gray-900 dark:text-sky-200 text-justify">
-          Although in literature <i>Aspergillus niger</i> is often used as a natural oxalic acid producer [<a href="#camselle" class="hover:underline">Cameselle, 1998</a>],
+          Although in literature <i>Aspergillus niger</i> is often used as a natural oxalic acid producer [<a href="#cameselle" class="hover:underline">Cameselle, 1998</a>],
           we chose <i>Corynebacterium glutamicum</i> as our production platform. This gram-positive bacterium is a well-established
           host organism and easy to manipulate genetically. Another reason for our decision towards a bacterial system is
-          the undesirable ability of fungi like <i>A. niger</i> to form spores [<a href="#lyu" class="hover:underline">Lyu, 2025</a>].
+          the undesirable ability of fungi like <i>A. niger</i> to form spores [<a href="#lyu" class="hover:underline">Lyu et al, 2025</a>].
       </p>
       <p class="text-gray-900 dark:text-sky-200 text-justify mt-4">
           In industrial biotechnology, <i>C. glutamicum</i> is well-known for producing amino acids [<a href="#bramkamp" class="hover:underline">Bramkamp, 2025</a>] and was
@@ -513,9 +527,9 @@ Human Practices
       </ul>
     </div>
     <!-- image -->
-    <div class="flex-shrink-0 w-[25%]">
+    <div class="gallery-col rounded-lg flex-shrink-0 w-[40%]" onclick="openLightbox(this)">
       <img
-      src="images/pGiga.png"
+      src="https://static.igem.wiki/teams/5829/images/pgiga.webp"
       class="w-full h-full object-cover rounded-md"
       />
     </div>
@@ -529,9 +543,9 @@ Human Practices
     </div>
     <div class="flex items-center gap-6 justify-start">
     <!-- image -->
-    <div class="flex-shrink-0 w-[25%]">
+    <div class="gallery-col rounded-lg flex-shrink-0 w-[35%]" onclick="openLightbox(this)">
       <img
-      src="images/pekex.png"
+      src="https://static.igem.wiki/teams/5829/images/pekex.webp"
       class="w-full h-full object-cover rounded-md"
       />
     </div>
@@ -588,9 +602,9 @@ Human Practices
       </p>
     </div>
     <!-- image -->
-    <div class="flex-shrink-0 w-[25%]">
+    <div class="gallery-col rounded-lg flex-shrink-0 w-[35%]" onclick="openLightbox(this)">
       <img
-      src="images/ppbex.png"
+      src="https://static.igem.wiki/teams/5829/images/pbex.webp"
       class="w-full h-full object-cover rounded-md"
       />
     </div>
@@ -634,7 +648,7 @@ Human Practices
       </p>
       <figure class="gallery-col mx-auto flex flex-col items-center w-[40%] mt-4" onclick="openLightbox(this)">
       <img
-      src="images/GenomeIntegration.jpeg"
+      src="https://static.igem.wiki/teams/5829/images/genomeintegration.webp"
       class="w-full h-full object-cover rounded-md"
       />
       <figcaption class="text-sm text-gray-700 dark:text-gray-200 text-justify mt-2 w-[160%]">Integration of oahA_CG with lacI
@@ -671,9 +685,9 @@ Human Practices
     </div>
     <div class="flex items-center gap-6">
     <!-- image -->
-    <div class="flex-shrink-0 w-[25%]">
+    <div class="gallery-col flex-shrink-0 w-[25%]" onclick="openLightbox">
       <img
-      src="images/chemprocess.png"
+      src="https://static.igem.wiki/teams/5829/images/chemprocess.webp"
       class="w-full h-full object-cover rounded-md"
       />
     </div>
@@ -697,7 +711,9 @@ Human Practices
         </li>
       </ul>
       <p class="text-gray-900 dark:text-sky-200 text-justify mt-4">
-          detailed description
+          For the future, we did some literature research on how we could improve the leaching rates. One approach we want to try is
+        pre-treating the PGM dust via ultrasound following a Box-Behnken DoE to minimize experimental runs. We'll then perform response
+        surface methodology (RSM) to find the optimum across the parameter space [<a href="#karim" class="hover:underline">Karim et al, 2020</a>].
       </p>
     </div>
     </div>
@@ -748,12 +764,13 @@ Human Practices
             </p>
           </div>
           <!-- image -->
-          <div class="flex-shrink-0 w-[80%]">
+          <figure class="gallery-col flex-shrink-0 w-[70%]" onclick="openLightbox(this)">
             <img
-            src="images/mairec.jpeg"
+            src="https://static.igem.wiki/teams/5829/images/final-process.webp"
             class="w-full h-full object-cover rounded-md"
             />
-          </div>
+            <figcaption class="text-sm text-gray-700 dark:text-gray-200 text-center mt-2">Created in https://BioRender.com</figcaption>
+          </figure>
           <!-- text -->
           <ul class="list-decimal pl-6 mt-2">
               <li class="text-gray-900 dark:text-sky-200 text-justify">
@@ -828,23 +845,32 @@ Human Practices
           <p id="source10" class="text-sm text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
           10. MDPI Minerals. Recycling rates of PGMs in industry vs. electronics. Minerals [Internet]. 2021;11(7):673 [cited: 19. Aug. 2025]. URL: <a href="https://www.mdpi.com/2075-163X/11/7/673" target="_blank">https://www.mdpi.com/2075-163X/11/7/673</a>
           </p>
+          <p id="yakoumis" class="text-sm text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
+          11. Yakoumis et al. (2021): Recovery of platinum group metals from spent automotive catalysts: A review, Cleaner Engineering and Technology, Volume 3. 100-112. URL: <a href="https://doi.org/10.1016/j.clet.2021.100112" target="_blank">https://doi.org/10.1016/j.clet.2021.100112</a>
+          </p>
+          <p id="pathak" class="text-sm text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
+          12. Pathak et al. (2022): Recycling of platinum group metals from exhausted petroleum and automobile catalysts using bioleaching approach: a critical review on potential, challenges, and outlook, Reviews in Environmental Science and Bio/Technology, Volume 21. 1035-1059 URL: <a href="https://doi.org/10.1007/s11157-022-09636-x" target="_blank">https://doi.org/10.1007/s11157-022-09636-x</a>
+          </p>
           <p id="cameselle" class="text-sm text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
-          11. Cameselle et al. (1998): Oxalic acid production by Aspergillus niger, Bioprocess and Biosystems Engineering, Volume 19. 247-252. URL: <a href="https://doi.org/10.1007/PL00009017" target="_blank">https://doi.org/10.1007/PL00009017</a>
+          13. Cameselle et al. (1998): Oxalic acid production by Aspergillus niger, Bioprocess and Biosystems Engineering, Volume 19. 247-252. URL: <a href="https://doi.org/10.1007/PL00009017" target="_blank">https://doi.org/10.1007/PL00009017</a>
           </p>
           <p id="lyu" class="text-sm text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
-          12. Lyu et al. (2023): “Heterogeneity in Spore Aggregation and Germination Results in Different Sized, Cooperative Microcolonies in an Aspergillus niger Culture.” mBio vol. 14,1 (2023): e0087022. URL: <a href="https://doi.org/10.1128/mbio.00870-22" target="_blank">https://doi.org/10.1128/mbio.00870-22</a>
+          14. Lyu et al. (2023): “Heterogeneity in Spore Aggregation and Germination Results in Different Sized, Cooperative Microcolonies in an Aspergillus niger Culture.” mBio vol. 14,1 (2023): e0087022. URL: <a href="https://doi.org/10.1128/mbio.00870-22" target="_blank">https://doi.org/10.1128/mbio.00870-22</a>
           </p>
           <p id="bramkamp" class="text-sm text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
-          13. Bramkamp, M. Corynebacterium glutamicum: Modellorganismus der bakteriellen Zellbiologie. Biospektrum 31, 9–13 (2025). URL: <a href="https://doi.org/10.1007/s12268-025-2373-4" target="_blank">https://doi.org/10.1007/s12268-025-2373-4</a>
+          15. Bramkamp, M. Corynebacterium glutamicum: Modellorganismus der bakteriellen Zellbiologie. Biospektrum 31, 9–13 (2025). URL: <a href="https://doi.org/10.1007/s12268-025-2373-4" target="_blank">https://doi.org/10.1007/s12268-025-2373-4</a>
           </p>
           <p id="vaam" class="text-sm text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
-          14. VAAM: Microbe of the Year 2025: Corynebacterium glutamicum – a hidden champion.  URL: <a href="https://vaam.de/en/microbiology-portal/microbe-of-the-year/microbe-of-the-year-2025/" target="_blank">https://vaam.de/en/microbiology-portal/microbe-of-the-year/microbe-of-the-year-2025/</a>
+          16. VAAM: Microbe of the Year 2025: Corynebacterium glutamicum – a hidden champion.  URL: <a href="https://vaam.de/en/microbiology-portal/microbe-of-the-year/microbe-of-the-year-2025/" target="_blank">https://vaam.de/en/microbiology-portal/microbe-of-the-year/microbe-of-the-year-2025/</a>
           </p>
           <p id="zhouetal" class="text-sm text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
-          15. Zhou et al. (2023): Metabolic engineering and fermentation optimization strategies for producing organic acids of the tricarboxylic acid cycle by microbial cell factories, Bioresource Technology, Volume 379,128986, ISSN 0960-8524, URL: <a href="https://doi.org/10.1016/j.biortech.2023.128986" target="_blank"> https://doi.org/10.1016/j.biortech.2023.128986. </a>
+          17. Zhou et al. (2023): Metabolic engineering and fermentation optimization strategies for producing organic acids of the tricarboxylic acid cycle by microbial cell factories, Bioresource Technology, Volume 379,128986, ISSN 0960-8524, URL: <a href="https://doi.org/10.1016/j.biortech.2023.128986" target="_blank"> https://doi.org/10.1016/j.biortech.2023.128986. </a>
           </p>
           <p id="guillaume" class="text-sm text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
-          16. Billerach, Guillaume et al. (2021): Impact of nitrogen deficiency on succinic acid production by engineered strains of Yarrowia lipolytica,  Journal of biotechnology vol. 336. 30-40, <a href="https://doi.org/10.1016/j.jbiotec.2021.06.001" target="_blank"> https://doi.org/10.1016/j.jbiotec.2021.06.001.</a>
+          18. Billerach, Guillaume et al. (2021): Impact of nitrogen deficiency on succinic acid production by engineered strains of Yarrowia lipolytica, Journal of biotechnology vol. 336. 30-40, <a href="https://doi.org/10.1016/j.jbiotec.2021.06.001" target="_blank"> https://doi.org/10.1016/j.jbiotec.2021.06.001.</a>
+          </p>
+          <p id="karim" class="text-sm text-justify text-gray-900 dark:text-sky-200 max-w-[90%] my-2 scroll-mt-24">
+          19. Karim et al. (2020): Ultrasound-assisted nitric acid pretreatment for enhanced biorecovery of platinum group metals from spent automotive catalyst, Journal of Cleaner Production vol. 225. 120-199, <a href="https://doi.org/10.1016/j.jclepro.2020.120199" target="_blank"> https://doi.org/10.1016/j.jclepro.2020.120199.</a>
           </p>
         </div>
       </div>
@@ -910,6 +936,14 @@ Human Practices
 </ul>
 </div>
 <!-- Datenschutz -->
+<div class="pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
+<p>&copy; 2025 SynBio Team. All rights reserved.</p>
+<div class="flex justify-center space-x-4 mt-4">
+<a href="#" class="hover:text-violet-50 transition-colors">Privacy Policy</a>
+<a href="#" class="hover:text-violet-50 transition-colors">Terms of Service</a>
+<a href="#" class="hover:text-violet-50 transition-colors">Cookie Policy</a>
+</div>
+</div>
 </div>
 </footer>
 
@@ -945,7 +979,7 @@ Human Practices
         projectMenu.classList.add('hidden');
         engagementMenu.classList.add('hidden');
       });
-         
+
       groupsButton.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
         event.stopPropagation();
@@ -961,7 +995,7 @@ Human Practices
         groupsMenu.classList.add('hidden');
         projectMenu.classList.add('hidden');
       });
-            
+
       engagementButton.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
         event.stopPropagation();
@@ -981,6 +1015,7 @@ Human Practices
           engagementMenu.classList.add('hidden');
         }
       });
+
 
  const images = document.querySelectorAll('.gallery-col img');
   const lightbox = document.getElementById('lightbox');
@@ -1153,3 +1188,4 @@ Human Practices
 </body>
 
 </html>
+
